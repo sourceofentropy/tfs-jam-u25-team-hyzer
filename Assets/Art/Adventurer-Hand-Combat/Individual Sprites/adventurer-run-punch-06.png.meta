@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      adventurer-run-punch-06_0: 3386376355154661080
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

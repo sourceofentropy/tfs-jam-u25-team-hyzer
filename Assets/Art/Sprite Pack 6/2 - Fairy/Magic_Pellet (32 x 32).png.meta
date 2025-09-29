@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Magic_Pellet (32 x 32)_0: -5499443156270879977
+      Magic_Pellet (32 x 32)_1: -5566182173876546270
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

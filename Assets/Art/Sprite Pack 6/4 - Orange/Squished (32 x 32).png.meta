@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Squished (32 x 32)_0: 8301466922826088209
+      Squished (32 x 32)_1: -2509912801111668494
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

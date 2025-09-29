@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      adventurer-crouch-03_0: 8926143154263479447
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

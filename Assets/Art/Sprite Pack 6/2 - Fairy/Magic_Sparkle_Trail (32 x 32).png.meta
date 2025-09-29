@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Magic_Sparkle_Trail (32 x 32)_0: -7720126349673144858
+      Magic_Sparkle_Trail (32 x 32)_1: -3632499437395294385
+      Magic_Sparkle_Trail (32 x 32)_2: 8884562466102075286
+      Magic_Sparkle_Trail (32 x 32)_3: 5602053894774742331
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

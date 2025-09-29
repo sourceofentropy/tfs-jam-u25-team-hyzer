@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      adventurer-drop-kick-01_0: -323989116304732426
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

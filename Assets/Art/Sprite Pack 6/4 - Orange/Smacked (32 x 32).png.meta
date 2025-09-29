@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Smacked (32 x 32)_0: 6200474550682452308
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

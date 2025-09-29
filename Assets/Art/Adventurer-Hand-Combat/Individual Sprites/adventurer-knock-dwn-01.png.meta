@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      adventurer-knock-dwn-01_0: -8233706397123400621
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

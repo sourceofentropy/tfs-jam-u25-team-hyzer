@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Charging_Magic_Flying (32 x 32)_0: 6188173954487399556
+      Charging_Magic_Flying (32 x 32)_1: -7527334254508971762
+      Charging_Magic_Flying (32 x 32)_2: 5655918395233529338
+      Charging_Magic_Flying (32 x 32)_3: -162929284319788110
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

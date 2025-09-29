@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      adventurer-stand-02_0: 65968684574753783
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

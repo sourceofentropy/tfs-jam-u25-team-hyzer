@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      adventurer-attack2-02_0: -3716577819341468033
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

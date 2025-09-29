@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      adventurer-cast-loop-01_0: -3552869562489336101
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

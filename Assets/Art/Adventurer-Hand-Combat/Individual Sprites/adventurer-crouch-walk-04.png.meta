@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      adventurer-crouch-walk-04_0: 5257160672089942051
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Kick_Attack (32 x 32)_0: 4484272874387351768
+      Kick_Attack (32 x 32)_1: -2005913623706997330
+      Kick_Attack (32 x 32)_2: 4770488273389918735
+      Kick_Attack (32 x 32)_3: 3434742347626360554
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
