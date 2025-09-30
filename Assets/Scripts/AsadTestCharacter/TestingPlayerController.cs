@@ -71,11 +71,11 @@ public class TestingPlayerController : MonoBehaviour
         // Rage fill in Regular mode by pressing E near enemy
         if (currentState == PlayerState.Regular && Input.GetKeyDown(KeyCode.E))
         {
-            //if (IsNearEnemy())
-          //  {
+            if (IsNearEnemy())
+            {
                 rageBar = Mathf.Min(rageBar + 1, maxRage);
                 Debug.Log("Rage Bar: " + rageBar + "/" + maxRage);
-          //  }
+            }
         }
 
         // Toggle Ultra Disguise inside disguise
