@@ -1,197 +1,225 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class EnemyAI : MonoBehaviour
 {
     public enum EnemyState { Patrol, Attack, Wait, Feared }
-
-    [Header("Debug")]
-    [SerializeField] private EnemyState currentState; // visible in Inspector
-    [SerializeField] private bool debugIsGrounded;    // shows ground check
-    [SerializeField] private int debugPatrolIndex;
-    [SerializeField] private float debugWaitTimer;
-    [SerializeField] private float debugAttackTimer;
+    private EnemyState currentState;
 
     [Header("References")]
     public Transform[] patrolPoints;
+    public Transform rightPatrolBarrier;
+    public Transform leftPatrolBarrier;
+    private int currentPatrolIndex;
+    public Rigidbody2D rb;
     public Transform player;
-    private Rigidbody2D rb;
-
-    [Header("Settings")]
-    public float patrolSpeed = 2f;
-    public float detectionRadius = 5f;
-    public float waitTime = 2f;
-
-    [Header("Attack Settings")]
-    public int damageAmount = 10;
-    public float attackCooldown = 1.5f;
-    private float attackTimer;
-
-    [Header("Player Rage Check")]
     public TestingPlayerController playerController;
 
-    [Header("Ground Check")]
-    public Transform groundCheck;       // Empty at enemy's feet
-    public float groundCheckRadius = 0.2f;
-    public LayerMask groundLayer;
-    private bool isGrounded;
+    [Header("Movement Settings")]
+    public float patrolSpeed = 2f;
+    public float attackSpeed = 4f;
+    public float waitTime = 2f;
+    private float waitCounter;
 
-    private int currentPatrolIndex = 0;
-    private float waitTimer;
+    [Header("Detection Settings")]
+    public float detectionRadius = 5f;
+    public float detectionAngle = 45f; // half cone angle in degrees
 
-    void Start()
+    [Header("Fear Settings")]
+    public CircleCollider2D fearCollider; // assign in Inspector
+
+
+    [Header("Debugging")]
+    public EnemyState debugState;
+
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         currentState = EnemyState.Patrol;
-        waitTimer = waitTime;
-        attackTimer = 0f;
+        currentPatrolIndex = 0;
+        waitCounter = waitTime;
     }
 
-    void Update()
+    private void Update()
     {
-        // --- Ground check ---
-        if (groundCheck != null)
-            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        debugState = currentState;
 
-        // --- Update debug info ---
-       
-        debugIsGrounded = isGrounded;
-        debugPatrolIndex = currentPatrolIndex;
-        debugWaitTimer = waitTimer;
-        debugAttackTimer = attackTimer;
-
-        attackTimer -= Time.deltaTime;
-
-        // --- Rage / Feared override ---
-        if (playerController != null && playerController.currentState == TestingPlayerController.PlayerState.Rage)
+        switch (currentState)
         {
-            ChangeState(EnemyState.Feared);
-        }
-        else if (currentState == EnemyState.Feared && playerController.currentState != TestingPlayerController.PlayerState.Rage)
-        {
-            if (Vector2.Distance(transform.position, player.position) <= detectionRadius)
-            {
-                ChangeState(EnemyState.Attack);
-                Debug.Log("we are attacking");
-            }
-            else
-                ChangeState(EnemyState.Wait);
-        }   else
-        {
-            if (currentState != EnemyState.Patrol)
-            {
-                ChangeState(EnemyState.Patrol);
-            }
-            
+            case EnemyState.Patrol: Patrol(); break;
+            case EnemyState.Attack: Attack(); break;
+            case EnemyState.Wait: Wait(); break;
+            case EnemyState.Feared: Feared(); break;
         }
 
+       // rb.linearVelocity = new Vector2(xInput * moveSpeed, rb.linearVelocity.y);
 
-            // --- State machine ---
-            switch (currentState)
-            {
-                case EnemyState.Patrol: Patrol(); break;
-                case EnemyState.Attack: Attack(); break;
-                case EnemyState.Wait: Wait(); break;
-                case EnemyState.Feared: Feared(); break;
-            }
+        //handle direction change
+        if (rb.linearVelocity.x < 0)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else if (rb.linearVelocity.x > 0)
+        {
+            transform.localScale = Vector3.one;
+        }
     }
 
-    private void ChangeState(EnemyState newState)
-    {
-        currentState = newState;
-        rb.linearVelocity = Vector2.zero;
 
-        if (newState == EnemyState.Wait)
-            waitTimer = waitTime;
 
-        if (newState == EnemyState.Attack)
-            attackTimer = attackCooldown;
-    }
+    // ----------- STATES -----------
 
     private void Patrol()
     {
-        if (!isGrounded || patrolPoints.Length == 0)
-        {
-            rb.linearVelocity = Vector2.zero;
-            return;
-        }
+        if (patrolPoints.Length == 0) return;
 
         Transform targetPoint = patrolPoints[currentPatrolIndex];
         Vector2 direction = (targetPoint.position - transform.position).normalized;
         rb.linearVelocity = direction * patrolSpeed;
 
         if (Vector2.Distance(transform.position, targetPoint.position) < 0.2f)
+        {
             currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
+            ChangeState(EnemyState.Wait);
+        }
 
+        if (PlayerInCone(false))
+        {
+            ChangeState(EnemyState.Attack);
+        }
     }
 
     private void Attack()
     {
-        rb.linearVelocity = Vector2.zero;
-
-        if (Vector2.Distance(transform.position, player.position) > detectionRadius)
+        // Stop attacking immediately if player leaves detection
+        if (!PlayerInCone(true))
         {
+            rb.linearVelocity = Vector2.zero;
             ChangeState(EnemyState.Wait);
             return;
         }
 
-        if (attackTimer <= 0f)
+        // Chase player directly
+        Vector2 direction = (player.position - transform.position).normalized;
+        rb.linearVelocity = direction * attackSpeed;
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        if (distanceToPlayer <= 1f) // attack range
         {
-            DamagePlayer dp = player.GetComponent<DamagePlayer>();
-            if (dp != null)
-            {
-                dp.TakeDamage(damageAmount);
-                Debug.Log("Enemy hit player for " + damageAmount);
-            }
-            attackTimer = attackCooldown;
+            Debug.Log("Enemy attacks player!");
+            // Hook into DamagePlayer here
         }
     }
 
     private void Wait()
     {
         rb.linearVelocity = Vector2.zero;
-        waitTimer -= Time.deltaTime;
+        waitCounter -= Time.deltaTime;
 
-        if (waitTimer <= 0)
-            ChangeState(EnemyState.Patrol);
-
-        if (Vector2.Distance(transform.position, player.position) <= detectionRadius)
+        if (waitCounter <= 0f)
         {
-            Debug.Log("this is wait change");
+            waitCounter = waitTime;
+            ChangeState(EnemyState.Patrol);
+        }
+
+        if (PlayerInCone(false))
+        {
             ChangeState(EnemyState.Attack);
         }
-            
     }
 
     private void Feared()
     {
         rb.linearVelocity = Vector2.zero;
-        Debug.Log("Enemy is feared and cannot act!");
+        Debug.Log("Enemy is feared and cannot move/attack.");
     }
 
-    // --- Gizmos ---
-    void OnDrawGizmosSelected()
+    // ----------- HELPERS -----------
+
+    /// <summary>
+    /// If usePlayerForward = false, use patrol forward. 
+    /// If true, face player so enemy keeps chasing.
+    /// </summary>
+    private bool PlayerInCone(bool usePlayerForward)
     {
-        // Detection radius
+        Vector2 toPlayer = (player.position - transform.position).normalized;
+        Vector2 forward = (usePlayerForward || patrolPoints.Length == 0)
+                          ? toPlayer
+                          : (patrolPoints[currentPatrolIndex].position - transform.position).normalized;
+
+        // -----------------------
+        // Ignore player if outside patrol boundaries AND moving further away
+        // -----------------------
+        if (player.position.x < leftPatrolBarrier.position.x && playerController.IsMovingLeft())
+            return false;
+
+        if (player.position.x > rightPatrolBarrier.position.x && playerController.IsMovingRight())
+            return false;
+        // -----------------------
+
+        float distance = Vector2.Distance(transform.position, player.position);
+        float angle = Vector2.Angle(forward, toPlayer);
+
+        return distance <= detectionRadius && angle <= detectionAngle;
+    }
+
+
+    private void ChangeState(EnemyState newState)
+    {
+        if (currentState == newState) return;
+        currentState = newState;
+        rb.linearVelocity = Vector2.zero; // stop on state change
+        Debug.Log($"<color=red>Enemy State Changed To: {newState}</color>");
+    }
+
+    // ----------- FEAR COLLIDER HANDLING -----------
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (fearCollider != null && other == fearCollider)
+            return; // Prevent self-collision checks
+
+        TestingPlayerController playerCtrl = other.GetComponent<TestingPlayerController>();
+        if (playerCtrl != null && playerCtrl.currentState == TestingPlayerController.PlayerState.Rage)
+        {
+            SetFeared(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        TestingPlayerController playerCtrl = other.GetComponent<TestingPlayerController>();
+        if (playerCtrl != null && playerCtrl.currentState == TestingPlayerController.PlayerState.Rage)
+        {
+            SetFeared(false);
+        }
+    }
+
+    public void SetFeared(bool feared)
+    {
+        if (feared)
+            ChangeState(EnemyState.Feared);
+        else
+            ChangeState(EnemyState.Wait);
+    }
+
+    // ----------- DEBUG VISUALS -----------
+
+    private void OnDrawGizmosSelected()
+    {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectionRadius);
 
-        // Patrol points
-        if (patrolPoints != null)
-        {
-            Gizmos.color = Color.green;
-            foreach (Transform point in patrolPoints)
-            {
-                if (point != null)
-                    Gizmos.DrawWireSphere(point.position, 0.2f);
-            }
-        }
+        Vector3 forward = Vector3.right;
+        if (patrolPoints != null && patrolPoints.Length > 0)
+            forward = (patrolPoints[currentPatrolIndex].position - transform.position).normalized;
 
-        // Ground check
-        if (groundCheck != null)
-        {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        }
+        Quaternion leftRot = Quaternion.Euler(0, 0, detectionAngle);
+        Quaternion rightRot = Quaternion.Euler(0, 0, -detectionAngle);
+
+        Vector3 leftDir = leftRot * forward * detectionRadius;
+        Vector3 rightDir = rightRot * forward * detectionRadius;
+
+        Gizmos.DrawLine(transform.position, transform.position + leftDir);
+        Gizmos.DrawLine(transform.position, transform.position + rightDir);
     }
 }

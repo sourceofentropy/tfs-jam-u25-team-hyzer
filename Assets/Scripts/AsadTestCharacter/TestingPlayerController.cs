@@ -56,24 +56,20 @@ public class TestingPlayerController : MonoBehaviour
 
     void HandleInput()
     {
-        // Ground check
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
 
-        // Jump
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             float jump = (currentState == PlayerState.Rage) ? rageJumpForce : jumpForce;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jump);
         }
 
-        // Toggle disguise with Q
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (currentState == PlayerState.Regular) EnterDisguise();
             else if (currentState == PlayerState.Disguise) ExitDisguise();
         }
 
-        // Rage fill in Regular mode by pressing E near enemy
         if (currentState == PlayerState.Regular && Input.GetKeyDown(KeyCode.E))
         {
             if (IsNearEnemy())
@@ -83,20 +79,12 @@ public class TestingPlayerController : MonoBehaviour
             }
         }
 
-        // Toggle Ultra Disguise inside disguise
         if (currentState == PlayerState.Disguise && Input.GetKeyDown(KeyCode.E))
         {
-            if (disguiseMode == DisguiseMode.Normal)
-            {
-                EnterUltraDisguise();
-            }
-            else if (disguiseMode == DisguiseMode.Ultra)
-            {
-                ExitUltraDisguise(); // manual exit
-            }
+            if (disguiseMode == DisguiseMode.Normal) EnterUltraDisguise();
+            else if (disguiseMode == DisguiseMode.Ultra) ExitUltraDisguise();
         }
 
-        // Activate rage when bar is full
         if (currentState == PlayerState.Regular && Input.GetKeyDown(KeyCode.T))
         {
             if (rageBar >= maxRage) EnterRage();
@@ -119,7 +107,6 @@ public class TestingPlayerController : MonoBehaviour
 
         rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
 
-        // Flip sprite
         if (move != 0) spriteRenderer.flipX = move < 0;
     }
 
@@ -148,7 +135,6 @@ public class TestingPlayerController : MonoBehaviour
         return false;
     }
 
-    // --- Disguise Logic ---
     void EnterDisguise()
     {
         currentState = PlayerState.Disguise;
@@ -168,17 +154,16 @@ public class TestingPlayerController : MonoBehaviour
     {
         disguiseMode = DisguiseMode.Ultra;
         spriteRenderer.color = new Color(1f, 1f, 1f, 0.25f);
-        disguiseTimer = 0f; // disable normal disguise timer
+        disguiseTimer = 0f;
     }
 
     void ExitUltraDisguise()
     {
         disguiseMode = DisguiseMode.Normal;
         spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
-        disguiseTimer = disguiseDuration; // resume countdown if needed
+        disguiseTimer = disguiseDuration;
     }
 
-    // --- Rage Logic ---
     void EnterRage()
     {
         currentState = PlayerState.Rage;
@@ -202,5 +187,18 @@ public class TestingPlayerController : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, enemyCheckRadius);
+    }
+
+    // -------------------
+    // PLAYER MOVEMENT HELPERS
+    // -------------------
+    public bool IsMovingLeft()
+    {
+        return rb.linearVelocity.x < -0.1f;
+    }
+
+    public bool IsMovingRight()
+    {
+        return rb.linearVelocity.x > 0.1f;
     }
 }
