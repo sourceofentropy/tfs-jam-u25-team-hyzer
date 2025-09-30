@@ -28,6 +28,22 @@ public class DamagePlayer : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int amount)
+    {
+        int modifiedDamage = amount + (FS != null ? FS.GetCurrentDamage() : 0);
+
+        PlayerHealthController.instance.DamagePlayer(modifiedDamage);
+
+        if (destroyOnDamage)
+        {
+            if (destroyEffect != null)
+            {
+                Instantiate(destroyEffect, transform.position, transform.rotation);
+            }
+            Destroy(gameObject);
+        }
+    }
+
     void DealDamage()
     {
         //if FearedState.Weak = true
