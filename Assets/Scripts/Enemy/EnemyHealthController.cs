@@ -6,6 +6,7 @@ public class EnemyHealthController : MonoBehaviour
 {
     public int totalHealth = 3;
     public GameObject deathEffect;
+    
 
     public void DamageEnemy(int damageAmount)
     {
