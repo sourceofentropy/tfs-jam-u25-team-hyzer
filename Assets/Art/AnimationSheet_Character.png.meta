@@ -1328,6 +1328,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: DialogueUI
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 174
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 431e0ca4e96225546a884e611a8b38ce
+      internalID: -1698313499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1364,6 +1386,7 @@ TextureImporter:
       Death6: 2241575955824274185
       Death7: -4962132113712554755
       Death8: 5586016737365727189
+      DialogueUI: -1698313499
       Fall1: -4200419795541352720
       Fall2: -6389639697227723478
       Idle1: 3713219614965599903
