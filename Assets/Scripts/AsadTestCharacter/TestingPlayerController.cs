@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class TestingPlayerController : MonoBehaviour
@@ -23,6 +24,10 @@ public class TestingPlayerController : MonoBehaviour
     private float rageTimer;
     public int maxRage = 3;
     public int rageBar = 0;
+
+    [Header("Disguise Settings")]
+    public float disguiseDuration = 10f; // duration of normal disguise
+    private float disguiseTimer;
 
     [Header("References")]
     public Rigidbody2D rb;
@@ -85,9 +90,9 @@ public class TestingPlayerController : MonoBehaviour
             {
                 EnterUltraDisguise();
             }
-            else
+            else if (disguiseMode == DisguiseMode.Ultra)
             {
-                ExitUltraDisguise();
+                ExitUltraDisguise(); // manual exit
             }
         }
 
@@ -106,7 +111,9 @@ public class TestingPlayerController : MonoBehaviour
         switch (currentState)
         {
             case PlayerState.Regular: speed = regularSpeed; break;
-            case PlayerState.Disguise: speed = disguiseSpeed; break;
+            case PlayerState.Disguise:
+                speed = (disguiseMode == DisguiseMode.Ultra) ? 0f : disguiseSpeed;
+                break;
             case PlayerState.Rage: speed = rageSpeed; break;
         }
 
@@ -122,6 +129,12 @@ public class TestingPlayerController : MonoBehaviour
         {
             rageTimer -= Time.deltaTime;
             if (rageTimer <= 0) ExitRage();
+        }
+
+        if (currentState == PlayerState.Disguise && disguiseMode == DisguiseMode.Normal)
+        {
+            disguiseTimer -= Time.deltaTime;
+            if (disguiseTimer <= 0) ExitDisguise();
         }
     }
 
@@ -140,12 +153,14 @@ public class TestingPlayerController : MonoBehaviour
     {
         currentState = PlayerState.Disguise;
         disguiseMode = DisguiseMode.Normal;
+        disguiseTimer = disguiseDuration;
         spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
     }
 
     void ExitDisguise()
     {
         currentState = PlayerState.Regular;
+        disguiseMode = DisguiseMode.Normal;
         spriteRenderer.color = Color.white;
     }
 
@@ -153,12 +168,14 @@ public class TestingPlayerController : MonoBehaviour
     {
         disguiseMode = DisguiseMode.Ultra;
         spriteRenderer.color = new Color(1f, 1f, 1f, 0.25f);
+        disguiseTimer = 0f; // disable normal disguise timer
     }
 
     void ExitUltraDisguise()
     {
         disguiseMode = DisguiseMode.Normal;
         spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
+        disguiseTimer = disguiseDuration; // resume countdown if needed
     }
 
     // --- Rage Logic ---
