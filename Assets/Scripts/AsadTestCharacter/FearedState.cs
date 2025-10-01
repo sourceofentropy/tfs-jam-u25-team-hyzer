@@ -24,6 +24,10 @@ public class FearedState : MonoBehaviour
 
     public DamagePlayer DamagePlayer;
 
+    enum FearModifier {Weak, Emboldened, Stoic, None}
+
+    enum FearBehaviour {Run, Survivor, Freeze, None}
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
@@ -70,10 +74,14 @@ public class FearedState : MonoBehaviour
             {
                 isStunned = true;
                 currentDamage = 0;
-                attackSpeed = 0f;
-                runSpeed = 0f;
+
+                // Stop movement
+                Rigidbody2D rb = GetComponent<Rigidbody2D>();
+                if (rb != null)
+                    rb.linearVelocity = Vector2.zero;
             }
         }
+
 
         if (nothingBehaviour)
         {

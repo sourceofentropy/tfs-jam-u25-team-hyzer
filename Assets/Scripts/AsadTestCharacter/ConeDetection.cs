@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class ConeDetection : MonoBehaviour
 {
+    /// <summary>
+    ///  add Range asset to show indicator of threatdetection
+    /// </summary>
     [Header("References")]
     public Transform player;
     public Transform[] patrolPoints;
