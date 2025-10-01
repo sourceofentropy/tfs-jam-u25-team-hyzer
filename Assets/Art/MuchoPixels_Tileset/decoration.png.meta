@@ -2975,28 +2975,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_115
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 400
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f16278d2e40506630800000000000000
-      internalID: 3918219972513834527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: decoration_116
       rect:
         serializedVersion: 2
