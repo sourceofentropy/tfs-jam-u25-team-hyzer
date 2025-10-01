@@ -4,18 +4,46 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("References")]
     public Rigidbody2D rb;
+    public SpriteRenderer spriteRenderer;
 
-    public float moveSpeed;
+    [Header("Debug")]
+    public PlayerState currentState = PlayerState.Regular;
+    public DisguiseMode disguiseMode = DisguiseMode.Normal;
+
+    [Header("Movement Settings")]
+    public float baseMoveSpeed = 8;
+    public float currentMoveSpeed = 8;
+    public float disguiseSpeed = 2.5f;
+    public float rageSpeed = 10f;
+
+    [Header("Jump Settings")]
     public float jumpForce;
+    public float rageJumpForce;// = 11f;
+
+    [Header("Rage Settings")]
+    public float rageDuration = 5f;
+    private float rageTimer;
+    public int maxRage = 3;
+    public int rageBar = 0;
+
+    [Header("Disguise Settings")]
+    public float disguiseDuration = 10f; // duration of normal disguise
+    private float disguiseTimer;
+
     private float xInput;
 
+    [Header("Ground Check")]
     public Transform groundCheck;
+    public LayerMask groundLayer;
     private bool isGrounded;
     private bool canDoubleJump; 
-
-    public LayerMask groundLayer;
     private float groundCheckSize = 0.2f;
+
+    [Header("Enemy Detection")]
+    public float enemyCheckRadius = 1.5f;
+    public string enemyTag = "Enemy";
 
     public Animator anim;
 
@@ -48,6 +76,9 @@ public class PlayerController : MonoBehaviour
     private PlayerAbilityTracker abilities;
 
     public bool canMove;
+
+    public enum PlayerState { Regular, Disguise, Rage }
+    public enum DisguiseMode { Normal, Ultra }    
 
     // Start is called before the first frame update
     void Start()
@@ -93,7 +124,7 @@ public class PlayerController : MonoBehaviour
             {
 
                 xInput = Input.GetAxisRaw("Horizontal");
-                rb.linearVelocity = new Vector2(xInput * moveSpeed, rb.linearVelocity.y);
+                rb.linearVelocity = new Vector2(xInput * currentMoveSpeed, rb.linearVelocity.y);
 
                 //handle direction change
                 if (rb.linearVelocity.x < 0)
@@ -121,6 +152,7 @@ public class PlayerController : MonoBehaviour
                     anim.SetTrigger("doubleJump");
                 }
 
+                float jump = (currentState == PlayerState.Rage) ? rageJumpForce : jumpForce;
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             }
 
@@ -138,6 +170,41 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
+            // Toggle disguise with Q
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (currentState == PlayerState.Regular) EnterDisguise();
+                else if (currentState == PlayerState.Disguise) ExitDisguise();
+            }
+
+            // Rage fill in Regular mode by pressing E near enemy
+            if (currentState == PlayerState.Regular && Input.GetKeyDown(KeyCode.E))
+            {
+                if (IsNearEnemy())
+                {
+                    rageBar = Mathf.Min(rageBar + 1, maxRage);
+                    Debug.Log("Rage Bar: " + rageBar + "/" + maxRage);
+                }
+            }
+
+            // Toggle Ultra Disguise inside disguise
+            if (currentState == PlayerState.Disguise && Input.GetKeyDown(KeyCode.E))
+            {
+                if (disguiseMode == DisguiseMode.Normal)
+                {
+                    EnterUltraDisguise();
+                }
+                else if (disguiseMode == DisguiseMode.Ultra)
+                {
+                    ExitUltraDisguise(); // manual exit
+                }
+            }
+
+            // Activate rage when bar is full
+            if (currentState == PlayerState.Regular && Input.GetKeyDown(KeyCode.T))
+            {
+                if (rageBar >= maxRage) EnterRage();
+            }
             //ball mode
             if (!ball.activeSelf)
             {
@@ -186,6 +253,8 @@ public class PlayerController : MonoBehaviour
         {
             ballAnim.SetFloat("speed", Mathf.Abs(rb.linearVelocity.x));
         }
+
+        HandleStates();
     }
 
     public void ShowAfterImage()
@@ -197,5 +266,93 @@ public class PlayerController : MonoBehaviour
 
         Destroy(image.gameObject, afterImageLifetime);
         afterImageCounter = timeBetweenAfterImages;
+    }
+
+    void HandleStates()
+    {
+        if (currentState == PlayerState.Regular)
+        {
+            currentMoveSpeed = baseMoveSpeed;
+        }
+        if (currentState == PlayerState.Rage)
+        {
+            currentMoveSpeed = rageSpeed;
+
+            rageTimer -= Time.deltaTime;
+            if (rageTimer <= 0) ExitRage();
+        }
+
+        if (currentState == PlayerState.Disguise && disguiseMode == DisguiseMode.Normal)
+        {
+            currentMoveSpeed = (disguiseMode == DisguiseMode.Ultra) ? 0f : disguiseSpeed;            
+            disguiseTimer -= Time.deltaTime;
+            if (disguiseTimer <= 0) ExitDisguise();
+        }
+    }
+
+    bool IsNearEnemy()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, enemyCheckRadius);
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.CompareTag(enemyTag)) return true;
+        }
+        return false;
+    }
+
+    // --- Disguise Logic ---
+    void EnterDisguise()
+    {
+        currentState = PlayerState.Disguise;
+        disguiseMode = DisguiseMode.Normal;
+        disguiseTimer = disguiseDuration;
+        spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
+    }
+
+    void ExitDisguise()
+    {
+        currentState = PlayerState.Regular;
+        disguiseMode = DisguiseMode.Normal;
+        spriteRenderer.color = Color.white;
+    }
+
+    void EnterUltraDisguise()
+    {
+        disguiseMode = DisguiseMode.Ultra;
+        spriteRenderer.color = new Color(1f, 1f, 1f, 0.25f);
+        disguiseTimer = 0f; // disable normal disguise timer
+    }
+
+    void ExitUltraDisguise()
+    {
+        disguiseMode = DisguiseMode.Normal;
+        spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
+        disguiseTimer = disguiseDuration; // resume countdown if needed
+    }
+
+    // --- Rage Logic ---
+    void EnterRage()
+    {
+        currentState = PlayerState.Rage;
+        rageTimer = rageDuration;
+        spriteRenderer.color = Color.red;
+        rageBar = 0;
+    }
+
+    void ExitRage()
+    {
+        currentState = PlayerState.Regular;
+        spriteRenderer.color = Color.white;
+    }
+
+    public PlayerState GetPlayerState()
+    {
+        return currentState;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, enemyCheckRadius);
     }
 }
