@@ -20,4 +20,29 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/boss1.unity
     guid: b15d54bee4444a84a9dbc0b60ef333c4
+  - enabled: 1
+    path: Assets/Scenes/AidenTestScene.unity
+    guid: 0109cd7dc63cef94cba23edf3b39f783
+  - enabled: 1
+    path: Assets/Scenes/AsadTestPlayer.unity
+    guid: dbee2347148a10b4bb7c889506b6515c
+  - enabled: 1
+    path: Assets/Scenes/boss1_preservation.unity
+    guid: 187b109e0c22c014b9dfbcf5f9522042
+  - enabled: 1
+    path: Assets/Scenes/Colton_TestScene.unity
+    guid: c5896da2678ba064cbee3e87d67a7f42
+  - enabled: 1
+    path: Assets/Scenes/DanaBoss1.unity
+    guid: 05c2921a6a2ffec4b853230be3e64b2e
+  - enabled: 1
+    path: Assets/Scenes/JonathanTestScene 1.unity
+    guid: c166bba9ba5967341912a5a32d4127af
+  - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: 59481fcd808cb8040bcae66c9b80b99f
+  - enabled: 1
+    path: Assets/Scenes/test 1.unity
+    guid: c421ac996ec1b814d8c34bfdeff3374d
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
