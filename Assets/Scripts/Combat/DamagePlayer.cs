@@ -44,7 +44,7 @@ public class DamagePlayer : MonoBehaviour
         }
     }
 
-    void DealDamage()
+    public void DealDamage()
     {
         //if FearedState.Weak = true
         //{
