@@ -46,14 +46,9 @@ public class DamagePlayer : MonoBehaviour
 
     public void DealDamage()
     {
-        //if FearedState.Weak = true
-        //{
-        // 
-        //}
-        //DamageAmount = DamageAmount + FS.Damage()
-
+        
         int modifiedDamage = damageAmount + FS.GetCurrentDamage();
-
+    
         PlayerHealthController.instance.DamagePlayer(modifiedDamage);
 
         if(destroyOnDamage)

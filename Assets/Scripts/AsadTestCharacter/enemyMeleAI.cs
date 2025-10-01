@@ -17,9 +17,12 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Movement Settings")]
     public float patrolSpeed = 2f;
-    public float attackSpeed = 4f;
-    public float waitTime = 2f;
-    private float waitCounter;
+    public float chaseSpeed = 4f; // separate chase speed from attackSpeed
+
+    [Header("Attack Settings")]
+    public int attackDamage = 10;      // custom damage per hit
+    public float attackSpeed = 1f;     // attacks per second
+    private float attackCooldownTimer = 0f;
 
     [Header("Detection Component")]
     public ConeDetection coneDetection;
@@ -27,13 +30,13 @@ public class EnemyAI : MonoBehaviour
     [Header("Debugging")]
     public EnemyState debugState;
 
-    [Header("Attack Settings")]
-    public float attackCooldown = 1f;
-    private float attackCooldownTimer = 0f;
-
     [Header("Fear Settings")]
     public FearedState fearedState;
     public DamagePlayer damagePlayer;
+
+    [Header("Wait Settings")]
+    public float waitTime = 2f;
+    private float waitCounter;
 
     // reference to the player's state script
     private TestingPlayerController playerController;
@@ -124,6 +127,7 @@ public class EnemyAI : MonoBehaviour
         {
             coneDetection.SetPatrolIndex(currentPatrolIndex);
 
+            // if player leaves cone, go back to wait
             if (!coneDetection.PlayerInCone(true))
             {
                 rb.linearVelocity = Vector2.zero;
@@ -132,32 +136,32 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        // Chase player directly
+        // ✅ Chase player while in cone
         Vector2 direction = (player.position - transform.position).normalized;
-        rb.linearVelocity = direction * attackSpeed;
+        rb.linearVelocity = direction * chaseSpeed;
 
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        if (distanceToPlayer <= 1f) // attack range
+        // ✅ Attack only if player is in cone & cooldown ready
+        if (attackCooldownTimer <= 0f && coneDetection.PlayerInCone(true))
         {
-            if (attackCooldownTimer <= 0f)
+            if (player.CompareTag("Player"))
             {
+                int finalDamage = attackDamage;
+
+                // optional: stack with DamagePlayer
                 if (damagePlayer != null)
                 {
-                    int finalDamage = damagePlayer.damageAmount;
+                    finalDamage += damagePlayer.damageAmount;
 
                     if (damagePlayer.FS != null)
                         finalDamage += damagePlayer.FS.GetCurrentDamage();
 
-                    Debug.Log($"Enemy attacks player for <color=yellow>{finalDamage}</color> damage!");
-
                     damagePlayer.DealDamage();
                 }
-                else
-                {
-                    Debug.LogWarning("DamagePlayer reference missing on EnemyAI!");
-                }
 
-                attackCooldownTimer = attackCooldown;
+                Debug.Log($"Enemy attacks player for <color=red>{finalDamage}</color> damage!");
+
+                // reset cooldown based on attackSpeed (attacks/sec)
+                attackCooldownTimer = 1f / attackSpeed;
             }
         }
     }
@@ -185,8 +189,9 @@ public class EnemyAI : MonoBehaviour
     {
         Debug.Log("Enemy is feared");
 
-        if (fearedState != null && !fearedState.enabled)
-            fearedState.enabled = true;
+        if (fearedState.isActive)
+            fearedState.ApplyFearModifiers();
+        
     }
 
     // ----------- HELPERS -----------
@@ -208,7 +213,11 @@ public class EnemyAI : MonoBehaviour
         if (feared)
             ChangeState(EnemyState.Feared);
         else
+        {
             ChangeState(EnemyState.Wait);
+            fearedState.ResetModdifiers();
+        }
+           
     }
 
     public EnemyState GetCurrentState()
