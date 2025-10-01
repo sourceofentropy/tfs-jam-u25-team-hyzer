@@ -10,10 +10,11 @@ public class DamagePlayer : MonoBehaviour
 
     public bool destroyOnDamage;
     public GameObject destroyEffect;
+    public FearedState FS;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == playerTag)
+        if (other.gameObject.tag == playerTag)
         {
             DealDamage();
         }
@@ -27,9 +28,33 @@ public class DamagePlayer : MonoBehaviour
         }
     }
 
-    void DealDamage()
+    public void TakeDamage(int amount)
     {
-        PlayerHealthController.instance.DamagePlayer(damageAmount);
+        int modifiedDamage = amount + (FS != null ? FS.GetCurrentDamage() : 0);
+
+        PlayerHealthController.instance.DamagePlayer(modifiedDamage);
+
+        if (destroyOnDamage)
+        {
+            if (destroyEffect != null)
+            {
+                Instantiate(destroyEffect, transform.position, transform.rotation);
+            }
+            Destroy(gameObject);
+        }
+    }
+
+    public void DealDamage()
+    {
+        //if FearedState.Weak = true
+        //{
+        // 
+        //}
+        //DamageAmount = DamageAmount + FS.Damage()
+
+        int modifiedDamage = damageAmount + FS.GetCurrentDamage();
+
+        PlayerHealthController.instance.DamagePlayer(modifiedDamage);
 
         if(destroyOnDamage)
         {

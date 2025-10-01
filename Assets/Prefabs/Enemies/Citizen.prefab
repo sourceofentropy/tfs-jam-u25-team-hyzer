@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3327709157540924177}
   - component: {fileID: 4116881428140949265}
+  - component: {fileID: 597407112720666403}
   m_Layer: 0
   m_Name: AnimationSheet_Character_0
   m_TagString: Untagged
@@ -87,6 +88,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &597407112720666403
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3320139331075596011}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 83df553e50245b646a4b6657e770cf1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5439958984768624442
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +121,8 @@ GameObject:
   - component: {fileID: 5939498389834917428}
   - component: {fileID: 2968594867881520790}
   - component: {fileID: 7946379293298709223}
+  - component: {fileID: 2634660825633745859}
+  - component: {fileID: 2462322511248827762}
   m_Layer: 0
   m_Name: Citizen
   m_TagString: Untagged
@@ -140,7 +165,46 @@ MonoBehaviour:
   jumpForce: 0
   rb: {fileID: 0}
   anim: {fileID: 0}
+  PC: {fileID: 0}
+  currentState: 2
+  previousState: 2
 --- !u!114 &7946379293298709223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5439958984768624442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de507825c04e5e24fbce6516e6f831e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHealth: 3
+  deathEffect: {fileID: 0}
+--- !u!114 &2634660825633745859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5439958984768624442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38512cfcc56fbd4ea9d9dda497d501c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPoints: []
+  moveSpeed: 0
+  waitAtPoints: 0
+  distanceThreshold: 0.2
+  jumpForce: 0
+  rb: {fileID: 0}
+  anim: {fileID: 0}
+  PC: {fileID: 0}
+  currentState: 2
+  previousState: 2
+--- !u!114 &2462322511248827762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
