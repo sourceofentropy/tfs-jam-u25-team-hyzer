@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -26,6 +27,13 @@ public class EnemyAI : MonoBehaviour
     [Header("Debugging")]
     public EnemyState debugState;
 
+    [Header("Attack Settings")]
+    public float attackCooldown = 1f; // seconds between attacks
+    private float attackCooldownTimer = 0f;
+
+    public FearedState fearedState;
+    public DamagePlayer damagePlayer;
+
     private void Start()
     {
         currentState = EnemyState.Patrol;
@@ -36,6 +44,12 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         debugState = currentState;
+
+        // Handle attack cooldown timer
+        if (attackCooldownTimer > 0f)
+        {
+            attackCooldownTimer -= Time.deltaTime;
+        }
 
         switch (currentState)
         {
@@ -112,10 +126,30 @@ public class EnemyAI : MonoBehaviour
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         if (distanceToPlayer <= 1f) // attack range
         {
-            Debug.Log("Enemy attacks player!");
-            // Hook into DamagePlayer here
+            if (attackCooldownTimer <= 0f)
+            {
+                if (damagePlayer != null)
+                {
+                    // Calculate how much damage will be dealt
+                    int finalDamage = damagePlayer.damageAmount;
+
+                    if (damagePlayer.FS != null)
+                        finalDamage += damagePlayer.FS.GetCurrentDamage();
+
+                    Debug.Log($"Enemy attacks player for <color=yellow>{finalDamage}</color> damage!");
+
+                    damagePlayer.DealDamage();
+                }
+                else
+                {
+                    Debug.LogWarning("DamagePlayer reference missing on EnemyAI!");
+                }
+
+                attackCooldownTimer = attackCooldown; // reset cooldown
+            }
         }
     }
+
 
     private void Wait()
     {
@@ -140,8 +174,11 @@ public class EnemyAI : MonoBehaviour
 
     private void Feared()
     {
-        rb.linearVelocity = Vector2.zero;
-        Debug.Log("Enemy is feared and cannot move/attack.");
+        Debug.Log("Enemy is feared");
+
+        // Make sure fear script is active while feared
+        if (fearedState != null && !fearedState.enabled)
+            fearedState.enabled = true;
     }
 
     // ----------- HELPERS -----------
@@ -149,6 +186,11 @@ public class EnemyAI : MonoBehaviour
     private void ChangeState(EnemyState newState)
     {
         if (currentState == newState) return;
+
+        // If leaving feared state, disable the fear behaviour
+        if (currentState == EnemyState.Feared && fearedState != null)
+            fearedState.enabled = false;
+
         currentState = newState;
         rb.linearVelocity = Vector2.zero; // stop on state change
         Debug.Log($"<color=red>Enemy State Changed To: {newState}</color>");
