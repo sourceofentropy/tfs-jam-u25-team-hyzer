@@ -1,40 +1,57 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using System.IO;
 
-public class ConvertSpritesToLit : MonoBehaviour
+public class ConvertAllToLitMaterial : MonoBehaviour
 {
-    [MenuItem("Tools/Convert All Sprites to Sprite-Lit-Default")]
-    public static void ConvertAllSprites()
+    [MenuItem("Tools/Convert All Sprites & Tilemaps to Sprite-Lit-Default Material")]
+    public static void ConvertAll()
     {
-        // Find the shader
-        Shader litShader = Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default");
-        if (litShader == null)
+        // Load the existing material from the project
+        string[] materialGUIDs = AssetDatabase.FindAssets("Sprite-Lit-Default t:Material");
+        if (materialGUIDs.Length == 0)
         {
-            Debug.LogError("Could not find Sprite-Lit-Default shader! Make sure URP 2D Renderer is installed.");
+            Debug.LogError("Could not find a Material named 'Sprite-Lit-Default' in the project.");
             return;
         }
 
-        Material litMat = new Material(litShader);
+        string materialPath = AssetDatabase.GUIDToAssetPath(materialGUIDs[0]);
+        Material litMat = AssetDatabase.LoadAssetAtPath<Material>(materialPath);
+        if (litMat == null)
+        {
+            Debug.LogError("Failed to load the 'Sprite-Lit-Default' material.");
+            return;
+        }
 
-        int sceneCount = 0;
-        int prefabCount = 0;
+        int spriteCountScene = 0;
+        int tilemapCountScene = 0;
+        int spriteCountPrefabs = 0;
+        int tilemapCountPrefabs = 0;
 
-        // --- Step 1: Convert all sprites in currently open scenes ---
+        // --- Step 1: Convert all SpriteRenderers in currently open scenes ---
         SpriteRenderer[] sceneSprites = Object.FindObjectsByType<SpriteRenderer>(FindObjectsSortMode.None);
         foreach (var sr in sceneSprites)
         {
             sr.material = litMat;
-            sceneCount++;
-            EditorUtility.SetDirty(sr); // mark object dirty for saving
+            EditorUtility.SetDirty(sr);
+            spriteCountScene++;
+        }
+
+        // --- Step 2: Convert all TilemapRenderers in currently open scenes ---
+        TilemapRenderer[] sceneTilemaps = Object.FindObjectsByType<TilemapRenderer>(FindObjectsSortMode.None);
+        foreach (var tm in sceneTilemaps)
+        {
+            tm.material = litMat;
+            EditorUtility.SetDirty(tm);
+            tilemapCountScene++;
         }
 
         // Save scenes
         EditorSceneManager.MarkAllScenesDirty();
         EditorSceneManager.SaveOpenScenes();
 
-        // --- Step 2: Convert all sprites in prefabs ---
+        // --- Step 3: Convert all SpriteRenderers and TilemapRenderers in prefabs ---
         string[] prefabGUIDs = AssetDatabase.FindAssets("t:Prefab");
         foreach (string guid in prefabGUIDs)
         {
@@ -44,24 +61,37 @@ public class ConvertSpritesToLit : MonoBehaviour
 
             if (prefab != null)
             {
+                // SpriteRenderers in prefab
                 SpriteRenderer[] prefabSprites = prefab.GetComponentsInChildren<SpriteRenderer>(true);
                 foreach (var sr in prefabSprites)
                 {
                     sr.material = litMat;
                     modified = true;
+                    spriteCountPrefabs++;
+                }
+
+                // TilemapRenderers in prefab
+                TilemapRenderer[] prefabTilemaps = prefab.GetComponentsInChildren<TilemapRenderer>(true);
+                foreach (var tm in prefabTilemaps)
+                {
+                    tm.material = litMat;
+                    modified = true;
+                    tilemapCountPrefabs++;
                 }
 
                 if (modified)
-                {
                     EditorUtility.SetDirty(prefab);
-                    prefabCount++;
-                }
             }
         }
 
         // Save all assets
         AssetDatabase.SaveAssets();
 
-        Debug.Log($"Assigned Sprite-Lit-Default to {sceneCount} sprites in open scenes and {prefabCount} prefabs.");
+        Debug.Log($"Conversion complete:\n" +
+                  $"{spriteCountScene} sprites in scenes\n" +
+                  $"{tilemapCountScene} tilemaps in scenes\n" +
+                  $"{spriteCountPrefabs} sprites in prefabs\n" +
+                  $"{tilemapCountPrefabs} tilemaps in prefabs\n" +
+                  $"All assigned to 'Sprite-Lit-Default' material.");
     }
 }
