@@ -233,7 +233,7 @@ TextureImporter:
         serializedVersion: 2
         x: 224
         y: 32
-        width: 16
+        width: 112
         height: 80
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -245,6 +245,28 @@ TextureImporter:
       bones: []
       spriteID: a7290e34b482d2180800000000000000
       internalID: -9138603765138419078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillars _ statues_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 352
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14b7723adfc7ac2a0800000000000000
+      internalID: -6716418465463829695
       vertices: []
       indices: 
       edges: []
@@ -521,8 +543,8 @@ TextureImporter:
         y: 128
         width: 32
         height: 63
-      alignment: 9
-      pivot: {x: 0.49223423, y: 0.19626969}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -870,9 +892,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 208
-        y: 96
+        y: 48
         width: 16
-        height: 16
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -892,9 +914,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 96
+        y: 48
         width: 16
-        height: 16
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -913,10 +935,10 @@ TextureImporter:
       name: pillars _ statues_37
       rect:
         serializedVersion: 2
-        x: 192
-        y: 80
+        x: 160
+        y: 48
         width: 16
-        height: 16
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -935,10 +957,10 @@ TextureImporter:
       name: pillars _ statues_38
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
+        x: 176
+        y: 80
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -957,10 +979,10 @@ TextureImporter:
       name: pillars _ statues_39
       rect:
         serializedVersion: 2
-        x: 192
+        x: 176
         y: 48
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -971,292 +993,6 @@ TextureImporter:
       bones: []
       spriteID: dab2aff47ff3be7488791914c2fed78e
       internalID: -1372823686
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillars _ statues_6
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 48
-        width: 16
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3ee922484ed6cd4ebca45a59ad77eaa
-      internalID: -6716418465463829695
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillars _ statues_42
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8ee39ccc6ba263c42808f8cc0901faea
-      internalID: 1546819332
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillars _ statues_43
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 994418ba67b788148a2f3eeec6b4e714
-      internalID: 1961333855
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillars _ statues_44
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cdeb5f06c198f134dad70a996941242f
-      internalID: 1587691311
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillars _ statues_45
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f89b8a80e5eb904991cc76eafa201eb
-      internalID: 1608018309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillars _ statues_46
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f7c5f0000b2b83a49956f7a5920995cd
-      internalID: -55507121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillars _ statues_47
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8f68349b1ab69af4daa2f3781acc0187
-      internalID: -437591671
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillars _ statues_48
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eef4f8023defe874bb0f39ae1ac1a77e
-      internalID: 925195347
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillars _ statues_49
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 49689e0d52a77b04c87440ea1eeee012
-      internalID: 1624860364
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillars _ statues_40
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 32
-        width: 16
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c85037818428a147a28703632dbe984
-      internalID: 1237785933
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillars _ statues_41
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 80
-        width: 80
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d5242bf1582359448b8e1a4bd0d2edc4
-      internalID: -2023901733
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillars _ statues_50
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c16662bf5a2afb846a5e514e1bae0097
-      internalID: -2134049082
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillars _ statues_51
-      rect:
-        serializedVersion: 2
-        x: 304
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec3308d89a5e93244941d55a4daf656e
-      internalID: 360118479
       vertices: []
       indices: 
       edges: []
@@ -1310,19 +1046,7 @@ TextureImporter:
       pillars _ statues_38: 2071399917
       pillars _ statues_39: -1372823686
       pillars _ statues_4: -2576725395637472068
-      pillars _ statues_40: 1237785933
-      pillars _ statues_41: -2023901733
-      pillars _ statues_42: 1546819332
-      pillars _ statues_43: 1961333855
-      pillars _ statues_44: 1587691311
-      pillars _ statues_45: 1608018309
-      pillars _ statues_46: -55507121
-      pillars _ statues_47: -437591671
-      pillars _ statues_48: 925195347
-      pillars _ statues_49: 1624860364
       pillars _ statues_5: -9138603765138419078
-      pillars _ statues_50: -2134049082
-      pillars _ statues_51: 360118479
       pillars _ statues_6: -6716418465463829695
       pillars _ statues_7: -767893720
       pillars _ statues_8: 1349450555
