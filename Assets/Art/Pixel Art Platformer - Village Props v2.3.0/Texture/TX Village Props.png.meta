@@ -1970,15 +1970,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Village Props_60
+      name: HayPile
       rect:
         serializedVersion: 2
         x: 191
         y: 735
         width: 64
         height: 36
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2087,8 +2087,8 @@ TextureImporter:
         y: 703
         width: 66
         height: 92
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4618,7 +4618,7 @@ TextureImporter:
         width: 36
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4645,6 +4645,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      HayPile: -6168683190662309983
       Jack-O'Dialogue: -675709364
       TX Village Props_0: -3806943691756881100
       TX Village Props_1: 9202163618114184290
@@ -4783,7 +4784,6 @@ TextureImporter:
       TX Village Props_58: -5550425257526537226
       TX Village Props_59: 3283692861401560125
       TX Village Props_6: -996102965649306420
-      TX Village Props_60: -6168683190662309983
       TX Village Props_61: 6138962704849034911
       TX Village Props_62: -1060820844349752430
       TX Village Props_63: 8750333729418153844

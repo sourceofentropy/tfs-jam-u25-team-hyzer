@@ -1,55 +1,37 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public class NPCDialogue : MonoBehaviour
+public class NPCDialogue : MonoBehaviour, IInteractable
 {
     [Header("Dialogue Data (Progression)")]
-    public DialogueData[] dialogues; // assign multiple dialogue assets in order
-
-    [Header("Interaction")]
-    public GameObject interactPrompt; // "Press E" UI
-
+    public DialogueData[] dialogues;
     private int currentDialogueIndex = 0;
-    private bool playerInRange = false;
 
-    void OnTriggerEnter2D(Collider2D other)
+    public List<InteractionOption> GetOptions()
     {
-        if (other.CompareTag("Player"))
+        return new List<InteractionOption>
         {
-            playerInRange = true;
-            interactPrompt?.SetActive(true);
-        }
+            new InteractionOption { key = KeyCode.E, description = "Talk" }
+        };
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    public void Interact(KeyCode key, GameObject player)
     {
-        if (other.CompareTag("Player"))
+        if (key != KeyCode.E) return;
+
+        if (DialogueManager.Instance.CurrentlyActive)
         {
-            playerInRange = false;
-            interactPrompt?.SetActive(false);
+            DialogueManager.Instance.NextLine();
         }
-    }
-
-    void Update()
-    {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        else if (dialogues != null && dialogues.Length > 0)
         {
-            if (DialogueManager.Instance.CurrentlyActive)
+            DialogueData dialogueToPlay = dialogues[currentDialogueIndex];
+            if (dialogueToPlay != null)
             {
-                // Continue dialogue
-                DialogueManager.Instance.NextLine();
-            }
-            else if (dialogues != null && dialogues.Length > 0)
-            {
-                // Start the current dialogue
-                DialogueData dialogueToPlay = dialogues[currentDialogueIndex];
-                if (dialogueToPlay != null)
-                {
-                    DialogueManager.Instance.StartDialogue(dialogueToPlay);
+                DialogueManager.Instance.StartDialogue(dialogueToPlay);
 
-                    // Advance index for next time (but clamp at last dialogue)
-                    if (currentDialogueIndex < dialogues.Length - 1)
-                        currentDialogueIndex++;
-                }
+                if (currentDialogueIndex < dialogues.Length - 1)
+                    currentDialogueIndex++;
             }
         }
     }
