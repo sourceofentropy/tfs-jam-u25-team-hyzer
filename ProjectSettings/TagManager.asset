@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - Enemy
   - Boss
@@ -46,9 +46,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Effects
+    uniqueID: 479297309
+    locked: 0
   - name: Player
     uniqueID: 3019578817
     locked: 0
   - name: Ground
     uniqueID: 3303786257
     locked: 0
+  m_RenderingLayers:
+  - Default

@@ -7,7 +7,7 @@ public class PlayerAnimsController : MonoBehaviour
     private Animator animator;
     public PlayerController pc;
 
-    private float idleTimer = 0f;
+    private float idleTimer = 3f;
     private float idleThreshold = 3f; // Time in seconds before switching to idle animation
 
     void Start()
@@ -21,7 +21,12 @@ public class PlayerAnimsController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            animator.SetTrigger("IsAttacking");
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+            if (stateInfo.IsName("Idle_Weapon") || stateInfo.IsName("Walking"))
+            {
+                animator.SetTrigger("IsAttacking");
+            }
         }
 
         Vector2 inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -39,6 +44,9 @@ public class PlayerAnimsController : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
 
         bool isMoving = moveX != 0 || moveY != 0;
+
+        float verticalVelocity = pc.rb.linearVelocity.y;
+        animator.SetFloat("VerticalVelocity", verticalVelocity);
 
         if (isMoving)
         {

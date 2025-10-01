@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
     [Header("Disguise Settings")]
     public float disguiseDuration = 10f; // duration of normal disguise
     private float disguiseTimer;
+    [SerializeField] private GameObject normalCharacter;
+    [SerializeField] private GameObject disguisedCharacter;
+    [SerializeField] private GameObject smokeBomb;
 
     private float xInput;
 
@@ -157,18 +160,18 @@ public class PlayerController : MonoBehaviour
             }
 
             //shooting
-            if (Input.GetButtonDown("Fire1"))
-            {
-                if (standing.activeSelf)
-                {
-                    Instantiate(shotToFire, shotOrigin.position, shotOrigin.rotation).moveDir = new Vector2(transform.localScale.x, 0);
-                    anim.SetTrigger("shotFired");
-                }
-                else if (ball.activeSelf && abilities.canDropBomb)
-                {
-                    Instantiate(bomb, bombPoint.position, bombPoint.rotation);
-                }
-            }
+            //if (Input.GetButtonDown("Fire1"))
+            //{
+            //    if (standing.activeSelf)
+            //    {
+            //        Instantiate(shotToFire, shotOrigin.position, shotOrigin.rotation).moveDir = new Vector2(transform.localScale.x, 0);
+            //        anim.SetTrigger("shotFired");
+            //    }
+            //    else if (ball.activeSelf && abilities.canDropBomb)
+            //    {
+            //        Instantiate(bomb, bombPoint.position, bombPoint.rotation);
+            //    }
+            //}
 
             // Toggle disguise with Q
             if (Input.GetKeyDown(KeyCode.Q))
@@ -306,14 +309,25 @@ public class PlayerController : MonoBehaviour
         currentState = PlayerState.Disguise;
         disguiseMode = DisguiseMode.Normal;
         disguiseTimer = disguiseDuration;
-        spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
+        //spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
+        normalCharacter.SetActive(false);
+        disguisedCharacter.SetActive(true);
+        GameObject smoke = Instantiate(smokeBomb, transform.position, Quaternion.identity);
+
+        Destroy(smoke, 1f); // destroy smoke after 1 second
     }
 
     void ExitDisguise()
     {
         currentState = PlayerState.Regular;
         disguiseMode = DisguiseMode.Normal;
-        spriteRenderer.color = Color.white;
+        //spriteRenderer.color = Color.white;
+
+        normalCharacter.SetActive(true);
+        disguisedCharacter.SetActive(false);
+        GameObject smoke = Instantiate(smokeBomb, transform.position, Quaternion.identity);
+
+        Destroy(smoke, 1f); // destroy smoke after 1 second
     }
 
     void EnterUltraDisguise()
