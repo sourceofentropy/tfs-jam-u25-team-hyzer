@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Windows;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -14,7 +13,6 @@ public class EnemyAI : MonoBehaviour
     private int currentPatrolIndex;
     public Rigidbody2D rb;
     public Transform player;
-    public TestingPlayerController playerController;
 
     [Header("Movement Settings")]
     public float patrolSpeed = 2f;
@@ -22,13 +20,8 @@ public class EnemyAI : MonoBehaviour
     public float waitTime = 2f;
     private float waitCounter;
 
-    [Header("Detection Settings")]
-    public float detectionRadius = 5f;
-    public float detectionAngle = 45f; // half cone angle in degrees
-
-    [Header("Fear Settings")]
-    public CircleCollider2D fearCollider; // assign in Inspector
-
+    [Header("Detection Component")]
+    public ConeDetection coneDetection;
 
     [Header("Debugging")]
     public EnemyState debugState;
@@ -52,9 +45,7 @@ public class EnemyAI : MonoBehaviour
             case EnemyState.Feared: Feared(); break;
         }
 
-       // rb.linearVelocity = new Vector2(xInput * moveSpeed, rb.linearVelocity.y);
-
-        //handle direction change
+        // handle direction change for sprite facing
         if (rb.linearVelocity.x < 0)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
@@ -63,9 +54,16 @@ public class EnemyAI : MonoBehaviour
         {
             transform.localScale = Vector3.one;
         }
+
+        // -------- EXTRA: Force attack if player is inside cone --------
+        if (coneDetection != null && currentState != EnemyState.Feared)
+        {
+            if (coneDetection.PlayerInCone(true) && player.CompareTag("Player"))
+            {
+                ChangeState(EnemyState.Attack);
+            }
+        }
     }
-
-
 
     // ----------- STATES -----------
 
@@ -83,20 +81,28 @@ public class EnemyAI : MonoBehaviour
             ChangeState(EnemyState.Wait);
         }
 
-        if (PlayerInCone(false))
+        if (coneDetection != null)
         {
-            ChangeState(EnemyState.Attack);
+            coneDetection.SetPatrolIndex(currentPatrolIndex);
+            if (coneDetection.PlayerInCone(false))
+            {
+                ChangeState(EnemyState.Attack);
+            }
         }
     }
 
     private void Attack()
     {
-        // Stop attacking immediately if player leaves detection
-        if (!PlayerInCone(true))
+        if (coneDetection != null)
         {
-            rb.linearVelocity = Vector2.zero;
-            ChangeState(EnemyState.Wait);
-            return;
+            coneDetection.SetPatrolIndex(currentPatrolIndex);
+
+            if (!coneDetection.PlayerInCone(true))
+            {
+                rb.linearVelocity = Vector2.zero;
+                ChangeState(EnemyState.Wait);
+                return;
+            }
         }
 
         // Chase player directly
@@ -122,9 +128,13 @@ public class EnemyAI : MonoBehaviour
             ChangeState(EnemyState.Patrol);
         }
 
-        if (PlayerInCone(false))
+        if (coneDetection != null)
         {
-            ChangeState(EnemyState.Attack);
+            coneDetection.SetPatrolIndex(currentPatrolIndex);
+            if (coneDetection.PlayerInCone(true))
+            {
+                ChangeState(EnemyState.Attack);
+            }
         }
     }
 
@@ -136,63 +146,12 @@ public class EnemyAI : MonoBehaviour
 
     // ----------- HELPERS -----------
 
-    /// <summary>
-    /// If usePlayerForward = false, use patrol forward. 
-    /// If true, face player so enemy keeps chasing.
-    /// </summary>
-    private bool PlayerInCone(bool usePlayerForward)
-    {
-        Vector2 toPlayer = (player.position - transform.position).normalized;
-        Vector2 forward = (usePlayerForward || patrolPoints.Length == 0)
-                          ? toPlayer
-                          : (patrolPoints[currentPatrolIndex].position - transform.position).normalized;
-
-        // -----------------------
-        // Ignore player if outside patrol boundaries AND moving further away
-        // -----------------------
-        if (player.position.x < leftPatrolBarrier.position.x && playerController.IsMovingLeft())
-            return false;
-
-        if (player.position.x > rightPatrolBarrier.position.x && playerController.IsMovingRight())
-            return false;
-        // -----------------------
-
-        float distance = Vector2.Distance(transform.position, player.position);
-        float angle = Vector2.Angle(forward, toPlayer);
-
-        return distance <= detectionRadius && angle <= detectionAngle;
-    }
-
-
     private void ChangeState(EnemyState newState)
     {
         if (currentState == newState) return;
         currentState = newState;
         rb.linearVelocity = Vector2.zero; // stop on state change
         Debug.Log($"<color=red>Enemy State Changed To: {newState}</color>");
-    }
-
-    // ----------- FEAR COLLIDER HANDLING -----------
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (fearCollider != null && other == fearCollider)
-            return; // Prevent self-collision checks
-
-        TestingPlayerController playerCtrl = other.GetComponent<TestingPlayerController>();
-        if (playerCtrl != null && playerCtrl.currentState == TestingPlayerController.PlayerState.Rage)
-        {
-            SetFeared(true);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        TestingPlayerController playerCtrl = other.GetComponent<TestingPlayerController>();
-        if (playerCtrl != null && playerCtrl.currentState == TestingPlayerController.PlayerState.Rage)
-        {
-            SetFeared(false);
-        }
     }
 
     public void SetFeared(bool feared)
@@ -203,23 +162,8 @@ public class EnemyAI : MonoBehaviour
             ChangeState(EnemyState.Wait);
     }
 
-    // ----------- DEBUG VISUALS -----------
-
-    private void OnDrawGizmosSelected()
+    public EnemyState GetCurrentState()
     {
-        Gizmos.color = Color.red;
-
-        Vector3 forward = Vector3.right;
-        if (patrolPoints != null && patrolPoints.Length > 0)
-            forward = (patrolPoints[currentPatrolIndex].position - transform.position).normalized;
-
-        Quaternion leftRot = Quaternion.Euler(0, 0, detectionAngle);
-        Quaternion rightRot = Quaternion.Euler(0, 0, -detectionAngle);
-
-        Vector3 leftDir = leftRot * forward * detectionRadius;
-        Vector3 rightDir = rightRot * forward * detectionRadius;
-
-        Gizmos.DrawLine(transform.position, transform.position + leftDir);
-        Gizmos.DrawLine(transform.position, transform.position + rightDir);
+        return currentState;
     }
 }
