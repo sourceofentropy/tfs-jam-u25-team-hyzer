@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class PlayerHider : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
-    private int originalSortingOrder;
-    private string originalSortingLayer;
+    private SpriteRenderer[] spriteRenderers;
+    private int[] originalOrders;
+    private string[] originalLayers;
+
     private bool isHidden;
     private HideableObject currentHideSpot;
 
@@ -12,43 +13,48 @@ public class PlayerHider : MonoBehaviour
 
     void Awake()
     {
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        if (spriteRenderer != null)
+        // Cache all renderers (player may have multiple sprites)
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        originalOrders = new int[spriteRenderers.Length];
+        originalLayers = new string[spriteRenderers.Length];
+
+        for (int i = 0; i < spriteRenderers.Length; i++)
         {
-            originalSortingOrder = spriteRenderer.sortingOrder;
-            originalSortingLayer = spriteRenderer.sortingLayerName;
-            Debug.Log($"[PlayerHider] Initialized. Original sorting: {originalSortingLayer} / {originalSortingOrder}");
+            originalOrders[i] = spriteRenderers[i].sortingOrder;
+            originalLayers[i] = spriteRenderers[i].sortingLayerName;
         }
-        else
-        {
-            Debug.LogError("[PlayerHider] No SpriteRenderer found in children!");
-        }
+
+        Debug.Log($"[PlayerHider] Initialized with {spriteRenderers.Length} renderers");
     }
 
-    public void Hide(HideableObject hideableObject, int hideableSortingOrder)
+    public void Hide(HideableObject hideableObject, int hideableSortingOrder, string hideableLayer)
     {
-        Debug.Log($"[PlayerHider] Hide called. Hideable sorting order: {hideableSortingOrder}");
+        Debug.Log($"[PlayerHider] Hiding behind {hideableLayer}:{hideableSortingOrder}");
+
         isHidden = true;
         currentHideSpot = hideableObject;
 
-        // Render behind the hideable object (one layer below it)
-        if (spriteRenderer != null)
+        for (int i = 0; i < spriteRenderers.Length; i++)
         {
-            spriteRenderer.sortingOrder = hideableSortingOrder - 1;
-            Debug.Log($"[PlayerHider] Sorting order changed to {hideableSortingOrder - 1}");
+            // Move to the same layer as the hideable
+            spriteRenderers[i].sortingLayerName = hideableLayer;
+
+            // Go just behind the hideable object
+            spriteRenderers[i].sortingOrder = hideableSortingOrder - 1;
         }
     }
 
     public void Unhide()
     {
-        Debug.Log($"[PlayerHider] Unhide called. Restoring sorting order to {originalSortingOrder}");
+        Debug.Log("[PlayerHider] Unhide called, restoring original sorting");
+
         isHidden = false;
         currentHideSpot = null;
 
-        if (spriteRenderer != null)
+        for (int i = 0; i < spriteRenderers.Length; i++)
         {
-            spriteRenderer.sortingOrder = originalSortingOrder;
-            spriteRenderer.sortingLayerName = originalSortingLayer;
+            spriteRenderers[i].sortingOrder = originalOrders[i];
+            spriteRenderers[i].sortingLayerName = originalLayers[i];
         }
     }
 

@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - Enemy
   - Boss
@@ -43,6 +43,9 @@ TagManager:
   - name: Background
     uniqueID: 1293882115
     locked: 0
+  - name: Hideables
+    uniqueID: 2503796339
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -52,3 +55,5 @@ TagManager:
   - name: Ground
     uniqueID: 3303786257
     locked: 0
+  m_RenderingLayers:
+  - Default

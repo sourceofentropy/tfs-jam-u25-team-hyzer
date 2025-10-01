@@ -6,13 +6,16 @@ using System.Collections.Generic;
 public class HideableObject : MonoBehaviour, IInteractable
 {
     [SerializeField] private SpriteRenderer objectSprite;
-    [SerializeField] private float hiddenAlpha = 0.4f;
-    [SerializeField] private float fadeSpeed = 2f;
+    [SerializeField] private float hiddenAlpha = 0.6f;
+    [SerializeField] private float fadeSpeed = 1f;
     [SerializeField] private GameObject smokeEffectPrefab;
 
     private PlayerHider currentPlayer;
     private float originalAlpha;
     private bool isPlayerHidden = false;
+    private MultiInteractable multiInteractable;
+
+    public SpriteRenderer ObjectSprite => objectSprite;
 
     void Awake()
     {
@@ -21,13 +24,20 @@ public class HideableObject : MonoBehaviour, IInteractable
 
         if (objectSprite != null)
             originalAlpha = objectSprite.color.a;
+
+        // Check if we're part of a MultiInteractable
+        multiInteractable = GetComponent<MultiInteractable>();
     }
 
     public List<InteractionOption> GetOptions()
     {
         return new List<InteractionOption>
         {
-            new InteractionOption { key = KeyCode.F, description = isPlayerHidden ? "Unhide" : "Hide" }
+            new InteractionOption
+            {
+                key = KeyCode.F,
+                description = isPlayerHidden ? "Unhide" : "Hide"
+            }
         };
     }
 
@@ -35,14 +45,14 @@ public class HideableObject : MonoBehaviour, IInteractable
     {
         if (other.CompareTag("Player"))
         {
-            // Try to get PlayerHider from the colliding object OR its parent
-            currentPlayer = other.GetComponent<PlayerHider>();
-            if (currentPlayer == null)
-                currentPlayer = other.GetComponentInParent<PlayerHider>();
-            if (currentPlayer == null)
-                currentPlayer = other.GetComponentInChildren<PlayerHider>();
+            currentPlayer = other.GetComponent<PlayerHider>() ??
+                            other.GetComponentInParent<PlayerHider>() ??
+                            other.GetComponentInChildren<PlayerHider>();
 
             Debug.Log($"[HideableObject] Player entered. PlayerHider found: {currentPlayer != null}");
+
+            // Refresh the prompt when player enters
+            RefreshInteractionPrompt();
         }
     }
 
@@ -52,7 +62,6 @@ public class HideableObject : MonoBehaviour, IInteractable
         {
             Debug.Log("[HideableObject] Player exited");
 
-            // Auto-unhide if player leaves while hidden
             if (currentPlayer != null && isPlayerHidden)
             {
                 currentPlayer.ForceUnhideIfLeftArea(this);
@@ -71,24 +80,13 @@ public class HideableObject : MonoBehaviour, IInteractable
 
     public void Interact(KeyCode key, GameObject player)
     {
-        Debug.Log($"[HideableObject] Interact called. Key: {key}, CurrentPlayer: {currentPlayer != null}, IsHidden: {isPlayerHidden}");
+        if (key != KeyCode.F) return;
 
-        if (key != KeyCode.F)
-        {
-            Debug.Log($"[HideableObject] Wrong key pressed. Expected F, got {key}");
-            return;
-        }
-
-        // Get PlayerHider from the player parameter if currentPlayer is null
         if (currentPlayer == null)
         {
-            currentPlayer = player.GetComponent<PlayerHider>();
-            if (currentPlayer == null)
-                currentPlayer = player.GetComponentInParent<PlayerHider>();
-            if (currentPlayer == null)
-                currentPlayer = player.GetComponentInChildren<PlayerHider>();
-
-            Debug.Log($"[HideableObject] CurrentPlayer was null, fetching from parameter: {currentPlayer != null}");
+            currentPlayer = player.GetComponent<PlayerHider>() ??
+                            player.GetComponentInParent<PlayerHider>() ??
+                            player.GetComponentInChildren<PlayerHider>();
         }
 
         if (currentPlayer == null)
@@ -101,6 +99,9 @@ public class HideableObject : MonoBehaviour, IInteractable
             Unhide();
         else
             Hide();
+
+        // Refresh the prompt after interaction
+        RefreshInteractionPrompt();
     }
 
     private void Hide()
@@ -108,9 +109,10 @@ public class HideableObject : MonoBehaviour, IInteractable
         Debug.Log("[HideableObject] Hiding player");
         isPlayerHidden = true;
 
-        // Pass the hideable object's sorting order so player can render behind it
         int sortingOrder = objectSprite != null ? objectSprite.sortingOrder : 0;
-        currentPlayer.Hide(this, sortingOrder);
+        string sortingLayer = objectSprite != null ? objectSprite.sortingLayerName : "Hideables";
+
+        currentPlayer.Hide(this, sortingOrder, sortingLayer);
 
         if (smokeEffectPrefab != null)
             Instantiate(smokeEffectPrefab, currentPlayer.transform.position, Quaternion.identity);
@@ -135,6 +137,22 @@ public class HideableObject : MonoBehaviour, IInteractable
         {
             StopAllCoroutines();
             StartCoroutine(FadeAlpha(originalAlpha));
+        }
+    }
+
+    private void RefreshInteractionPrompt()
+    {
+        if (InteractionPrompt.Instance != null && currentPlayer != null)
+        {
+            // If we're part of a MultiInteractable, get options from that instead
+            if (multiInteractable != null)
+            {
+                InteractionPrompt.Instance.Show(multiInteractable.GetOptions());
+            }
+            else
+            {
+                InteractionPrompt.Instance.Show(GetOptions());
+            }
         }
     }
 
