@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class FearedState : MonoBehaviour
 {
+    [Header("Active")]
+    public bool isActive = false;
+
     [Header("Fear Modifiers")]
-    public bool doLessDamage;
-    public bool increaseDamage;
+    public bool Weak;
+    public bool Emboldened;
     public bool nothingModifier; // does nothing, left for completeness
 
     [Header("Fear Behaviours")]
@@ -14,7 +17,7 @@ public class FearedState : MonoBehaviour
     public bool nothingBehaviour; // does nothing, left for completeness
 
     [Header("Stats Modifiers")]
-    private int currentDamage = 0;
+    public int currentDamage = 0;
     public int damageModifier = 1;
     public float attackSpeed = 1f;
     public float runSpeed = 3f;
@@ -39,13 +42,13 @@ public class FearedState : MonoBehaviour
         HandleFearBehaviours();
     }
 
-    void ApplyFearModifiers()
+    public void ApplyFearModifiers()
     {
-        if (doLessDamage)
+        if (Weak)
         {
             currentDamage = damageModifier;
         }
-        if (increaseDamage)
+        if (Emboldened)
         {
             currentDamage = -damageModifier; 
         }
@@ -54,6 +57,12 @@ public class FearedState : MonoBehaviour
             // Does nothing
         }
     }
+
+    public void ResetModdifiers()
+    {
+        currentDamage = 0;
+    }
+
 
     void HandleFearBehaviours()
     {

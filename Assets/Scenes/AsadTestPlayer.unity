@@ -365,13 +365,14 @@ MonoBehaviour:
   rb: {fileID: 246902001}
   player: {fileID: 1323382230}
   patrolSpeed: 2
+  chaseSpeed: 4
+  attackDamage: 10
   attackSpeed: 1
-  waitTime: 3
   coneDetection: {fileID: 1592856837}
   debugState: 1
-  attackCooldown: 1
   fearedState: {fileID: 246902005}
   damagePlayer: {fileID: 1323382234}
+  waitTime: 3
 --- !u!114 &246902005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,18 +380,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246901998}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c32629d4051fbc44c83cc2138a98d3c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doLessDamage: 0
-  increaseDamage: 0
-  nothingModifier: 1
-  runAwayFromPlayer: 1
+  isActive: 0
+  Weak: 1
+  Emboldened: 0
+  nothingModifier: 0
+  runAwayFromPlayer: 0
   attackSpeedBonus: 0
   stunned: 0
-  nothingBehaviour: 0
+  nothingBehaviour: 1
+  currentDamage: 0
   damageModifier: 2
   attackSpeed: 2
   runSpeed: 3
@@ -1147,7 +1150,7 @@ MonoBehaviour:
   playerTag: Player
   destroyOnDamage: 0
   destroyEffect: {fileID: 0}
-  FS: {fileID: 0}
+  FS: {fileID: 246902005}
 --- !u!1 &1364771979
 GameObject:
   m_ObjectHideFlags: 0
