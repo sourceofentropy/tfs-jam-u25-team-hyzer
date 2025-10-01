@@ -1,0 +1,2082 @@
+fileFormatVersion: 2
+guid: afc5a6b7e079eb34cbe2c48c242fa0bf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7929077025233760884
+    second: 256x256 Tileset_cemetery_map_0
+  - first:
+      213: -6951402769439355902
+    second: 256x256 Tileset_cemetery_map_1
+  - first:
+      213: 3359413071747026665
+    second: 256x256 Tileset_cemetery_map_2
+  - first:
+      213: 8579953468220065147
+    second: 256x256 Tileset_cemetery_map_3
+  - first:
+      213: -332091782603364436
+    second: 256x256 Tileset_cemetery_map_4
+  - first:
+      213: -574508486744981069
+    second: 256x256 Tileset_cemetery_map_5
+  - first:
+      213: -3947488922089135931
+    second: 256x256 Tileset_cemetery_map_6
+  - first:
+      213: -8559357357644543991
+    second: 256x256 Tileset_cemetery_map_7
+  - first:
+      213: -5155820830593622392
+    second: 256x256 Tileset_cemetery_map_8
+  - first:
+      213: -1684359525446223987
+    second: 256x256 Tileset_cemetery_map_9
+  - first:
+      213: -3091961388644096995
+    second: 256x256 Tileset_cemetery_map_10
+  - first:
+      213: -3108199732137801715
+    second: 256x256 Tileset_cemetery_map_11
+  - first:
+      213: -3086687889511408124
+    second: 256x256 Tileset_cemetery_map_12
+  - first:
+      213: -8637151833276155821
+    second: 256x256 Tileset_cemetery_map_13
+  - first:
+      213: -5288289079425150474
+    second: 256x256 Tileset_cemetery_map_14
+  - first:
+      213: -3761027768854574678
+    second: 256x256 Tileset_cemetery_map_15
+  - first:
+      213: -8258845325317440221
+    second: 256x256 Tileset_cemetery_map_16
+  - first:
+      213: -5415159650429484474
+    second: 256x256 Tileset_cemetery_map_17
+  - first:
+      213: 7192654711651420526
+    second: 256x256 Tileset_cemetery_map_18
+  - first:
+      213: -5011867876009762937
+    second: 256x256 Tileset_cemetery_map_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b7d8ab7fc0b56449a08c31b2042d489
+      internalID: -2092965491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_21
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a3c3ef7179fcc94bba01b35ed5fd338
+      internalID: -134935878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_22
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf3b88865ad35a47b440010c62a0bd6
+      internalID: -1200181960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_23
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96db83db7a1244c47a2c68a206b4574e
+      internalID: -386358679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_24
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 027d3dce68d2af1429f15487983f8da8
+      internalID: 843496389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_25
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9537fc954557d14c92c39681435d8aa
+      internalID: -197138889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_26
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c3730fc021b08e498b443084265dccf
+      internalID: -1775479561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_27
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af6780eb9955d9e4f978e019f3fa1a13
+      internalID: -1880754097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_28
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e153acf0d2ee82344985e78bdc4d3ee8
+      internalID: 262517554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_29
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4a0f3d59454d35479199d5ad92c42ae
+      internalID: -813314100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_30
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8da3bc19b2021c942b7e658ea34d0c0a
+      internalID: 1528912507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_31
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 619cf998d0467084eb3271c7b347b5c9
+      internalID: -1675946354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_32
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2bdc74614d7f4d4eb374b108e4dd567
+      internalID: 1917061497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_33
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bf30bb301d8f9f4cb3f0c4aabed4747
+      internalID: -705435476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_34
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 677b9f48310f0354090573a722f5e596
+      internalID: -1815695897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_35
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15797f7f3262c7141b1ed777bfa9eed8
+      internalID: 216442448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_36
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d90bafda036aed04facc9568eb751647
+      internalID: 463586156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_37
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29df9ad7bae817d4aa72f01ea6fca384
+      internalID: 405236305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_38
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98c1ab0d678344444823813aa7e937f4
+      internalID: -1787293123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_39
+      rect:
+        serializedVersion: 2
+        x: 2432
+        y: 2429
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4718638945a30c64992038c089eecbb1
+      internalID: -172258227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff5756450c33c784d88f53a8efc798db
+      internalID: 1724314796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_41
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba81a4f180d6e7a4ba9abdd88f15dfc3
+      internalID: -1151922584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_42
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01f83444bf106d04faf4501104e516e6
+      internalID: -17858240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_43
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9b6f5ff5d6903443b2cabd453629c92
+      internalID: 7589292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_44
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b541a56d5288d7428b091d0f358c778
+      internalID: -1590792059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_45
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 138a018d9b0a6eb418db7df02080b807
+      internalID: 1622760691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_46
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d030cfd66a09d94897480ef1c76bb50
+      internalID: -1134279936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_47
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b43d0288d8d7542a83b6407e0fab11
+      internalID: 560912071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_48
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fbbede2ad5c47043b998c00d2043bd3
+      internalID: 1520721915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_49
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7babefcb26b8e04ea34275fbdbd8f1f
+      internalID: -2006827212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_50
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6285f1bdf7ee094da83ae3e20755b65
+      internalID: -343601116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_51
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b42c4e40c4eeca6458aeac046fbada48
+      internalID: -358416052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_52
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6dcd13f28344a744a13a7c36f346ade
+      internalID: -495272490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_53
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94df34007eed23f46ab449a834594058
+      internalID: 619231711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_54
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7ed47b06464b09439af1c1ee4ca7394
+      internalID: -1653210427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_55
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa57f1c86dbc16b4d8945f74d85b1ced
+      internalID: 443418241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_56
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9b0567336db57b499e21c12c1b33ddb
+      internalID: 554864851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_57
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08bb986f32109ea42ac0d0cbb920a620
+      internalID: 546073146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_58
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44b36de1ef8659143834b09753bcdafa
+      internalID: 1034195512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_59
+      rect:
+        serializedVersion: 2
+        x: 2432
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80485bde905bdb0429beb8dc1f289605
+      internalID: 245433730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_60
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8359ea68a05d0624b9e636c13006062a
+      internalID: 2065438974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_61
+      rect:
+        serializedVersion: 2
+        x: 2944
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63b14b83065b4ac4cbbd12ba6d05716a
+      internalID: -1968923804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_62
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a270fdf3413ab84994477719b328b2e
+      internalID: -1579208535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_63
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94b7636d6f280a449bde687d15d8471f
+      internalID: -75029481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_64
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34698c3442bd4e74ab2513ff2bdec948
+      internalID: 325560587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_65
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78266889ea0c074da89511535fa18af
+      internalID: -828488470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_66
+      rect:
+        serializedVersion: 2
+        x: 3712
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e4665453480c964e9d13e381c9a822a
+      internalID: 831680469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_67
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2301
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 588e5fa7a7061da4a9922156e8ca8278
+      internalID: -1926742097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_76
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1963
+        width: 256
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24b9398408c8fdf4199bb14541d7cc91
+      internalID: 1177652275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_83
+      rect:
+        serializedVersion: 2
+        x: 1339
+        y: 1793
+        width: 150
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3978df9e26d3e3478309ac3aaa34c1b
+      internalID: 1199895941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_86
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1921
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15a6902ee29b3c24786da021d8dfb4f4
+      internalID: -953297827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_87
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 1921
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd8a052133ddf2640840514362ad425d
+      internalID: -1497312470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_88
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1921
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85a32c70e4b568041989f9ae28880513
+      internalID: 1745815649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_89
+      rect:
+        serializedVersion: 2
+        x: 2432
+        y: 1921
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c81d0d47cbb5614fbc471ff6719a7b6
+      internalID: 1323864824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_91
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 1958
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7257a740750cc7a49b9e22c30ace9236
+      internalID: -49754399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_92
+      rect:
+        serializedVersion: 2
+        x: 2944
+        y: 1958
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4c6f6cd487aa2b4fb4ff3450f880509
+      internalID: 801805325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_93
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1958
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cd63ae8bb1a62f49a11ac170625ff07
+      internalID: 759364501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_94
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1958
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d44f84dd254d614439aef6d93f9c8274
+      internalID: 1330747407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_98
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 1791
+        width: 151
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2966b7c460f1cbc4bb67018b8dd7a473
+      internalID: 826957123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_100
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1792
+        width: 144
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfc011d5c77ccf54b81e99f2a6fb449c
+      internalID: -133191544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_102
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 1792
+        width: 179
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df87143957b0d0c4f8a85994e784b19b
+      internalID: -2142407959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_104
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 1791
+        width: 178
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc5def4680ffd6243beae33ecda5b9e8
+      internalID: 1199416279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_106
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 1791
+        width: 139
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 487d952191647c54d96cb2ad3a6fca68
+      internalID: -899744409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_111
+      rect:
+        serializedVersion: 2
+        x: 1578
+        y: 1793
+        width: 163
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e219c55de87eee64094230f2de6b6e5f
+      internalID: 1635043493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_112
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 1793
+        width: 174
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4886afde4ce70f449e4a0d0bad8aed0
+      internalID: -1633653939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_121
+      rect:
+        serializedVersion: 2
+        x: 2049
+        y: 252
+        width: 1278
+        height: 1282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b66dab9aaec19b849af3807b003bb53e
+      internalID: -1126289080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_129
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 250
+        width: 1235
+        height: 1286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5923e1a2a55aeed4da192dc4f3434ebf
+      internalID: 1505249093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_141
+      rect:
+        serializedVersion: 2
+        x: 3452
+        y: 255
+        width: 567
+        height: 1033
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f2b62c28d5cb2648ad046b16d4e0c4e
+      internalID: 967659555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_145
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 255
+        width: 434
+        height: 1020
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b131c612904233844866bb263731a3f6
+      internalID: -2004106271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 256x256 Tileset_cemetery_map 1_68
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1793
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 655eb3bc3cf3b6c4c8c1eea1185c15ec
+      internalID: 313756272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9cdb4ed095260fd458d10f5e6bfbcfe1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      256x256 Tileset_cemetery_map 1_0: 993167324
+      256x256 Tileset_cemetery_map 1_1: -908593425
+      256x256 Tileset_cemetery_map 1_10: 2070531725
+      256x256 Tileset_cemetery_map 1_100: -133191544
+      256x256 Tileset_cemetery_map 1_101: -1662708737
+      256x256 Tileset_cemetery_map 1_102: -2142407959
+      256x256 Tileset_cemetery_map 1_103: -610699881
+      256x256 Tileset_cemetery_map 1_104: 1199416279
+      256x256 Tileset_cemetery_map 1_105: -583192272
+      256x256 Tileset_cemetery_map 1_106: -899744409
+      256x256 Tileset_cemetery_map 1_107: -1785493643
+      256x256 Tileset_cemetery_map 1_108: -2132686184
+      256x256 Tileset_cemetery_map 1_109: 586435733
+      256x256 Tileset_cemetery_map 1_11: 1199197464
+      256x256 Tileset_cemetery_map 1_110: -1899857026
+      256x256 Tileset_cemetery_map 1_111: 1635043493
+      256x256 Tileset_cemetery_map 1_112: -1633653939
+      256x256 Tileset_cemetery_map 1_113: 775343225
+      256x256 Tileset_cemetery_map 1_114: -870897175
+      256x256 Tileset_cemetery_map 1_115: -1696241277
+      256x256 Tileset_cemetery_map 1_116: 442800704
+      256x256 Tileset_cemetery_map 1_117: -34373092
+      256x256 Tileset_cemetery_map 1_118: 975692476
+      256x256 Tileset_cemetery_map 1_119: -1334773699
+      256x256 Tileset_cemetery_map 1_12: -1667108414
+      256x256 Tileset_cemetery_map 1_120: 589427033
+      256x256 Tileset_cemetery_map 1_121: -1126289080
+      256x256 Tileset_cemetery_map 1_122: 1379179659
+      256x256 Tileset_cemetery_map 1_123: -19833790
+      256x256 Tileset_cemetery_map 1_124: -1577259143
+      256x256 Tileset_cemetery_map 1_125: -1985369344
+      256x256 Tileset_cemetery_map 1_126: 469455754
+      256x256 Tileset_cemetery_map 1_127: 1234581524
+      256x256 Tileset_cemetery_map 1_128: 1711792021
+      256x256 Tileset_cemetery_map 1_129: 1505249093
+      256x256 Tileset_cemetery_map 1_13: 2064448163
+      256x256 Tileset_cemetery_map 1_130: 726748410
+      256x256 Tileset_cemetery_map 1_131: 1228969305
+      256x256 Tileset_cemetery_map 1_132: -286121363
+      256x256 Tileset_cemetery_map 1_133: -1456218044
+      256x256 Tileset_cemetery_map 1_134: 1107086143
+      256x256 Tileset_cemetery_map 1_135: 1288097104
+      256x256 Tileset_cemetery_map 1_136: 307319811
+      256x256 Tileset_cemetery_map 1_137: 1109149165
+      256x256 Tileset_cemetery_map 1_138: 1163575594
+      256x256 Tileset_cemetery_map 1_139: -955241390
+      256x256 Tileset_cemetery_map 1_14: 252199427
+      256x256 Tileset_cemetery_map 1_140: 1708961898
+      256x256 Tileset_cemetery_map 1_141: 967659555
+      256x256 Tileset_cemetery_map 1_142: -910818405
+      256x256 Tileset_cemetery_map 1_143: 688217195
+      256x256 Tileset_cemetery_map 1_144: -1020615810
+      256x256 Tileset_cemetery_map 1_145: -2004106271
+      256x256 Tileset_cemetery_map 1_146: 416404848
+      256x256 Tileset_cemetery_map 1_147: -409270701
+      256x256 Tileset_cemetery_map 1_148: -903463063
+      256x256 Tileset_cemetery_map 1_149: 897287554
+      256x256 Tileset_cemetery_map 1_15: 1857678841
+      256x256 Tileset_cemetery_map 1_150: 1391016723
+      256x256 Tileset_cemetery_map 1_151: 1581035223
+      256x256 Tileset_cemetery_map 1_152: 111616836
+      256x256 Tileset_cemetery_map 1_153: -515314857
+      256x256 Tileset_cemetery_map 1_154: -1139594808
+      256x256 Tileset_cemetery_map 1_155: 971567875
+      256x256 Tileset_cemetery_map 1_156: -1623863363
+      256x256 Tileset_cemetery_map 1_157: -987836311
+      256x256 Tileset_cemetery_map 1_158: -472734456
+      256x256 Tileset_cemetery_map 1_159: -808171516
+      256x256 Tileset_cemetery_map 1_16: -942525127
+      256x256 Tileset_cemetery_map 1_160: -835292006
+      256x256 Tileset_cemetery_map 1_161: 378921566
+      256x256 Tileset_cemetery_map 1_162: -923487852
+      256x256 Tileset_cemetery_map 1_163: 84577287
+      256x256 Tileset_cemetery_map 1_164: 1840744033
+      256x256 Tileset_cemetery_map 1_165: 129919628
+      256x256 Tileset_cemetery_map 1_166: 1735412354
+      256x256 Tileset_cemetery_map 1_167: -2145296158
+      256x256 Tileset_cemetery_map 1_168: 169106158
+      256x256 Tileset_cemetery_map 1_169: 1318536526
+      256x256 Tileset_cemetery_map 1_17: 1656919605
+      256x256 Tileset_cemetery_map 1_170: 2022763960
+      256x256 Tileset_cemetery_map 1_171: -469400556
+      256x256 Tileset_cemetery_map 1_172: -1388252907
+      256x256 Tileset_cemetery_map 1_173: 589760791
+      256x256 Tileset_cemetery_map 1_174: 1787483763
+      256x256 Tileset_cemetery_map 1_175: 12822628
+      256x256 Tileset_cemetery_map 1_176: 48688464
+      256x256 Tileset_cemetery_map 1_177: 223056408
+      256x256 Tileset_cemetery_map 1_178: -688033560
+      256x256 Tileset_cemetery_map 1_179: 1681660373
+      256x256 Tileset_cemetery_map 1_18: -1939542574
+      256x256 Tileset_cemetery_map 1_180: 533881667
+      256x256 Tileset_cemetery_map 1_181: -688907034
+      256x256 Tileset_cemetery_map 1_182: 1728202252
+      256x256 Tileset_cemetery_map 1_183: 1737253435
+      256x256 Tileset_cemetery_map 1_184: -2069616957
+      256x256 Tileset_cemetery_map 1_185: -404969595
+      256x256 Tileset_cemetery_map 1_186: 705656844
+      256x256 Tileset_cemetery_map 1_187: -1214347926
+      256x256 Tileset_cemetery_map 1_188: 1850660035
+      256x256 Tileset_cemetery_map 1_189: -631209797
+      256x256 Tileset_cemetery_map 1_19: 352065723
+      256x256 Tileset_cemetery_map 1_190: -236234649
+      256x256 Tileset_cemetery_map 1_191: -846084271
+      256x256 Tileset_cemetery_map 1_192: 1326390832
+      256x256 Tileset_cemetery_map 1_193: -799307832
+      256x256 Tileset_cemetery_map 1_194: -16489393
+      256x256 Tileset_cemetery_map 1_195: -1864554508
+      256x256 Tileset_cemetery_map 1_196: 2126605945
+      256x256 Tileset_cemetery_map 1_197: -1294877956
+      256x256 Tileset_cemetery_map 1_198: 266770261
+      256x256 Tileset_cemetery_map 1_199: -125884330
+      256x256 Tileset_cemetery_map 1_2: 782731824
+      256x256 Tileset_cemetery_map 1_20: -2092965491
+      256x256 Tileset_cemetery_map 1_200: -397526503
+      256x256 Tileset_cemetery_map 1_201: -181993237
+      256x256 Tileset_cemetery_map 1_202: -370021183
+      256x256 Tileset_cemetery_map 1_203: -940109842
+      256x256 Tileset_cemetery_map 1_204: -604276851
+      256x256 Tileset_cemetery_map 1_205: -313279547
+      256x256 Tileset_cemetery_map 1_206: 545710666
+      256x256 Tileset_cemetery_map 1_207: 122141472
+      256x256 Tileset_cemetery_map 1_208: -1911091197
+      256x256 Tileset_cemetery_map 1_209: 1578827476
+      256x256 Tileset_cemetery_map 1_21: -134935878
+      256x256 Tileset_cemetery_map 1_210: -1968059188
+      256x256 Tileset_cemetery_map 1_211: 207320035
+      256x256 Tileset_cemetery_map 1_212: 1421592887
+      256x256 Tileset_cemetery_map 1_213: -959813909
+      256x256 Tileset_cemetery_map 1_214: -49926373
+      256x256 Tileset_cemetery_map 1_215: 289399773
+      256x256 Tileset_cemetery_map 1_216: 823087184
+      256x256 Tileset_cemetery_map 1_217: -456678082
+      256x256 Tileset_cemetery_map 1_218: 1248906672
+      256x256 Tileset_cemetery_map 1_219: 167712542
+      256x256 Tileset_cemetery_map 1_22: -1200181960
+      256x256 Tileset_cemetery_map 1_220: 618082915
+      256x256 Tileset_cemetery_map 1_221: -320180503
+      256x256 Tileset_cemetery_map 1_222: -1657520588
+      256x256 Tileset_cemetery_map 1_223: 1616401155
+      256x256 Tileset_cemetery_map 1_224: 1193975212
+      256x256 Tileset_cemetery_map 1_225: -1780322965
+      256x256 Tileset_cemetery_map 1_226: -1777495402
+      256x256 Tileset_cemetery_map 1_227: 117839791
+      256x256 Tileset_cemetery_map 1_228: -883447680
+      256x256 Tileset_cemetery_map 1_229: -1089293557
+      256x256 Tileset_cemetery_map 1_23: -386358679
+      256x256 Tileset_cemetery_map 1_230: -488737920
+      256x256 Tileset_cemetery_map 1_231: 1990207052
+      256x256 Tileset_cemetery_map 1_232: 244633701
+      256x256 Tileset_cemetery_map 1_233: -1306367551
+      256x256 Tileset_cemetery_map 1_234: -598632234
+      256x256 Tileset_cemetery_map 1_235: 2094061495
+      256x256 Tileset_cemetery_map 1_236: 544863486
+      256x256 Tileset_cemetery_map 1_237: -1573160169
+      256x256 Tileset_cemetery_map 1_238: 107103069
+      256x256 Tileset_cemetery_map 1_239: 248846382
+      256x256 Tileset_cemetery_map 1_24: 843496389
+      256x256 Tileset_cemetery_map 1_240: 1536174730
+      256x256 Tileset_cemetery_map 1_241: -474803541
+      256x256 Tileset_cemetery_map 1_242: 769277877
+      256x256 Tileset_cemetery_map 1_243: -1924768572
+      256x256 Tileset_cemetery_map 1_244: 1214841743
+      256x256 Tileset_cemetery_map 1_245: 2143989416
+      256x256 Tileset_cemetery_map 1_246: -305535739
+      256x256 Tileset_cemetery_map 1_247: 1562753339
+      256x256 Tileset_cemetery_map 1_248: 873713457
+      256x256 Tileset_cemetery_map 1_249: 2004425997
+      256x256 Tileset_cemetery_map 1_25: -197138889
+      256x256 Tileset_cemetery_map 1_250: -1580101711
+      256x256 Tileset_cemetery_map 1_251: 31565239
+      256x256 Tileset_cemetery_map 1_252: -281798993
+      256x256 Tileset_cemetery_map 1_253: -413242857
+      256x256 Tileset_cemetery_map 1_254: -1207958075
+      256x256 Tileset_cemetery_map 1_255: 1126191294
+      256x256 Tileset_cemetery_map 1_256: 65705635
+      256x256 Tileset_cemetery_map 1_257: 1653785918
+      256x256 Tileset_cemetery_map 1_258: 1839561934
+      256x256 Tileset_cemetery_map 1_259: -1339782269
+      256x256 Tileset_cemetery_map 1_26: -1775479561
+      256x256 Tileset_cemetery_map 1_260: 879070421
+      256x256 Tileset_cemetery_map 1_261: -252225132
+      256x256 Tileset_cemetery_map 1_262: 1556334982
+      256x256 Tileset_cemetery_map 1_263: -393208875
+      256x256 Tileset_cemetery_map 1_264: 1572415231
+      256x256 Tileset_cemetery_map 1_265: -336131429
+      256x256 Tileset_cemetery_map 1_266: 399879245
+      256x256 Tileset_cemetery_map 1_267: 245622444
+      256x256 Tileset_cemetery_map 1_268: 394644127
+      256x256 Tileset_cemetery_map 1_269: 2117391865
+      256x256 Tileset_cemetery_map 1_27: -1880754097
+      256x256 Tileset_cemetery_map 1_270: 1265518385
+      256x256 Tileset_cemetery_map 1_271: 1486875159
+      256x256 Tileset_cemetery_map 1_272: 277927260
+      256x256 Tileset_cemetery_map 1_273: 1907014171
+      256x256 Tileset_cemetery_map 1_274: -1755710000
+      256x256 Tileset_cemetery_map 1_275: -1636344433
+      256x256 Tileset_cemetery_map 1_276: 1267956862
+      256x256 Tileset_cemetery_map 1_277: -88477964
+      256x256 Tileset_cemetery_map 1_278: -1709759324
+      256x256 Tileset_cemetery_map 1_279: -159445002
+      256x256 Tileset_cemetery_map 1_28: 262517554
+      256x256 Tileset_cemetery_map 1_280: -1585525721
+      256x256 Tileset_cemetery_map 1_281: 1746008070
+      256x256 Tileset_cemetery_map 1_282: 1341825718
+      256x256 Tileset_cemetery_map 1_283: -1185933648
+      256x256 Tileset_cemetery_map 1_284: 1295605192
+      256x256 Tileset_cemetery_map 1_285: -1694905310
+      256x256 Tileset_cemetery_map 1_286: 994858327
+      256x256 Tileset_cemetery_map 1_287: -792576321
+      256x256 Tileset_cemetery_map 1_288: 649320003
+      256x256 Tileset_cemetery_map 1_289: -1305481060
+      256x256 Tileset_cemetery_map 1_29: -813314100
+      256x256 Tileset_cemetery_map 1_290: 1173082796
+      256x256 Tileset_cemetery_map 1_291: -769887426
+      256x256 Tileset_cemetery_map 1_292: 782460542
+      256x256 Tileset_cemetery_map 1_293: 582037963
+      256x256 Tileset_cemetery_map 1_294: 1431698711
+      256x256 Tileset_cemetery_map 1_295: -2055456305
+      256x256 Tileset_cemetery_map 1_296: -376289496
+      256x256 Tileset_cemetery_map 1_297: 1458383386
+      256x256 Tileset_cemetery_map 1_298: 552254880
+      256x256 Tileset_cemetery_map 1_299: -1444333526
+      256x256 Tileset_cemetery_map 1_3: -2133507757
+      256x256 Tileset_cemetery_map 1_30: 1528912507
+      256x256 Tileset_cemetery_map 1_300: -776809462
+      256x256 Tileset_cemetery_map 1_301: 96651183
+      256x256 Tileset_cemetery_map 1_302: -814704485
+      256x256 Tileset_cemetery_map 1_303: 274942837
+      256x256 Tileset_cemetery_map 1_304: -2087540959
+      256x256 Tileset_cemetery_map 1_305: 2138178098
+      256x256 Tileset_cemetery_map 1_306: 1176767259
+      256x256 Tileset_cemetery_map 1_307: -286779822
+      256x256 Tileset_cemetery_map 1_308: -1550604913
+      256x256 Tileset_cemetery_map 1_309: 1079649922
+      256x256 Tileset_cemetery_map 1_31: -1675946354
+      256x256 Tileset_cemetery_map 1_310: -1812027660
+      256x256 Tileset_cemetery_map 1_311: 677118822
+      256x256 Tileset_cemetery_map 1_312: -1159392709
+      256x256 Tileset_cemetery_map 1_313: 958086526
+      256x256 Tileset_cemetery_map 1_314: 1054094911
+      256x256 Tileset_cemetery_map 1_315: -52638782
+      256x256 Tileset_cemetery_map 1_316: -222030370
+      256x256 Tileset_cemetery_map 1_317: 1832687538
+      256x256 Tileset_cemetery_map 1_318: -673394672
+      256x256 Tileset_cemetery_map 1_319: -1783319690
+      256x256 Tileset_cemetery_map 1_32: 1917061497
+      256x256 Tileset_cemetery_map 1_320: 828306520
+      256x256 Tileset_cemetery_map 1_321: 317991085
+      256x256 Tileset_cemetery_map 1_322: 745149069
+      256x256 Tileset_cemetery_map 1_323: -321371343
+      256x256 Tileset_cemetery_map 1_324: -1753048347
+      256x256 Tileset_cemetery_map 1_325: -1400775685
+      256x256 Tileset_cemetery_map 1_326: 1894335048
+      256x256 Tileset_cemetery_map 1_327: 711949062
+      256x256 Tileset_cemetery_map 1_328: 1843514736
+      256x256 Tileset_cemetery_map 1_329: 1180254908
+      256x256 Tileset_cemetery_map 1_33: -705435476
+      256x256 Tileset_cemetery_map 1_330: -1236815515
+      256x256 Tileset_cemetery_map 1_331: -587116346
+      256x256 Tileset_cemetery_map 1_332: 1489499301
+      256x256 Tileset_cemetery_map 1_333: -766866212
+      256x256 Tileset_cemetery_map 1_334: -674262377
+      256x256 Tileset_cemetery_map 1_335: 814292447
+      256x256 Tileset_cemetery_map 1_336: -914839074
+      256x256 Tileset_cemetery_map 1_337: -1252678937
+      256x256 Tileset_cemetery_map 1_338: -2082419910
+      256x256 Tileset_cemetery_map 1_339: -1328968224
+      256x256 Tileset_cemetery_map 1_34: -1815695897
+      256x256 Tileset_cemetery_map 1_340: 1141069824
+      256x256 Tileset_cemetery_map 1_341: 735811747
+      256x256 Tileset_cemetery_map 1_342: 184548969
+      256x256 Tileset_cemetery_map 1_343: 982570580
+      256x256 Tileset_cemetery_map 1_344: -1724561395
+      256x256 Tileset_cemetery_map 1_345: 1565771481
+      256x256 Tileset_cemetery_map 1_346: -1241841945
+      256x256 Tileset_cemetery_map 1_347: -266859404
+      256x256 Tileset_cemetery_map 1_348: -162091081
+      256x256 Tileset_cemetery_map 1_349: 1086240839
+      256x256 Tileset_cemetery_map 1_35: 216442448
+      256x256 Tileset_cemetery_map 1_350: 552430608
+      256x256 Tileset_cemetery_map 1_351: 745291933
+      256x256 Tileset_cemetery_map 1_352: -368858200
+      256x256 Tileset_cemetery_map 1_353: 720588497
+      256x256 Tileset_cemetery_map 1_354: 62031122
+      256x256 Tileset_cemetery_map 1_355: -718643166
+      256x256 Tileset_cemetery_map 1_356: -1264392517
+      256x256 Tileset_cemetery_map 1_357: -1754463543
+      256x256 Tileset_cemetery_map 1_358: 1468954631
+      256x256 Tileset_cemetery_map 1_359: 118295565
+      256x256 Tileset_cemetery_map 1_36: 463586156
+      256x256 Tileset_cemetery_map 1_360: 1265843060
+      256x256 Tileset_cemetery_map 1_361: 1248693532
+      256x256 Tileset_cemetery_map 1_362: 606398137
+      256x256 Tileset_cemetery_map 1_363: 1994159962
+      256x256 Tileset_cemetery_map 1_364: 438162269
+      256x256 Tileset_cemetery_map 1_37: 405236305
+      256x256 Tileset_cemetery_map 1_38: -1787293123
+      256x256 Tileset_cemetery_map 1_39: -172258227
+      256x256 Tileset_cemetery_map 1_4: 925012456
+      256x256 Tileset_cemetery_map 1_40: 1724314796
+      256x256 Tileset_cemetery_map 1_41: -1151922584
+      256x256 Tileset_cemetery_map 1_42: -17858240
+      256x256 Tileset_cemetery_map 1_43: 7589292
+      256x256 Tileset_cemetery_map 1_44: -1590792059
+      256x256 Tileset_cemetery_map 1_45: 1622760691
+      256x256 Tileset_cemetery_map 1_46: -1134279936
+      256x256 Tileset_cemetery_map 1_47: 560912071
+      256x256 Tileset_cemetery_map 1_48: 1520721915
+      256x256 Tileset_cemetery_map 1_49: -2006827212
+      256x256 Tileset_cemetery_map 1_5: 339508703
+      256x256 Tileset_cemetery_map 1_50: -343601116
+      256x256 Tileset_cemetery_map 1_51: -358416052
+      256x256 Tileset_cemetery_map 1_52: -495272490
+      256x256 Tileset_cemetery_map 1_53: 619231711
+      256x256 Tileset_cemetery_map 1_54: -1653210427
+      256x256 Tileset_cemetery_map 1_55: 443418241
+      256x256 Tileset_cemetery_map 1_56: 554864851
+      256x256 Tileset_cemetery_map 1_57: 546073146
+      256x256 Tileset_cemetery_map 1_58: 1034195512
+      256x256 Tileset_cemetery_map 1_59: 245433730
+      256x256 Tileset_cemetery_map 1_6: -1627175687
+      256x256 Tileset_cemetery_map 1_60: 2065438974
+      256x256 Tileset_cemetery_map 1_61: -1968923804
+      256x256 Tileset_cemetery_map 1_62: -1579208535
+      256x256 Tileset_cemetery_map 1_63: -75029481
+      256x256 Tileset_cemetery_map 1_64: 325560587
+      256x256 Tileset_cemetery_map 1_65: -828488470
+      256x256 Tileset_cemetery_map 1_66: 831680469
+      256x256 Tileset_cemetery_map 1_67: -1926742097
+      256x256 Tileset_cemetery_map 1_68: 313756272
+      256x256 Tileset_cemetery_map 1_69: 974060403
+      256x256 Tileset_cemetery_map 1_7: 928792468
+      256x256 Tileset_cemetery_map 1_70: 411987977
+      256x256 Tileset_cemetery_map 1_71: -133836130
+      256x256 Tileset_cemetery_map 1_72: -772409093
+      256x256 Tileset_cemetery_map 1_73: -961996646
+      256x256 Tileset_cemetery_map 1_74: -2097829390
+      256x256 Tileset_cemetery_map 1_75: -422051566
+      256x256 Tileset_cemetery_map 1_76: 1177652275
+      256x256 Tileset_cemetery_map 1_77: -1378717594
+      256x256 Tileset_cemetery_map 1_78: -1366946130
+      256x256 Tileset_cemetery_map 1_79: -1278240360
+      256x256 Tileset_cemetery_map 1_8: 895386488
+      256x256 Tileset_cemetery_map 1_80: -2122233269
+      256x256 Tileset_cemetery_map 1_81: 686863243
+      256x256 Tileset_cemetery_map 1_82: 1818845308
+      256x256 Tileset_cemetery_map 1_83: 1199895941
+      256x256 Tileset_cemetery_map 1_84: 960317347
+      256x256 Tileset_cemetery_map 1_85: 1567806350
+      256x256 Tileset_cemetery_map 1_86: -953297827
+      256x256 Tileset_cemetery_map 1_87: -1497312470
+      256x256 Tileset_cemetery_map 1_88: 1745815649
+      256x256 Tileset_cemetery_map 1_89: 1323864824
+      256x256 Tileset_cemetery_map 1_9: -1796580118
+      256x256 Tileset_cemetery_map 1_90: 541086481
+      256x256 Tileset_cemetery_map 1_91: -49754399
+      256x256 Tileset_cemetery_map 1_92: 801805325
+      256x256 Tileset_cemetery_map 1_93: 759364501
+      256x256 Tileset_cemetery_map 1_94: 1330747407
+      256x256 Tileset_cemetery_map 1_95: 1242118042
+      256x256 Tileset_cemetery_map 1_96: 2080633649
+      256x256 Tileset_cemetery_map 1_97: 178486964
+      256x256 Tileset_cemetery_map 1_98: 826957123
+      256x256 Tileset_cemetery_map 1_99: 533076285
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
