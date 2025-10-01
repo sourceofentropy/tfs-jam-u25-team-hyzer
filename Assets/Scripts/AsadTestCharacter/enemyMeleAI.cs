@@ -28,28 +28,47 @@ public class EnemyAI : MonoBehaviour
     public EnemyState debugState;
 
     [Header("Attack Settings")]
-    public float attackCooldown = 1f; // seconds between attacks
+    public float attackCooldown = 1f;
     private float attackCooldownTimer = 0f;
 
+    [Header("Fear Settings")]
     public FearedState fearedState;
     public DamagePlayer damagePlayer;
+
+    // reference to the player's state script
+    private TestingPlayerController playerController;
 
     private void Start()
     {
         currentState = EnemyState.Patrol;
         currentPatrolIndex = 0;
         waitCounter = waitTime;
+
+        if (player != null)
+            playerController = player.GetComponent<TestingPlayerController>();
     }
 
     private void Update()
     {
         debugState = currentState;
 
+        // 🔥 Rage check → Feared
+        if (playerController != null)
+        {
+            if (playerController.currentState == TestingPlayerController.PlayerState.Rage)
+            {
+                SetFeared(true);
+            }
+            else if (currentState == EnemyState.Feared)
+            {
+                // if player leaves Rage, return to Wait
+                SetFeared(false);
+            }
+        }
+
         // Handle attack cooldown timer
         if (attackCooldownTimer > 0f)
-        {
             attackCooldownTimer -= Time.deltaTime;
-        }
 
         switch (currentState)
         {
@@ -61,13 +80,9 @@ public class EnemyAI : MonoBehaviour
 
         // handle direction change for sprite facing
         if (rb.linearVelocity.x < 0)
-        {
             transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
         else if (rb.linearVelocity.x > 0)
-        {
             transform.localScale = Vector3.one;
-        }
 
         // -------- EXTRA: Force attack if player is inside cone --------
         if (coneDetection != null && currentState != EnemyState.Feared)
@@ -99,9 +114,7 @@ public class EnemyAI : MonoBehaviour
         {
             coneDetection.SetPatrolIndex(currentPatrolIndex);
             if (coneDetection.PlayerInCone(false))
-            {
                 ChangeState(EnemyState.Attack);
-            }
         }
     }
 
@@ -130,7 +143,6 @@ public class EnemyAI : MonoBehaviour
             {
                 if (damagePlayer != null)
                 {
-                    // Calculate how much damage will be dealt
                     int finalDamage = damagePlayer.damageAmount;
 
                     if (damagePlayer.FS != null)
@@ -145,11 +157,10 @@ public class EnemyAI : MonoBehaviour
                     Debug.LogWarning("DamagePlayer reference missing on EnemyAI!");
                 }
 
-                attackCooldownTimer = attackCooldown; // reset cooldown
+                attackCooldownTimer = attackCooldown;
             }
         }
     }
-
 
     private void Wait()
     {
@@ -166,9 +177,7 @@ public class EnemyAI : MonoBehaviour
         {
             coneDetection.SetPatrolIndex(currentPatrolIndex);
             if (coneDetection.PlayerInCone(true))
-            {
                 ChangeState(EnemyState.Attack);
-            }
         }
     }
 
@@ -176,7 +185,6 @@ public class EnemyAI : MonoBehaviour
     {
         Debug.Log("Enemy is feared");
 
-        // Make sure fear script is active while feared
         if (fearedState != null && !fearedState.enabled)
             fearedState.enabled = true;
     }
@@ -187,12 +195,11 @@ public class EnemyAI : MonoBehaviour
     {
         if (currentState == newState) return;
 
-        // If leaving feared state, disable the fear behaviour
         if (currentState == EnemyState.Feared && fearedState != null)
             fearedState.enabled = false;
 
         currentState = newState;
-        rb.linearVelocity = Vector2.zero; // stop on state change
+        rb.linearVelocity = Vector2.zero;
         Debug.Log($"<color=red>Enemy State Changed To: {newState}</color>");
     }
 

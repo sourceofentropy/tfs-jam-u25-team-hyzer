@@ -379,16 +379,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246901998}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c32629d4051fbc44c83cc2138a98d3c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   doLessDamage: 0
-  increaseDamage: 1
-  nothingModifier: 0
-  runAwayFromPlayer: 0
-  attackSpeedBonus: 1
+  increaseDamage: 0
+  nothingModifier: 1
+  runAwayFromPlayer: 1
+  attackSpeedBonus: 0
   stunned: 0
   nothingBehaviour: 0
   damageModifier: 2
@@ -599,13 +599,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477198214}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: -1.07, z: 10.904303}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 75.34611, y: 2.0375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 298859805}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1977638302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &477198216
 BoxCollider2D:
@@ -677,12 +677,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614989999}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7685574, y: 0.62934893, z: 10.904303}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7085574, y: 1.6993489, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1977638302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &852969223
 GameObject:
@@ -1119,7 +1119,7 @@ MonoBehaviour:
   rageSpeed: 8
   jumpForce: 7
   rageJumpForce: 11
-  rageDuration: 15
+  rageDuration: 5
   maxRage: 3
   rageBar: 2
   disguiseDuration: 10
@@ -1347,6 +1347,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7353159758835859422, guid: 78c5843fcb763544c81d3168c763621d, type: 3}
   m_PrefabInstance: {fileID: 1605918664}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1977638301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1977638302}
+  m_Layer: 0
+  m_Name: Floor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1977638302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977638301}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.06, y: -1.07, z: 10.904303}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 614990000}
+  - {fileID: 477198215}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2884503564860363964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1409,8 +1442,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1323382230}
-  - {fileID: 614990000}
-  - {fileID: 477198215}
+  - {fileID: 1977638302}
   - {fileID: 246902000}
   - {fileID: 1047886791}
   - {fileID: 852969224}
