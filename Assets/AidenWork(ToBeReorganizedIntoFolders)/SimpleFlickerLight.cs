@@ -1,11 +1,11 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal; // for Light2D
 
-[RequireComponent(typeof(Light))]
-public class SimpleFlickerLight : MonoBehaviour
+public class SimpleFlickerLight2D : MonoBehaviour
 {
     [Header("Light State")]
     [SerializeField] private bool isOn = true;
-    [SerializeField] private Light lightSource;
+    [SerializeField] private Light2D lightSource;
     [SerializeField] private Animator animator;
 
     [Header("Light Animation States (Optional)")]
@@ -14,7 +14,7 @@ public class SimpleFlickerLight : MonoBehaviour
 
     [Header("Base Settings")]
     [SerializeField] private float intensityBase = 1f;
-    [SerializeField] private float rangeBase = 5f;
+    [SerializeField] private float radiusBase = 5f; // 2D lights use radius instead of range
 
     [Header("Fade Settings")]
     [SerializeField] private float fadeSpeed = 3f;
@@ -22,17 +22,17 @@ public class SimpleFlickerLight : MonoBehaviour
     [Header("Flicker Settings")]
     [Tooltip("Set variation to 0 for no flicker.")]
     [SerializeField] private float intensityVariation = 0.2f;
-    [SerializeField] private float rangeVariation = 0.5f;
+    [SerializeField] private float radiusVariation = 0.5f;
     [SerializeField] private float flickerSpeed = 2f;
 
     private float targetIntensity;
-    private float targetRange;
+    private float targetRadius;
     private float noiseSeed;
 
     void Awake()
     {
         if (lightSource == null)
-            lightSource = GetComponent<Light>();
+            lightSource = GetComponent<Light2D>();
         if (animator == null)
             animator = GetComponent<Animator>();
 
@@ -46,7 +46,7 @@ public class SimpleFlickerLight : MonoBehaviour
 
         // Smoothly fade to target values
         lightSource.intensity = Mathf.MoveTowards(lightSource.intensity, targetIntensity, Time.deltaTime * fadeSpeed);
-        lightSource.range = Mathf.MoveTowards(lightSource.range, targetRange, Time.deltaTime * fadeSpeed);
+        lightSource.pointLightOuterRadius = Mathf.MoveTowards(lightSource.pointLightOuterRadius, targetRadius, Time.deltaTime * fadeSpeed);
 
         if (isOn)
             UpdateFlicker();
@@ -65,26 +65,26 @@ public class SimpleFlickerLight : MonoBehaviour
         if (!isOn)
         {
             targetIntensity = 0f;
-            targetRange = 0f;
+            targetRadius = 0f;
         }
         else
         {
             targetIntensity = intensityBase;
-            targetRange = rangeBase;
+            targetRadius = radiusBase;
         }
     }
 
     private void UpdateFlicker()
     {
-        if (intensityVariation <= 0f && rangeVariation <= 0f)
+        if (intensityVariation <= 0f && radiusVariation <= 0f)
             return;
 
         float noise = Mathf.PerlinNoise(Time.time * flickerSpeed, noiseSeed);
         float intensityFlicker = Mathf.Lerp(-intensityVariation, intensityVariation, noise);
-        float rangeFlicker = Mathf.Lerp(-rangeVariation, rangeVariation, noise);
+        float radiusFlicker = Mathf.Lerp(-radiusVariation, radiusVariation, noise);
 
         targetIntensity = intensityBase + intensityFlicker;
-        targetRange = rangeBase + rangeFlicker;
+        targetRadius = radiusBase + radiusFlicker;
     }
 
     public void TurnOn()
