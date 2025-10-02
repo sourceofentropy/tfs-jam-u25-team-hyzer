@@ -2628,7 +2628,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Mechanics
+  m_text: Game Mechanics
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6f3bf377ad7fd44fad26639d0697ff5, type: 2}
   m_sharedMaterial: {fileID: 6275139695996085520, guid: d6f3bf377ad7fd44fad26639d0697ff5, type: 2}
@@ -2724,7 +2724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1409240568
 RectTransform:
   m_ObjectHideFlags: 0
