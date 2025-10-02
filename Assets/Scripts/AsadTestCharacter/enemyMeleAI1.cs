@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI2 : MonoBehaviour
 {
     public enum EnemyState { Patrol, Attack, Wait, Feared }
     private EnemyState currentState;
