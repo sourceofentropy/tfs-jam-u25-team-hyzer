@@ -52,8 +52,13 @@ public class PlayerController : MonoBehaviour
     private float groundCheckSize = 0.2f;
 
     [Header("Enemy Detection")]
+    //for rage detection(?)
     public float enemyCheckRadius = 1.5f;
     public string enemyTag = "Enemy";
+
+    [Header("Execution Sensor")]
+    private Vector2 sensorPos;
+    Vector2 sensorSize = new Vector2(1f, 1f); // width/height of sensor area
 
     public Animator anim;
 
@@ -94,9 +99,24 @@ public class PlayerController : MonoBehaviour
         abilities = GetComponent<PlayerAbilityTracker>();
         hider = GetComponent<PlayerHider>();
         canMove = true;
+        sensorPos = (Vector2)transform.position;
 
     }
 
+    private void FixedUpdate()
+    {
+        if (hider.IsHidden)
+        {
+            Collider2D hit = Physics2D.OverlapBox(sensorPos, sensorSize, 0f, LayerMask.GetMask("Enemy"));
+            if (hit != null)
+            {
+                Debug.Log("Enemy in front detected!");
+                //change enemy execution state
+                EnemyPatroller enemy = hit.GetComponent<EnemyPatroller>();
+                MarkEnemyForExecution(enemy);
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -403,6 +423,7 @@ public class PlayerController : MonoBehaviour
     {
         if(hider.IsHidden && other.gameObject.CompareTag("Enemy"))
         {            
+
             EnemyPatroller enemyController = other.gameObject.GetComponent<EnemyPatroller>();
             if (enemyController.isReadyForHarvest)
             {

@@ -12234,6 +12234,22 @@ PrefabInstance:
       propertyPath: PC
       value: 
       objectReference: {fileID: 1189873712}
+    - target: {fileID: 2968594867881520790, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
+      propertyPath: haloDefaultColour.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968594867881520790, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
+      propertyPath: haloDefaultColour.g
+      value: 0.45499295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968594867881520790, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
+      propertyPath: haloDefaultColour.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967997413479163115, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.42168975
+      objectReference: {fileID: 0}
     - target: {fileID: 5439958984768624442, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
       propertyPath: m_Name
       value: Cultist
