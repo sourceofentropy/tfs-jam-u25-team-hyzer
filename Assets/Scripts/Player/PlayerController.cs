@@ -58,7 +58,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Execution Sensor")]
     private Vector2 sensorPos;
-    Vector2 sensorSize = new Vector2(1f, 1f); // width/height of sensor area
+    Vector2 sensorSize = new Vector2(1f, 1f); // width/height of sensor area    
+    private HashSet<EnemyPatroller> executableEnemiesInRange = new HashSet<EnemyPatroller>();
+    public LayerMask enemyLayer;
 
     public Animator anim;
 
@@ -105,18 +107,66 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        HashSet<EnemyPatroller> currentFrameEnemies = new HashSet<EnemyPatroller>();
+
         if (hider.IsHidden)
         {
-            Collider2D hit = Physics2D.OverlapBox(sensorPos, sensorSize, 0f, LayerMask.GetMask("Enemy"));
-            if (hit != null)
+            Collider2D[] hits = Physics2D.OverlapBoxAll(sensorPos, sensorSize, 0f, enemyLayer); //multiple targets
+            currentFrameEnemies = new HashSet<EnemyPatroller>();
+            foreach (var hit in hits)
             {
-                Debug.Log("Enemy in front detected!");
-                //change enemy execution state
                 EnemyPatroller enemy = hit.GetComponent<EnemyPatroller>();
-                MarkEnemyForExecution(enemy);
+                if (enemy != null)
+                {
+                    currentFrameEnemies.Add(enemy);
+
+                    // New enemy entered this frame
+                    if (!executableEnemiesInRange.Contains(enemy))
+                    {
+                        Debug.Log("Enemy ENTERED: " + enemy.name);
+                        MarkEnemyForExecution(enemy);
+                    }
+                }
+
+                /*Collider2D hit = Physics2D.OverlapBox(sensorPos, sensorSize, 0f, LayerMask.GetMask("Enemy")); 
+                if (hit != null)
+                {
+                    Debug.Log("Enemy in front detected!");
+                    //change enemy execution state
+                    EnemyPatroller enemy = hit.GetComponent<EnemyPatroller>();
+                    MarkEnemyForExecution(enemy);
+                }*/
             }
+
+            /* this isn't working so let's leave them marked
+            // Check for enemies that exited
+            foreach (var enemy in executableEnemiesInRange)
+            {
+                if (!currentFrameEnemies.Contains(enemy))
+                {
+                    Debug.Log("Enemy EXITED: " + enemy.name);
+                    UnMarkEnemyForExecution(enemy);
+                }
+            }
+            */
+        } else if (!hider.IsHidden && executableEnemiesInRange.Count > 0)
+        {
+            /* this isn't working so let's leave them marked
+            // Remove effect from enemies that exited
+            foreach (var enemy in executableEnemiesInRange)
+            {
+                if (!currentFrameEnemies.Contains(enemy))
+                {
+                    UnMarkEnemyForExecution(enemy);
+                }
+            }
+            */
+            // Update tracking set
+            executableEnemiesInRange = currentFrameEnemies;
         }
+
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -398,12 +448,6 @@ public class PlayerController : MonoBehaviour
         return currentState;
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, enemyCheckRadius);
-    }
-
     public bool IsMovingLeft()
     {
         return rb.linearVelocity.x < -0.1f;
@@ -465,4 +509,14 @@ public class PlayerController : MonoBehaviour
         enemyController.DeactivateExecuteHalo();
         enemyController.isReadyForExecute = false;
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, enemyCheckRadius);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(sensorPos, sensorSize);
+    }
+
 }
