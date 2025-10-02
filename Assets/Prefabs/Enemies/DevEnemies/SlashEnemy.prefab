@@ -367,8 +367,6 @@ MonoBehaviour:
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   rightPatrolBarrier: {fileID: 0}
   leftPatrolBarrier: {fileID: 0}
   rb: {fileID: 3983390540772954732}
@@ -394,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32629d4051fbc44c83cc2138a98d3c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   Weak: 0
   Emboldened: 0
   nothingModifier: 1
