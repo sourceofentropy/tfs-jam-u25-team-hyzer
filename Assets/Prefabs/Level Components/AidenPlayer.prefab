@@ -321,10 +321,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4539d75974b6754a9cf781b1344cc70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 8865355478758606971}
-  spriteRenderer: {fileID: 0}
   currentState: 0
   disguiseMode: 0
+  rb: {fileID: 8865355478758606971}
+  spriteRenderer: {fileID: 0}
   baseMoveSpeed: 8
   currentMoveSpeed: 8
   disguiseSpeed: 2.5
@@ -410,6 +410,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f58a3255e382e409b2cc5bbfc91088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sensorSize: {x: 1, y: 1}
+  sensorOffset: {x: 0, y: 0}
+  interactableMask:
+    serializedVersion: 2
+    m_Bits: 0
+  showDebugLogs: 1
 --- !u!114 &3392905057962992984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +429,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiddenLayerName: HiddenPlayer
+  playerSpriteTransform: {fileID: 0}
+  playerSpriteRenderer: {fileID: 0}
 --- !u!1 &8865355478867766948
 GameObject:
   m_ObjectHideFlags: 0
