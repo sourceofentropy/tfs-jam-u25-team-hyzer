@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 6407944761886116034}
   - component: {fileID: 1167848457292621907}
   m_Layer: 0
-  m_Name: Citizen
+  m_Name: Cultist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
