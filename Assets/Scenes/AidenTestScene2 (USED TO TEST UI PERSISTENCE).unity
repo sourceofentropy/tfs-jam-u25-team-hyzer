@@ -457,9 +457,9 @@ MonoBehaviour:
   playerSpawnPoint: {fileID: 564128803}
   playerStartPoint: {fileID: 1751448468}
   movePlayerSpeed: 10
-  destinationLevel: AidenTestScene
+  destinationLevel: DanaBoss1
   doorID: 2
-  nextRoomDoorID: 3
+  nextRoomDoorID: 1
   doorType: 0
 --- !u!1001 &353398903
 PrefabInstance:
