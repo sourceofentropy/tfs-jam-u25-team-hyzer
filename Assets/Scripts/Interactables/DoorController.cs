@@ -21,13 +21,24 @@ public class DoorController : MonoBehaviour
 
     public string destinationLevel;
 
+    public int doorID = 0;
+    public int nextRoomDoorID;
+
+    public enum DoorType
+    {
+        Horizontal,
+        Vertical
+    }
+    public DoorType doorType = DoorType.Horizontal;
+
     // Start is called before the first frame update
     void Start()
     {
+
         player = PlayerHealthController.instance.GetComponent<PlayerController>();
         Debug.Log("does this play on scene start?");
         
-
+        //if((player.nextDoorPosition == doorPosition))
         UIController.instance.StartFadeFromBlack();
 
         RespawnController.instance.SetSpawn(playerSpawnPoint.position);
@@ -38,7 +49,19 @@ public class DoorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!playerEntering)
+        if (doorType == DoorType.Horizontal)
+        {
+            HandleHorizontalDoor();
+        }
+        else if (doorType == DoorType.Vertical)
+        {
+            HandleVerticalDoor();
+        }
+    }
+
+    public void HandleHorizontalDoor()
+    {
+        if (!playerEntering)
         {
             //this tutorial wants to call this on every frame? let's come back to this later and add an additional trigger for the door sensor
             if (Vector3.Distance(transform.position, player.transform.position) < distanceToOpen)
@@ -51,10 +74,11 @@ public class DoorController : MonoBehaviour
             }
         }
 
-        if (playerEntering)
+        if (playerEntering && player.nextRoomDoorID == doorID)
         {
             player.transform.position = Vector3.MoveTowards(player.transform.position, playerStartPoint.position, movePlayerSpeed * Time.deltaTime);
-            if (Vector2.Distance(player.transform.position, playerStartPoint.position) < 0.1) {
+            if (Vector2.Distance(player.transform.position, playerStartPoint.position) < 0.1)
+            {
                 playerEntering = false;
                 player.canMove = true;
                 player.anim.enabled = true;
@@ -64,12 +88,17 @@ public class DoorController : MonoBehaviour
 
         if (playerExiting)
         {
+            player.nextRoomDoorID = nextRoomDoorID;
             player.transform.position = Vector3.MoveTowards(player.transform.position, exitPoint.position, movePlayerSpeed * Time.deltaTime);
+
         }
 
-        
     }
 
+    public void HandleVerticalDoor()
+    {
+
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(playerEntering)
