@@ -398,4 +398,29 @@ public class PlayerController : MonoBehaviour
     {
         return hider.IsHidden;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(hider.IsHidden)
+        {
+
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (hider.IsHidden)
+        {
+
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (hider.IsHidden)
+        {
+
+        }
+    }
+
 }
