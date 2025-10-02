@@ -48,7 +48,7 @@ public class PlayerAnimsController : MonoBehaviour
         float verticalVelocity = pc.rb.linearVelocity.y;
         animator.SetFloat("VerticalVelocity", verticalVelocity);
 
-        if (isMoving)
+        if (isMoving || Input.GetMouseButtonDown(0))
         {
             idleTimer = 0f; // Reset idle timer when moving
             animator.SetBool("IsIdleLong", true);
