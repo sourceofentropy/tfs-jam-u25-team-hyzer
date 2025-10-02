@@ -3,24 +3,35 @@ using UnityEngine;
 public class PlayerInteractionController : MonoBehaviour
 {
     private IInteractable currentInteractable;
+    private PlayerController player;
 
+    public void Start()
+    {
+        player = GameManager.Instance.PlayerInstance;
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
-        IInteractable interactable = other.GetComponent<IInteractable>();
-        if (interactable != null)
+        if(player.currentState == PlayerController.PlayerState.Regular)
         {
-            currentInteractable = interactable;
-            InteractionPrompt.Instance?.Show(interactable.GetOptions());
+            IInteractable interactable = other.GetComponent<IInteractable>();
+            if (interactable != null)
+            {
+                currentInteractable = interactable;
+                InteractionPrompt.Instance?.Show(interactable.GetOptions());
+            }
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        IInteractable interactable = other.GetComponent<IInteractable>();
-        if (interactable != null && interactable == currentInteractable)
+        if (player.currentState == PlayerController.PlayerState.Regular)
         {
-            currentInteractable = null;
-            InteractionPrompt.Instance?.Hide();
+            IInteractable interactable = other.GetComponent<IInteractable>();
+            if (interactable != null && interactable == currentInteractable)
+            {
+                currentInteractable = null;
+                InteractionPrompt.Instance?.Hide();
+            }
         }
     }
 
