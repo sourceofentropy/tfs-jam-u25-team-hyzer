@@ -9081,10 +9081,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3819979931699131296, guid: 8ecebdebfaa85f94fb361ebcc275931b, type: 3}
-      propertyPath: attackSensorSize.x
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6075103606357878576, guid: 8ecebdebfaa85f94fb361ebcc275931b, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -9105,10 +9101,6 @@ PrefabInstance:
       propertyPath: FS
       value: 
       objectReference: {fileID: 1741392041}
-    - target: {fileID: 7534569380719998709, guid: 8ecebdebfaa85f94fb361ebcc275931b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12298,14 +12290,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7458184448804725710, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7946379293298709223, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
-      propertyPath: audioSource
-      value: 
-      objectReference: {fileID: 3821047547015802556}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12314,11 +12298,6 @@ PrefabInstance:
 --- !u!4 &3821047547015802551 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5939498389834917428, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
-  m_PrefabInstance: {fileID: 3821047547015802550}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &3821047547015802556 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7458184448804725710, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
   m_PrefabInstance: {fileID: 3821047547015802550}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8408602130041941543
