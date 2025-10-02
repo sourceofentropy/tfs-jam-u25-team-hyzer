@@ -136,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogues:
   - {fileID: 11400000, guid: 03637f1da49ce0348b13b699a7aec838, type: 2}
+  - {fileID: 11400000, guid: 339e0518bc16dbd40bc089f42baa93e4, type: 2}
   - {fileID: 11400000, guid: b3a2d8aec770b234493c9b9e618cf737, type: 2}
   npcID: NPC_01
 --- !u!114 &8320573644769083243

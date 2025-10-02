@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speakerName: Jack-O'
-    text: Howdy, newcomer. You're late for your shift.
+    text: Howdy, Reaper! You're late for the Grand Harvest!
     portrait: {fileID: -675709364, guid: fcfeaefc2ee089a4aa20caae3ca2a251, type: 3}
     voiceClip: {fileID: 0}
   - speakerName: Reaper
-    text: A talking scarecrow?
+    text: Wait... a talking scarecrow?
     portrait: {fileID: -1698313499, guid: ab58585a335c9a946b8fcdd32ffc1f00, type: 3}
     voiceClip: {fileID: 0}
   - speakerName: Jack-O'
-    text: Aye, be on your way.
+    text: Aye! And that's not the strangest thing you'll see tonight.
     portrait: {fileID: -675709364, guid: fcfeaefc2ee089a4aa20caae3ca2a251, type: 3}
     voiceClip: {fileID: 0}

@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speakerName: Jack-O'
-    text: Make like the crows, and get to murderin'.
+    text: For the Harvest to be pure, you must wait patiently until they unknowingly
+      cross your path.
+    portrait: {fileID: -675709364, guid: fcfeaefc2ee089a4aa20caae3ca2a251, type: 3}
+    voiceClip: {fileID: 0}
+  - speakerName: Jack-O'
+    text: Then strike fast! Make like the crows- it's time for some murder.
     portrait: {fileID: -675709364, guid: fcfeaefc2ee089a4aa20caae3ca2a251, type: 3}
     voiceClip: {fileID: 0}

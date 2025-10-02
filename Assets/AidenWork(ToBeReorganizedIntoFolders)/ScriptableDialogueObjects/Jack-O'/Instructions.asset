@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 078af4cba15394a46953dc9add841154, type: 3}
+  m_Name: Instructions
+  m_EditorClassIdentifier: 
+  lines:
+  - speakerName: Jack-O'
+    text: "Some special one's from our Cult have been marked for Harvest. Your job
+      is to collect 'em.\r\r\r\n"
+    portrait: {fileID: -675709364, guid: fcfeaefc2ee089a4aa20caae3ca2a251, type: 3}
+    voiceClip: {fileID: 0}
+  - speakerName: Jack-O'
+    text: "Trouble is\u2026 not everyone\u2019s keen on being harvested. Best catch
+      \u2019em by surprise.\n"
+    portrait: {fileID: -675709364, guid: fcfeaefc2ee089a4aa20caae3ca2a251, type: 3}
+    voiceClip: {fileID: 0}
+  - speakerName: Jack-O'
+    text: Any questions, Reaper?
+    portrait: {fileID: -675709364, guid: fcfeaefc2ee089a4aa20caae3ca2a251, type: 3}
+    voiceClip: {fileID: 0}
+  - speakerName: Reaper
+    text: Uh, yeah how do I-
+    portrait: {fileID: -1698313499, guid: ab58585a335c9a946b8fcdd32ffc1f00, type: 3}
+    voiceClip: {fileID: 0}
+  - speakerName: Jack-O'
+    text: Too late! Figure it out in the field! Now go on git!
+    portrait: {fileID: -675709364, guid: fcfeaefc2ee089a4aa20caae3ca2a251, type: 3}
+    voiceClip: {fileID: 0}
