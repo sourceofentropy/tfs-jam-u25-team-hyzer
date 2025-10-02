@@ -6,43 +6,67 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: 59481fcd808cb8040bcae66c9b80b99f
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/test.unity
     guid: 4c48ee3ed2241d04884ff303fe1869cf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/test2.unity
     guid: 54d271bc1fde0e4418f4471acea04bdb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/area1.unity
     guid: 525eb88dcc95a544781420c5239006be
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/boss1.unity
     guid: b15d54bee4444a84a9dbc0b60ef333c4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AidenTestScene.unity
     guid: 0109cd7dc63cef94cba23edf3b39f783
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Scenes/AidenTestScene2 (USED TO TEST UI PERSISTENCE).unity
+    guid: 27b57be1a644d2d46af81e9c66e29f55
+  - enabled: 0
     path: Assets/Scenes/AsadTestPlayer.unity
     guid: dbee2347148a10b4bb7c889506b6515c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/boss1_preservation.unity
     guid: 187b109e0c22c014b9dfbcf5f9522042
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Colton_TestScene.unity
     guid: c5896da2678ba064cbee3e87d67a7f42
   - enabled: 1
     path: Assets/Scenes/DanaBoss1.unity
     guid: 05c2921a6a2ffec4b853230be3e64b2e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/JonathanTestScene 1.unity
     guid: c166bba9ba5967341912a5a32d4127af
-  - enabled: 1
-    path: Assets/Scenes/MenuScene.unity
-    guid: 59481fcd808cb8040bcae66c9b80b99f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/test 1.unity
     guid: c421ac996ec1b814d8c34bfdeff3374d
+  - enabled: 1
+    path: Assets/Scenes/CreditScene.unity
+    guid: 680748d11a4576f4ebdf3f832d23014d
+  - enabled: 1
+    path: Assets/Scenes/DanaCemetery.unity
+    guid: 8d829243a1f90994fb09bcba915a9789
+  - enabled: 1
+    path: Assets/Scenes/DanaForestCastle.unity
+    guid: f0a73ee4e5a770b44906141cc451b6bb
+  - enabled: 1
+    path: Assets/Scenes/DanaForestOpener 1.unity
+    guid: 1ff40525f0777194088ff4a688cb61c6
+  - enabled: 1
+    path: Assets/Scenes/DanaForestPath 2.unity
+    guid: 3b4b40eef6506b94f930be4afb70e696
+  - enabled: 1
+    path: Assets/Scenes/DanaVillage1.unity
+    guid: aeb31eecf5854ec4d8c8fd5d5f245c06
+  - enabled: 1
+    path: Assets/Scenes/UiExectionTemplate.unity
+    guid: cc57f225fa61cdc4ca49a10533e8119c
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

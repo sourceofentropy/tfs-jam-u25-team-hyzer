@@ -27,7 +27,7 @@ public class PlayerHider : MonoBehaviour
 
     void Awake()
     {
-        parent = transform.parent.gameObject;
+        parent = transform.root.gameObject;
 
         // Cache all renderers (player may have multiple sprites)
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();

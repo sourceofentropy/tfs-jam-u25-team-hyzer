@@ -121,7 +121,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f4eb6e0809a780943ae8827e2c2d623b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -276,7 +276,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f4eb6e0809a780943ae8827e2c2d623b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -413,7 +413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3759241614660453662
 Transform:
   m_ObjectHideFlags: 0
@@ -562,7 +562,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f4eb6e0809a780943ae8827e2c2d623b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -764,6 +764,12 @@ MonoBehaviour:
     m_Bits: 576
   enemyCheckRadius: 2.07
   enemyTag: Enemy
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 32768
+  attackTrigger: {fileID: 3075424183738001384}
+  attackSensorSize: {x: 3, y: 1}
+  attackDamage: 1
   anim: {fileID: 5125607927568647425}
   shotToFire: {fileID: 6357596350758748864, guid: 3a21a0f55a45d134b84810e8fbfa9595, type: 3}
   shotOrigin: {fileID: 4435347559911373085}
@@ -830,6 +836,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f58a3255e382e409b2cc5bbfc91088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sensorSize: {x: 1, y: 1}
+  sensorOffset: {x: 0, y: 0}
+  interactableMask:
+    serializedVersion: 2
+    m_Bits: 0
+  showDebugLogs: 1
 --- !u!114 &396427175934959690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -852,16 +864,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6075103606357878576}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d581a0427a4395b4689fdae674e4cc48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 1
+  attackCooldown: 2
   playerTag: Player
   destroyOnDamage: 0
   destroyEffect: {fileID: 0}
   FS: {fileID: 0}
+  rangeCol: {fileID: 0}
+  DamageCol: {fileID: 0}
+  cbac: {fileID: 0}
 --- !u!114 &6426563211197073363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -951,7 +967,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f4eb6e0809a780943ae8827e2c2d623b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
