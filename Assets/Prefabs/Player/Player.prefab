@@ -768,6 +768,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 32768
   attackTrigger: {fileID: 3075424183738001384}
+  attackSensorSize: {x: 3, y: 1}
+  attackDamage: 1
   anim: {fileID: 5125607927568647425}
   shotToFire: {fileID: 6357596350758748864, guid: 3a21a0f55a45d134b84810e8fbfa9595, type: 3}
   shotOrigin: {fileID: 4435347559911373085}
@@ -862,16 +864,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6075103606357878576}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d581a0427a4395b4689fdae674e4cc48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 1
+  attackCooldown: 2
   playerTag: Player
   destroyOnDamage: 0
   destroyEffect: {fileID: 0}
   FS: {fileID: 0}
+  rangeCol: {fileID: 0}
+  DamageCol: {fileID: 0}
+  cbac: {fileID: 0}
 --- !u!114 &6426563211197073363
 MonoBehaviour:
   m_ObjectHideFlags: 0
