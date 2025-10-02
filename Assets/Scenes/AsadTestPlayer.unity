@@ -368,6 +368,7 @@ MonoBehaviour:
   chaseSpeed: 4
   attackDamage: 10
   attackSpeed: 1
+  meleeRange: 1.5
   coneDetection: {fileID: 1592856837}
   debugState: 1
   fearedState: {fileID: 246902005}
@@ -1280,9 +1281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1323382230}
-  patrolPoints:
-  - {fileID: 193778122}
-  - {fileID: 1364771980}
   rightPatrolBarrier: {fileID: 1605918665}
   leftPatrolBarrier: {fileID: 123011500}
   rb: {fileID: 246902001}
