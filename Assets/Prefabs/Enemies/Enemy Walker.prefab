@@ -423,6 +423,14 @@ MonoBehaviour:
   waitAtPoints: 1
   distanceThreshold: 0.2
   jumpForce: 10
+  isReadyForHarvest: 0
+  isReadyForExecute: 0
+  harvestHalo: {fileID: 0}
+  debugHaloHeight: 0.2
+  debugHaloSize: 0.2
+  debugHaloColour: {r: 1, g: 0, b: 0, a: 1}
+  haloExecuteColour: {r: 1, g: 0, b: 0, a: 1}
+  haloDefaultColour: {r: 0, g: 0, b: 0, a: 0}
   rb: {fileID: 5648380193189949715}
   anim: {fileID: 5648380192491351653}
   PC: {fileID: 0}
