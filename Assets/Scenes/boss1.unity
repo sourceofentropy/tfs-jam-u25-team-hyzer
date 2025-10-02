@@ -8344,6 +8344,12 @@ MonoBehaviour:
     m_Bits: 0
   enemyCheckRadius: 1.5
   enemyTag: Enemy
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  attackTrigger: {fileID: 0}
+  attackSensorSize: {x: 1, y: 1}
+  attackDamage: 1
   anim: {fileID: 0}
   shotToFire: {fileID: 0}
   shotOrigin: {fileID: 0}
@@ -8513,6 +8519,12 @@ MonoBehaviour:
     m_Bits: 0
   enemyCheckRadius: 1.5
   enemyTag: Enemy
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  attackTrigger: {fileID: 0}
+  attackSensorSize: {x: 1, y: 1}
+  attackDamage: 1
   anim: {fileID: 0}
   shotToFire: {fileID: 0}
   shotOrigin: {fileID: 0}
@@ -9031,11 +9043,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2894353349020723816, guid: 8ecebdebfaa85f94fb361ebcc275931b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 228.57
+      value: 225.34
       objectReference: {fileID: 0}
     - target: {fileID: 2894353349020723816, guid: 8ecebdebfaa85f94fb361ebcc275931b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.6
+      value: -1.7
       objectReference: {fileID: 0}
     - target: {fileID: 2894353349020723816, guid: 8ecebdebfaa85f94fb361ebcc275931b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9069,6 +9081,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3819979931699131296, guid: 8ecebdebfaa85f94fb361ebcc275931b, type: 3}
+      propertyPath: attackSensorSize.x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6075103606357878576, guid: 8ecebdebfaa85f94fb361ebcc275931b, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -9089,6 +9105,10 @@ PrefabInstance:
       propertyPath: FS
       value: 
       objectReference: {fileID: 1741392041}
+    - target: {fileID: 7534569380719998709, guid: 8ecebdebfaa85f94fb361ebcc275931b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12234,13 +12254,41 @@ PrefabInstance:
       propertyPath: PC
       value: 
       objectReference: {fileID: 1189873712}
+    - target: {fileID: 2968594867881520790, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
+      propertyPath: haloDefaultColour.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968594867881520790, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
+      propertyPath: haloDefaultColour.g
+      value: 0.45499295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968594867881520790, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
+      propertyPath: haloDefaultColour.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968594867881520790, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
+      propertyPath: haloExecuteColour.b
+      value: 0.07035423
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968594867881520790, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
+      propertyPath: haloExecuteColour.g
+      value: 0.8773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968594867881520790, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
+      propertyPath: haloExecuteColour.r
+      value: 0.2577311
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967997413479163115, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.42168975
+      objectReference: {fileID: 0}
     - target: {fileID: 5439958984768624442, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
       propertyPath: m_Name
       value: Cultist
       objectReference: {fileID: 0}
     - target: {fileID: 5939498389834917428, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 232.65
+      value: 228.87
       objectReference: {fileID: 0}
     - target: {fileID: 5939498389834917428, guid: cad883aa0bc803b499f10917b7b26fc7, type: 3}
       propertyPath: m_LocalPosition.y
