@@ -2200,7 +2200,7 @@ MonoBehaviour:
   howToPlayBackButton: {fileID: 1609558063}
   applySettingsButton: {fileID: 1944654016}
   settingsBackButton: {fileID: 2069070509}
-  gameSceneName: DanaBoss1
+  gameSceneName: DanaForestOpener 1
 --- !u!114 &1260964965
 MonoBehaviour:
   m_ObjectHideFlags: 0
