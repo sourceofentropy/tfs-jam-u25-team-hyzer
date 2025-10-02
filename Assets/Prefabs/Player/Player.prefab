@@ -147,7 +147,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.18, y: 0.3}
+  m_Size: {x: 1.125, y: 1.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -790,6 +790,8 @@ MonoBehaviour:
   bomb: {fileID: 608134037809762253, guid: ee1719f7e9e58e84eb03193c03b1e5aa, type: 3}
   canMove: 0
   nextRoomDoorID: 0
+  audioSource: {fileID: 0}
+  fire1Sound: {fileID: 0}
 --- !u!114 &2854810467094597035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,6 +827,8 @@ MonoBehaviour:
   playerSprites:
   - {fileID: 4699763006952298908}
   - {fileID: 3997784271838256004}
+  audioSource: {fileID: 0}
+  hitSound: {fileID: 0}
 --- !u!114 &7229989938494506729
 MonoBehaviour:
   m_ObjectHideFlags: 0

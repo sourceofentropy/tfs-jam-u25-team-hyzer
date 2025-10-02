@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,30 +17,38 @@ public class PlayerHealthController : MonoBehaviour
 
     public SpriteRenderer[] playerSprites;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip hitSound; // assign a sound effect in Inspector
+
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        } else
+        }
+        else
         {
             Destroy(gameObject);
         }
-
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         UIController.instance.UpdateHealth(currentHealth, maxHealth);
+
+        // If no AudioSource is set, try to find one on the object
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(invincibilityCounter > 0)
+        if (invincibilityCounter > 0)
         {
             invincibilityCounter -= Time.deltaTime;
             flashCounter -= Time.deltaTime;
@@ -52,8 +60,8 @@ public class PlayerHealthController : MonoBehaviour
                 }
                 flashCounter = flashDuration;
             }
-            
-            if(invincibilityCounter <= 0)
+
+            if (invincibilityCounter <= 0)
             {
                 foreach (SpriteRenderer sr in playerSprites)
                 {
@@ -66,14 +74,19 @@ public class PlayerHealthController : MonoBehaviour
 
     public void DamagePlayer(int damageAmount)
     {
-        if ((invincibilityCounter <= 0))
+        if (invincibilityCounter <= 0)
         {
             currentHealth -= damageAmount;
+
+            // 🔊 Play hit sound
+            if (hitSound != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(hitSound);
+            }
 
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
-                //gameObject.SetActive(false);
                 RespawnController.instance.Respawn();
             }
             else
@@ -88,7 +101,7 @@ public class PlayerHealthController : MonoBehaviour
     public void FillHealth()
     {
         currentHealth = maxHealth;
-        UIController.instance.UpdateHealth(currentHealth, maxHealth);        
+        UIController.instance.UpdateHealth(currentHealth, maxHealth);
     }
 
     public void HealPlayer(int healAmount)
