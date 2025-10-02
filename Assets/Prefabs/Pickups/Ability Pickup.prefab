@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4651472796450862913, guid: 08f737e43c2490a44a8c91d96748b5af, type: 3}
+  m_Sprite: {fileID: 3991142820630177451, guid: c79c5a3d62885b749b9d879941fb9a05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,7 +137,7 @@ Animator:
   m_GameObject: {fileID: 8256917665528159929}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0813a53de3114ab40afcdd46693a3acd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 34d44c71c195c6143b5caf42517af7ec, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -161,13 +161,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514004f9c5c46844695ba5f5d1924bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockDoubleJump: 0
-  unlockDash: 0
+  unlockDoubleJump: 1
+  unlockDash: 1
   unlockBecomeBall: 0
   unlockDropBomb: 0
   playerTag: Player
   pickupEffect: {fileID: 1259358412054978780, guid: 5bde419889d2a444b9ac033ece7e2e3e, type: 3}
-  unlockMessage: Dash Unlocked
+  unlockMessage: Double Jump Unlocked
   unlockText: {fileID: 8256917666829957400}
   textTTL: 5
 --- !u!1 &8256917666425816799
@@ -337,7 +337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Double Jump Unlocked
+  m_text: Dash Unlocked
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6f3bf377ad7fd44fad26639d0697ff5, type: 2}
   m_sharedMaterial: {fileID: 6275139695996085520, guid: d6f3bf377ad7fd44fad26639d0697ff5, type: 2}
