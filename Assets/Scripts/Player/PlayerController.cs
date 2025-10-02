@@ -104,6 +104,7 @@ public class PlayerController : MonoBehaviour
 
     public bool canMove;
 
+    public int nextRoomDoorID;
 
     // Start is called before the first frame update
     void Start()
