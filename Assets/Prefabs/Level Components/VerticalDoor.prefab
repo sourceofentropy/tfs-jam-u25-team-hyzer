@@ -370,6 +370,9 @@ MonoBehaviour:
   playerStartPoint: {fileID: 4274741606797391881}
   movePlayerSpeed: 10
   destinationLevel: area1
+  doorID: 0
+  nextRoomDoorID: 0
+  doorType: 0
 --- !u!61 &5241695638034767861
 BoxCollider2D:
   m_ObjectHideFlags: 0

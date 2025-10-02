@@ -789,6 +789,7 @@ MonoBehaviour:
   bombPoint: {fileID: 4475454933243749635}
   bomb: {fileID: 608134037809762253, guid: ee1719f7e9e58e84eb03193c03b1e5aa, type: 3}
   canMove: 0
+  nextRoomDoorID: 0
 --- !u!114 &2854810467094597035
 MonoBehaviour:
   m_ObjectHideFlags: 0
