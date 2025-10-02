@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 856018911591509372}
   - component: {fileID: 5080580773915264483}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: HayPile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 6123044171609061157}
   - component: {fileID: 4366230645027518542}
   - component: {fileID: 8308324685383330203}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: HayPile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
