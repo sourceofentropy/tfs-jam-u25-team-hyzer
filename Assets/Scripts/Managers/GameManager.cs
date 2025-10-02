@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,9 +12,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public PlayerController PlayerInstance => _playerInstance;
     public PlayerController _playerInstance = null;
 
-    [Header("Progression")]
-    //can move to score/harvest tracker
-    [SerializeField] private int harvestedSouls;
+    [HideInInspector] public ExecutionScore harvestScore;
+    public TextMeshProUGUI harvestCounterHUD;
 
     public bool gamePaused = false;
 
@@ -67,6 +67,8 @@ public class GameManager : MonoBehaviour
         GameManager.Instance.ResumeGameEvent += OnResumeGame; //TODO: should pause manager handle cursor logic? or game manager? or input manager? input manager is mostly for action based inputs...tbd
         GameManager.Instance.GameReturnToTitleEvent += OnReturnToTitle;
         GameManager.Instance.LevelSceneLoadedEvent += OnLevelSceneLoaded;
+
+        harvestScore = gameObject.AddComponent<ExecutionScore>();
 
         //may need to move this when we have a restart feature
         /* will bork test scenes, uncomment when we properly load the player
