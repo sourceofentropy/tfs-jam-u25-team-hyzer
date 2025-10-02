@@ -23,10 +23,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/boss1.unity
     guid: b15d54bee4444a84a9dbc0b60ef333c4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AidenTestScene.unity
     guid: 0109cd7dc63cef94cba23edf3b39f783
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AidenTestScene2 (USED TO TEST UI PERSISTENCE).unity
     guid: 27b57be1a644d2d46af81e9c66e29f55
   - enabled: 0
@@ -44,9 +44,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/test 1.unity
     guid: c421ac996ec1b814d8c34bfdeff3374d
-  - enabled: 1
-    path: Assets/Scenes/CreditScene.unity
-    guid: 680748d11a4576f4ebdf3f832d23014d
   - enabled: 1
     path: Assets/Scenes/DanaForestOpener 1.unity
     guid: 1ff40525f0777194088ff4a688cb61c6
@@ -72,6 +69,9 @@ EditorBuildSettings:
     path: Assets/Scenes/DanaBoss2.unity
     guid: e4aaf505b6ec94740a304790d97ddb65
   - enabled: 1
+    path: Assets/Scenes/CreditScene.unity
+    guid: 680748d11a4576f4ebdf3f832d23014d
+  - enabled: 0
     path: Assets/Scenes/UiExectionTemplate.unity
     guid: cc57f225fa61cdc4ca49a10533e8119c
   m_configObjects: {}

@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
     private float defaultLowPassFilterResonance;
     private readonly string resonanceFieldName = "MusicLowpassResonance";
 
+    public string creditsScene = "CreditScene";
+    public bool isBoss1Dead = false;
+    public bool isBoss2Dead = false;
+
     //Set Up Events - modify as needed
     public delegate void GameStart();
     public event GameStart GameStartedEvent;
@@ -129,6 +133,7 @@ public class GameManager : MonoBehaviour
     {
         UnityEngine.Debug.Log("game won - display game won screen");
         Time.timeScale = 0f;
+        SceneManager.LoadScene(creditsScene);
         //TODO: re-enable when we have a menu, if we have a menu
         //EnableGameMenu();
     }

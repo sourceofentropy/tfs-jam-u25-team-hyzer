@@ -297,12 +297,34 @@ public class PlayerController : MonoBehaviour
                         {
                             enemyHealth.ExecuteEnemy();
                             Debug.Log("player executes enemy in silence");
+                            
                             GameManager.Instance.harvestScore.AddExecution(ExecutionScore.Type.silence);
                         } else
                         {
                             enemy.GetComponent<EnemyHealthController>().DamageEnemy(attackDamage);
                         }
                             
+                    }
+
+                    Collider2D hitBoss = Physics2D.OverlapBox(attackSensorPos, attackSensorSize, 0f, LayerMask.GetMask("Boss"));
+                    if (hitBoss != null)
+                    {
+                        Debug.Log("Player attacks a boss");
+                        BossHealthController enemy = hitBoss.GetComponentInParent<BossHealthController>();
+                        enemy.TakeDamage(attackDamage);
+                        /*
+                        if (enemy.isReadyForExecute)
+                        {
+                            enemyHealth.ExecuteEnemy();
+                            Debug.Log("player executes enemy in silence");
+
+                            GameManager.Instance.harvestScore.AddExecution(ExecutionScore.Type.silence);
+                        }
+                        else
+                        {
+                            enemy.GetComponent<EnemyHealthController>().DamageEnemy(attackDamage);
+                        }
+                        */
                     }
                 }
             }
