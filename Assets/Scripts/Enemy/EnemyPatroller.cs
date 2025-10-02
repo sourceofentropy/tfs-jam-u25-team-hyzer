@@ -14,6 +14,7 @@ public class EnemyPatroller : MonoBehaviour
     public float jumpForce;
 
     public bool isReadyForHarvest = false;
+    public bool isReadyForExecute = false;
     public SpriteRenderer harvestHalo;
     public float debugHaloHeight = 0.2f;
     public float debugHaloSize = 0.2f;

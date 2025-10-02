@@ -399,28 +399,49 @@ public class PlayerController : MonoBehaviour
         return hider.IsHidden;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(hider.IsHidden)
-        {
-
+        if(hider.IsHidden && other.gameObject.CompareTag("Enemy"))
+        {            
+            EnemyPatroller enemyController = other.gameObject.GetComponent<EnemyPatroller>();
+            if (enemyController.isReadyForHarvest)
+            {
+                //TODO: make this a state on the enemy so we're not changing all this from the player
+                MarkEnemyForExecution(enemyController);
+            }
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (hider.IsHidden && other.gameObject.CompareTag("Enemy"))
+        {
+            EnemyPatroller enemyController = other.gameObject.GetComponent<EnemyPatroller>();
+            if(!enemyController.isReadyForExecute)
+            {
+                MarkEnemyForExecution(enemyController);
+            }            
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (hider.IsHidden)
         {
-
+            EnemyPatroller enemyController = other.gameObject.GetComponent<EnemyPatroller>();
+            UnMarkEnemyForExecution(enemyController);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void MarkEnemyForExecution(EnemyPatroller enemyController)
     {
-        if (hider.IsHidden)
-        {
-
-        }
+        enemyController.ActivateExecuteHalo();
+        enemyController.isReadyForExecute = true;
     }
 
+    private void UnMarkEnemyForExecution(EnemyPatroller enemyController)
+    {
+        enemyController.DeactivateExecuteHalo();
+        enemyController.isReadyForExecute = false;
+    }
 }
