@@ -66138,6 +66138,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossToActivate: {fileID: 1183671578}
   playerTag: Player
+  harvestedSoulsRequired: 0
+  bossBattle: 1
 --- !u!1 &757279313
 GameObject:
   m_ObjectHideFlags: 0
@@ -67599,6 +67601,9 @@ MonoBehaviour:
   bullet: {fileID: 3969116425245696366, guid: 6060213a63c185c41be56f01bb8b2ec4, type: 3}
   shotPoint: {fileID: 988729639}
   winObjects: {fileID: 1265655791}
+  isFinalBoss: 0
+  isBoss1: 1
+  isBoss2: 0
 --- !u!114 &1183671581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89738,10 +89743,6 @@ PrefabInstance:
     - target: {fileID: 2894353349020723816, guid: 8ecebdebfaa85f94fb361ebcc275931b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3819979931699131296, guid: 8ecebdebfaa85f94fb361ebcc275931b, type: 3}
-      propertyPath: nextRoomDoorID
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6075103606357878576, guid: 8ecebdebfaa85f94fb361ebcc275931b, type: 3}
       propertyPath: m_Name
