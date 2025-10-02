@@ -69,8 +69,11 @@ public class PlayerController : MonoBehaviour
     private Vector2 attackSensorOffset;
     public Vector2 attackSensorSize = new Vector2(5f, 1f);
     [Tooltip("1-1 ratio of damage that will be inflected upon enenmy health controller")]
-    public int attackDamage = 1; 
+    public int attackDamage = 1;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip fire1Sound; // assign in inspector
 
     public Animator anim;
 
@@ -279,7 +282,12 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetButtonDown("Fire1"))
             {
-                
+
+                if (fire1Sound != null && audioSource != null)
+                {
+                    audioSource.PlayOneShot(fire1Sound);
+                }
+
                 //add attack damage delay so we can't just spam attack
                 if (standing.activeSelf)
                 {
