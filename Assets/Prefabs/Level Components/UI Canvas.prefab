@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press "E" to Talk
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d6f3bf377ad7fd44fad26639d0697ff5, type: 2}
+  m_sharedMaterial: {fileID: 6275139695996085520, guid: d6f3bf377ad7fd44fad26639d0697ff5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
