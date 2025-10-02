@@ -27,7 +27,7 @@ public class EnemyHealthController : MonoBehaviour
 
     public void ExecuteEnemy()
     {
-        totalHealth = 0;
+        totalHealth = 0;        
         StartCoroutine(PlayDeadAndWait(executeSound));
         //audioSource.PlayOneShot(executeSound);        
 
