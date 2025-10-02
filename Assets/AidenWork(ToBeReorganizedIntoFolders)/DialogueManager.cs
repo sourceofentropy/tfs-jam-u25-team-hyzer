@@ -220,23 +220,25 @@ public class DialogueManager : MonoBehaviour
         if (shouldAdvanceProgress && !string.IsNullOrEmpty(currentNPCID))
         {
             int currentProgress = GetNPCDialogueIndex(currentNPCID);
-
-            Debug.Log($"[DialogueManager] Current progress: {currentProgress}, Total: {totalDialoguesForCurrentNPC}");
-
-            // Only advance if there are more dialogues to show
             if (currentProgress < totalDialoguesForCurrentNPC - 1)
             {
                 SetNPCDialogueIndex(currentNPCID, currentProgress + 1);
-            }
-            else
-            {
-                Debug.Log($"[DialogueManager] {currentNPCID} has reached final dialogue ({currentProgress})");
             }
         }
 
         if (dialoguePanel != null)
         {
             dialoguePanel.SetActive(false);
+        }
+
+        // ✅ Re-show interaction prompt if still in range of this NPC
+        if (currentNPC != null && InteractionPrompt.Instance != null)
+        {
+            IInteractable interactable = currentNPC.GetComponent<IInteractable>();
+            if (interactable != null)
+            {
+                InteractionPrompt.Instance.Show(interactable.GetOptions());
+            }
         }
 
         currentDialogue = null;
