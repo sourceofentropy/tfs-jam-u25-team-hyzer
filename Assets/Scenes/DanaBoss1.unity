@@ -38787,7 +38787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camPosition: {fileID: 539962749}
-  camSpeed: 5
+  camSpeed: 10
   threshold1: 25
   threshold2: 10
   activeTime: 5
@@ -64509,19 +64509,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4838505649542354807, guid: e6bf85d961d723e46ab6afeec4a80cf2, type: 3}
       propertyPath: m_Size.x
-      value: 119.868454
+      value: 118.353745
       objectReference: {fileID: 0}
     - target: {fileID: 4838505649542354807, guid: e6bf85d961d723e46ab6afeec4a80cf2, type: 3}
       propertyPath: m_Size.y
-      value: 27.862919
+      value: 23.50051
       objectReference: {fileID: 0}
     - target: {fileID: 4838505649542354807, guid: e6bf85d961d723e46ab6afeec4a80cf2, type: 3}
       propertyPath: m_Offset.x
-      value: 32.86875
+      value: 33.626106
       objectReference: {fileID: 0}
     - target: {fileID: 4838505649542354807, guid: e6bf85d961d723e46ab6afeec4a80cf2, type: 3}
       propertyPath: m_Offset.y
-      value: 7.992506
+      value: 5.811301
       objectReference: {fileID: 0}
     - target: {fileID: 4838505650467080728, guid: e6bf85d961d723e46ab6afeec4a80cf2, type: 3}
       propertyPath: m_LocalPosition.x
