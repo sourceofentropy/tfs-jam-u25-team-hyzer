@@ -6846,6 +6846,10 @@ PrefabInstance:
       value: 76.44
       objectReference: {fileID: 0}
     - target: {fileID: 160162125, guid: e6bf85d961d723e46ab6afeec4a80cf2, type: 3}
+      propertyPath: nextRoomDoorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 160162125, guid: e6bf85d961d723e46ab6afeec4a80cf2, type: 3}
       propertyPath: destinationLevel
       value: AidenTestScene2 (USED TO TEST UI PERSISTENCE)
       objectReference: {fileID: 0}
@@ -6871,7 +6875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3260202935811491726, guid: e6bf85d961d723e46ab6afeec4a80cf2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.23
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4838505649242643264, guid: e6bf85d961d723e46ab6afeec4a80cf2, type: 3}
       propertyPath: m_Name
@@ -7487,6 +7491,10 @@ PrefabInstance:
     - target: {fileID: 1082018538430115575, guid: d3fdae59bc3a73949afd2f882f1c9a5e, type: 3}
       propertyPath: m_Name
       value: SoundtrackManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613803264294795849, guid: d3fdae59bc3a73949afd2f882f1c9a5e, type: 3}
+      propertyPath: m_Volume
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6292152504609935981, guid: d3fdae59bc3a73949afd2f882f1c9a5e, type: 3}
       propertyPath: m_LocalPosition.x

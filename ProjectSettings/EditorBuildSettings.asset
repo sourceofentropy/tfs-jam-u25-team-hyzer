@@ -23,10 +23,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/boss1.unity
     guid: b15d54bee4444a84a9dbc0b60ef333c4
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/AidenTestScene.unity
     guid: 0109cd7dc63cef94cba23edf3b39f783
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/AidenTestScene2 (USED TO TEST UI PERSISTENCE).unity
     guid: 27b57be1a644d2d46af81e9c66e29f55
   - enabled: 0
