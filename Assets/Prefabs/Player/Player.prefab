@@ -459,7 +459,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -632,6 +632,8 @@ GameObject:
   - component: {fileID: 4597501723039448607}
   - component: {fileID: 7229989938494506729}
   - component: {fileID: 396427175934959690}
+  - component: {fileID: 7534569380719998709}
+  - component: {fileID: 6426563211197073363}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -739,10 +741,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4539d75974b6754a9cf781b1344cc70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 1900656974738982761}
-  spriteRenderer: {fileID: 4699763006952298908}
   currentState: 0
   disguiseMode: 0
+  rb: {fileID: 1900656974738982761}
+  spriteRenderer: {fileID: 4699763006952298908}
   baseMoveSpeed: 8
   currentMoveSpeed: 8
   disguiseSpeed: 2.5
@@ -760,7 +762,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 576
-  enemyCheckRadius: 1.5
+  enemyCheckRadius: 2.07
   enemyTag: Enemy
   anim: {fileID: 5125607927568647425}
   shotToFire: {fileID: 6357596350758748864, guid: 3a21a0f55a45d134b84810e8fbfa9595, type: 3}
@@ -841,6 +843,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiddenLayerName: HiddenPlayer
+  playerSpriteTransform: {fileID: 2894353349020723816}
+  playerSpriteRenderer: {fileID: 4699763006952298908}
+--- !u!114 &7534569380719998709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075103606357878576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d581a0427a4395b4689fdae674e4cc48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 1
+  playerTag: Player
+  destroyOnDamage: 0
+  destroyEffect: {fileID: 0}
+  FS: {fileID: 0}
+--- !u!114 &6426563211197073363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075103606357878576}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e84404de15c4a44a892dd983560b75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  disguiseMode: 0
+  regularSpeed: 5
+  disguiseSpeed: 2.5
+  rageSpeed: 8
+  jumpForce: 7
+  rageJumpForce: 11
+  rageDuration: 5
+  maxRage: 3
+  rageBar: 2
+  disguiseDuration: 10
+  rb: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  groundCheck: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  enemyCheckRadius: 3
+  enemyTag: Enemy
 --- !u!1 &7294376204420959715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1117,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
