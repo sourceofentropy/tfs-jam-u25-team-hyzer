@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
         sensorPos = (Vector2)transform.position;
         //attackSensorPos = (Vector2)transform.position + attackSensorOffset + Vector2.right;
         //attackSensorPos = (Vector2)transform.position + (isFacingLeft ? Vector2.left : Vector2.right) * attackSensorOffset.x;
-        attackSensorPos = (Vector2)transform.position + Vector2.right * Mathf.Sign(transform.localScale.x);
+        //attackSensorPos = (Vector2)transform.position + Vector2.right * Mathf.Sign(transform.localScale.x);
 
     }
 
@@ -291,7 +291,15 @@ public class PlayerController : MonoBehaviour
                     {
                         Debug.Log("Player attacks an enemy");
                         EnemyPatroller enemy = hit.GetComponent<EnemyPatroller>();
-                        enemy.GetComponent<EnemyHealthController>().DamageEnemy(attackDamage);
+                        EnemyHealthController enemyHealth = enemy.GetComponent<EnemyHealthController>();
+                        if (enemy.isReadyForExecute)
+                        {
+                            enemyHealth.ExecuteEnemy();
+                        } else
+                        {
+                            enemy.GetComponent<EnemyHealthController>().DamageEnemy(attackDamage);
+                        }
+                            
                     }
                 }
             }
@@ -524,7 +532,7 @@ public class PlayerController : MonoBehaviour
             }            
         }
     }
-
+    
     private void OnTriggerExit2D(Collider2D other)
     {
         if (hider.IsHidden)
@@ -542,8 +550,8 @@ public class PlayerController : MonoBehaviour
 
     private void UnMarkEnemyForExecution(EnemyPatroller enemyController)
     {
-        enemyController.DeactivateExecuteHalo();
-        enemyController.isReadyForExecute = false;
+        //enemyController.DeactivateExecuteHalo();
+        //enemyController.isReadyForExecute = false;
     }
 
     private void OnDrawGizmosSelected()

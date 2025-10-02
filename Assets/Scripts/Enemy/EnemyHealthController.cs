@@ -14,12 +14,28 @@ public class EnemyHealthController : MonoBehaviour
 
         if(totalHealth < 0 )
         {
-            if(deathEffect != null )
-            {
-                Instantiate(deathEffect, transform.position, transform.rotation);
-            }
-
-            Destroy(gameObject);
+            Death();
         }
+    }
+
+    public void ExecuteEnemy()
+    {
+        totalHealth = 0;
+        Death();
+
+    }
+    public int GetCurrentHealth()
+    {
+        return totalHealth;
+    }
+
+    private void Death()
+    {
+        if (deathEffect != null)
+        {
+            Instantiate(deathEffect, transform.position, transform.rotation);
+        }
+
+        Destroy(gameObject);
     }
 }
