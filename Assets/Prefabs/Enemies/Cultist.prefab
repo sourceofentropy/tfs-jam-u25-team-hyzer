@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 2979733052262787675}
   - component: {fileID: 6407944761886116034}
   - component: {fileID: 1167848457292621907}
+  - component: {fileID: -8918568901429948596}
   m_Layer: 15
   m_Name: Cultist
   m_TagString: Enemy
@@ -389,6 +390,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-8918568901429948596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5439958984768624442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d581a0427a4395b4689fdae674e4cc48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 1
+  playerTag: Player
+  destroyOnDamage: 0
+  destroyEffect: {fileID: 0}
+  FS: {fileID: 0}
 --- !u!1 &5523114563671265709
 GameObject:
   m_ObjectHideFlags: 0

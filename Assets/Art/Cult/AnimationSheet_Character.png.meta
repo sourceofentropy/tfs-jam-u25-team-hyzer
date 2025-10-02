@@ -1043,15 +1043,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSheet_Character_36
+      name: Attack4
       rect:
         serializedVersion: 2
         x: 101
         y: 0
         width: 23
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1065,15 +1065,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSheet_Character_37
+      name: Attack5
       rect:
         serializedVersion: 2
         x: 133
         y: 0
         width: 27
         height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1153,15 +1153,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSheet_Character_41
+      name: Attack1
       rect:
         serializedVersion: 2
         x: 6
         y: 0
         width: 18
         height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1175,15 +1175,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSheet_Character_42
+      name: Attack2
       rect:
         serializedVersion: 2
         x: 39
         y: 0
         width: 19
         height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1197,15 +1197,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSheet_Character_43
+      name: Attack3
       rect:
         serializedVersion: 2
         x: 70
         y: 0
         width: 23
         height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1219,15 +1219,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSheet_Character_44
+      name: Attack6
       rect:
         serializedVersion: 2
         x: 165
         y: 0
         width: 24
         height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1241,15 +1241,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSheet_Character_45
+      name: Attack7
       rect:
         serializedVersion: 2
         x: 193
         y: 0
         width: 23
         height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1263,15 +1263,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSheet_Character_46
+      name: Attack8
       rect:
         serializedVersion: 2
         x: 224
         y: 0
         width: 24
         height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1289,9 +1289,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 101
-        y: 32
+        y: 31
         width: 23
-        height: 30
+        height: 31
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1370,14 +1370,14 @@ TextureImporter:
       AnimationSheet_Character_30: -7956169229568373306
       AnimationSheet_Character_31: 1172661316156776261
       AnimationSheet_Character_32: 1682658199989020211
-      AnimationSheet_Character_36: -908227023647090255
-      AnimationSheet_Character_37: -6589396301516442169
-      AnimationSheet_Character_41: -2960336494165534132
-      AnimationSheet_Character_42: 3096850651442554691
-      AnimationSheet_Character_43: 4123603183123714085
-      AnimationSheet_Character_44: 520556416462525903
-      AnimationSheet_Character_45: -580482337852342584
-      AnimationSheet_Character_46: -7424985502434106660
+      Attack1: -2960336494165534132
+      Attack2: 3096850651442554691
+      Attack3: 4123603183123714085
+      Attack4: -908227023647090255
+      Attack5: -6589396301516442169
+      Attack6: 520556416462525903
+      Attack7: -580482337852342584
+      Attack8: -7424985502434106660
       Death1: 1589269694107343541
       Death2: -7253421342018006133
       Death3: -944637137217298095
