@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerHider))]
+[RequireComponent(typeof(PlayerAbilityTracker))] 
 public class PlayerController : MonoBehaviour
 {
     public enum PlayerState { Regular, Disguise, Rage }
@@ -11,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [Header("State")]
     public PlayerState currentState = PlayerState.Regular;
     public DisguiseMode disguiseMode = DisguiseMode.Normal;
+    private PlayerHider hider;
 
     [Header("References")]
     public Rigidbody2D rb;
@@ -89,7 +92,9 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         abilities = GetComponent<PlayerAbilityTracker>();
+        hider = GetComponent<PlayerHider>();
         canMove = true;
+
     }
 
     // Update is called once per frame
@@ -186,14 +191,14 @@ public class PlayerController : MonoBehaviour
             //}
 
             // Toggle disguise with Q
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Q) && !hider.IsHidden && currentState != PlayerState.Rage)
             {
                 if (currentState == PlayerState.Regular) EnterDisguise();
                 else if (currentState == PlayerState.Disguise) ExitDisguise();
             }
 
             // Rage fill in Regular mode by pressing E near enemy
-            if (currentState == PlayerState.Regular && Input.GetKeyDown(KeyCode.R))
+            if (currentState == PlayerState.Regular && Input.GetKeyDown(KeyCode.R) && !hider.IsHidden)
             {
                 Debug.Log("player: try to build rage");
                 if (IsNearEnemy())
@@ -202,16 +207,16 @@ public class PlayerController : MonoBehaviour
                     Debug.Log("Rage Bar: " + rageBar + "/" + maxRage);
                 }
             }
-
+            /*
             // Toggle Ultra Disguise inside disguise
             if (currentState == PlayerState.Disguise && Input.GetKeyDown(KeyCode.E))
             {
                 if (disguiseMode == DisguiseMode.Normal) EnterUltraDisguise();
                 else if (disguiseMode == DisguiseMode.Ultra) ExitUltraDisguise();
             }
-
+            */
             // Activate rage when bar is full
-            if (currentState == PlayerState.Regular && Input.GetKeyDown(KeyCode.T))
+            if (currentState == PlayerState.Regular && Input.GetKeyDown(KeyCode.T) && !hider.IsHidden)
             {
                 if (rageBar >= maxRage) EnterRage();
             }
@@ -387,5 +392,10 @@ public class PlayerController : MonoBehaviour
     public bool IsMovingRight()
     {
         return rb.linearVelocity.x > 0.1f;
+    }
+
+    public bool IsHidden()
+    {
+        return hider.IsHidden;
     }
 }
