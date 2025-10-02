@@ -12,15 +12,29 @@ public class DelayedButtons : MonoBehaviour
     public Button quitButton;
 
     [Header("Settings")]
-    public float delay = 5f; // Time before showing buttons
+    public float delay = 5f;       // Time before fade starts
+    public float fadeDuration = 1f; // Duration of fade in seconds
 
     private float timer;
+    private bool fading = false;
+
+    private CanvasGroup menuCanvasGroup;
+    private CanvasGroup quitCanvasGroup;
 
     void Start()
     {
-        // Hide buttons completely at start
-        if (menuButton != null) menuButton.gameObject.SetActive(false);
-        if (quitButton != null) quitButton.gameObject.SetActive(false);
+        // Add CanvasGroup to buttons if they don't have one
+        menuCanvasGroup = GetOrAddCanvasGroup(menuButton);
+        quitCanvasGroup = GetOrAddCanvasGroup(quitButton);
+
+        // Start fully transparent and non-interactable
+        menuCanvasGroup.alpha = 0f;
+        menuCanvasGroup.interactable = false;
+        menuCanvasGroup.blocksRaycasts = false;
+
+        quitCanvasGroup.alpha = 0f;
+        quitCanvasGroup.interactable = false;
+        quitCanvasGroup.blocksRaycasts = false;
 
         timer = delay;
 
@@ -34,17 +48,50 @@ public class DelayedButtons : MonoBehaviour
 
     void Update()
     {
-        // Countdown until buttons become visible
-        if (timer > 0f)
+        if (!fading)
         {
             timer -= Time.deltaTime;
-
             if (timer <= 0f)
             {
-                if (menuButton != null) menuButton.gameObject.SetActive(true);
-                if (quitButton != null) quitButton.gameObject.SetActive(true);
+                fading = true;
+                timer = 0f;
             }
         }
+        else
+        {
+            // Fade in buttons
+            if (menuCanvasGroup != null)
+                FadeIn(menuCanvasGroup);
+
+            if (quitCanvasGroup != null)
+                FadeIn(quitCanvasGroup);
+        }
+    }
+
+    private void FadeIn(CanvasGroup cg)
+    {
+        if (cg.alpha < 1f)
+        {
+            // Smoothly move alpha towards 1
+            cg.alpha = Mathf.MoveTowards(cg.alpha, 1f, Time.deltaTime / fadeDuration);
+
+            // Enable interaction when fully visible
+            if (cg.alpha >= 1f)
+            {
+                cg.interactable = true;
+                cg.blocksRaycasts = true;
+            }
+        }
+    }
+
+    private CanvasGroup GetOrAddCanvasGroup(Button button)
+    {
+        if (button == null) return null;
+
+        CanvasGroup cg = button.GetComponent<CanvasGroup>();
+        if (cg == null)
+            cg = button.gameObject.AddComponent<CanvasGroup>();
+        return cg;
     }
 
     void OpenMenu()
@@ -55,9 +102,9 @@ public class DelayedButtons : MonoBehaviour
     void QuitGame()
     {
 #if UNITY_EDITOR
-        EditorApplication.isPlaying = false; // Stop play mode in Editor
+        EditorApplication.isPlaying = false;
 #else
-        Application.Quit(); // Quit in build
+        Application.Quit();
 #endif
     }
 }
