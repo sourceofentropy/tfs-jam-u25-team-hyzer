@@ -193,8 +193,9 @@ public class PlayerController : MonoBehaviour
             }
 
             // Rage fill in Regular mode by pressing E near enemy
-            if (currentState == PlayerState.Regular && Input.GetKeyDown(KeyCode.E))
+            if (currentState == PlayerState.Regular && Input.GetKeyDown(KeyCode.R))
             {
+                Debug.Log("player: try to build rage");
                 if (IsNearEnemy())
                 {
                     rageBar = Mathf.Min(rageBar + 1, maxRage);
@@ -301,10 +302,13 @@ public class PlayerController : MonoBehaviour
 
     bool IsNearEnemy()
     {
+        Debug.Log("player: check is near enemy");
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, enemyCheckRadius);
         foreach (Collider2D hit in hits)
         {
+            
             if (hit.CompareTag(enemyTag)) return true;
+            Debug.Log("player: is near enemy");
         }
         return false;
     }
