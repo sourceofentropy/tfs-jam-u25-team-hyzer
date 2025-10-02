@@ -57,43 +57,53 @@ public class EnemyPatroller : MonoBehaviour
             throw new System.Exception("Enemy instance has no Patrol Points assigned");
         }
 
-        if(Mathf.Abs(transform.position.x - patrolPoints[currentPoint].position.x) > distanceThreshold)
+        // Check if enemy is far enough from target point
+        if (Mathf.Abs(transform.position.x - patrolPoints[currentPoint].position.x) > distanceThreshold)
         {
-            if (transform.position.x < patrolPoints[currentPoint].position.x)
-            {
-                rb.linearVelocity = new Vector2(moveSpeed, rb.linearVelocity.y);
-                transform.localScale = new Vector3(-1f, 1f, 1f);
-            } else
-            {
-                rb.linearVelocity = new Vector2(-moveSpeed, rb.linearVelocity.y);
-                transform.localScale = Vector3.one;
-            }
+            float direction = Mathf.Sign(patrolPoints[currentPoint].position.x - transform.position.x);
 
-            if(transform.position.y < patrolPoints[currentPoint].position.y - 0.5f && rb.linearVelocity.y < 0.1f)
+            // Apply velocity
+            rb.linearVelocity = new Vector2(moveSpeed * direction, rb.linearVelocity.y);
+
+            // --- ROTATION LOGIC ---
+            // Instant snap rotation:
+            // transform.rotation = (direction > 0) ? Quaternion.Euler(0f, 0f, 0f) : Quaternion.Euler(0f, 180f, 0f);
+
+            // Smooth rotation:
+            Quaternion targetRot = (direction > 0)
+                ? Quaternion.Euler(0f, 0f, 0f)
+                : Quaternion.Euler(0f, 180f, 0f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, Time.deltaTime * 10f);
+
+            // Handle vertical difference (jump to reach next point if needed)
+            if (transform.position.y < patrolPoints[currentPoint].position.y - 0.5f && rb.linearVelocity.y < 0.1f)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             }
-
-        } else
+        }
+        else
         {
+            // Stop horizontal movement
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
 
+            // Wait before moving to next point
             waitCounter -= Time.deltaTime;
-            if(waitCounter < 0)
+            if (waitCounter < 0)
             {
                 waitCounter = waitAtPoints;
-
                 currentPoint++;
 
-                if(currentPoint >= patrolPoints.Length)
+                if (currentPoint >= patrolPoints.Length)
                 {
                     currentPoint = 0;
                 }
             }
         }
 
+        // Update animator with movement speed
         anim.SetFloat("speed", Mathf.Abs(rb.linearVelocity.x));
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
