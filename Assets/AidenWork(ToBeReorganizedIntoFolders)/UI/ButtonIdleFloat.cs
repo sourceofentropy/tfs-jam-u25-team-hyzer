@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ButtonIdleFloat : MonoBehaviour
 {
@@ -9,29 +9,32 @@ public class ButtonIdleFloat : MonoBehaviour
     [SerializeField] private bool floatHorizontally = false;
 
     private RectTransform rectTransform;
-    private Vector3 initialLocalPos;
+    private Vector2 initialAnchoredPos;
+
+    // Static counter to assign a small offset to each button
     private static int buttonCount = 0;
-    private int index;
     private float phaseOffset;
 
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
-        initialLocalPos = rectTransform.localPosition;
+        initialAnchoredPos = rectTransform.anchoredPosition;
 
-        index = buttonCount++;
-        // Spread phases evenly (assumes ~5 buttons; adjust if needed)
-        phaseOffset = (index * Mathf.PI * 2f) / 5f;
+        // Tiny stagger based on index for fluid motion
+        phaseOffset = buttonCount * 0.2f; // tweak 0.1 - 0.3 for more/less offset
+        buttonCount++;
+
+        Debug.Log($"[ButtonIdleFloat] {name} initialized at AnchoredPos={initialAnchoredPos}, PhaseOffset={phaseOffset}");
     }
 
     void Update()
     {
         float offset = Mathf.Sin(Time.time * frequency + phaseOffset) * amplitude;
 
-        Vector3 delta = floatHorizontally
-                        ? new Vector3(offset, 0, 0)
-                        : new Vector3(0, offset, 0);
+        Vector2 delta = floatHorizontally
+            ? new Vector2(offset, 0)
+            : new Vector2(0, offset);
 
-        rectTransform.localPosition = initialLocalPos + delta;
+        rectTransform.anchoredPosition = initialAnchoredPos + delta;
     }
 }
