@@ -30,6 +30,10 @@ public class BossBattle1 : MonoBehaviour
 
     private bool battleEnded;
 
+    public bool isFinalBoss;
+    public bool isBoss1 = true;
+    public bool isBoss2 = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -204,6 +208,11 @@ public class BossBattle1 : MonoBehaviour
             {
                 Destroy(bullet.gameObject);
             }
+        }
+
+        if(isFinalBoss)
+        {
+            GameManager.Instance.GameWonSequence();
         }
     }
 
