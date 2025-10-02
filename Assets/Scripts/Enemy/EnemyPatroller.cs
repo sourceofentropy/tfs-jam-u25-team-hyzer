@@ -13,6 +13,15 @@ public class EnemyPatroller : MonoBehaviour
 
     public float jumpForce;
 
+    public bool isReadyForHarvest = false;
+    public bool isReadyForExecute = false;
+    public SpriteRenderer harvestHalo;
+    public float debugHaloHeight = 0.2f;
+    public float debugHaloSize = 0.2f;
+    public Color debugHaloColour = Color.red;
+    public Color haloExecuteColour = Color.red;
+    public Color haloDefaultColour;
+
     public Rigidbody2D rb;
     public Animator anim;
 
@@ -26,11 +35,18 @@ public class EnemyPatroller : MonoBehaviour
     void Start()
     {
         waitCounter = waitAtPoints;
+        haloDefaultColour = harvestHalo.color;
 
-        foreach(Transform patrolPoint in patrolPoints)
+        foreach (Transform patrolPoint in patrolPoints)
         {
             patrolPoint.SetParent(null);
         }
+
+        if(isReadyForHarvest)
+        {
+            ActivateHarvestHalo();
+        }
+
     }
 
     // Update is called once per frame
@@ -79,6 +95,13 @@ public class EnemyPatroller : MonoBehaviour
         anim.SetFloat("speed", Mathf.Abs(rb.linearVelocity.x));
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (GameManager.Instance.PlayerInstance.IsHidden())
+        {
+            ActivateExecuteHalo();
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -92,7 +115,7 @@ public class EnemyPatroller : MonoBehaviour
                     Debug.Log("Runaway my man");
                 }
 
-            }
+            } 
             else if (currentState == EnemyState.Feared)
             {
                 currentState = previousState;
@@ -116,6 +139,34 @@ public class EnemyPatroller : MonoBehaviour
 
             }
         }
+
+        if (GameManager.Instance.PlayerInstance.IsHidden())
+        {
+            DeactivateExecuteHalo();
+        }
     }
 
+    public void ActivateHarvestHalo()
+    {
+        harvestHalo.enabled = true;
+    }
+
+    public void ActivateExecuteHalo()
+    {
+        harvestHalo.color = haloExecuteColour;
+    }
+
+    public void DeactivateExecuteHalo()
+    {
+        harvestHalo.color = haloDefaultColour;
+    }
+    private void OnDrawGizmos()
+    {
+        if(isReadyForHarvest)
+        {
+            Gizmos.color = debugHaloColour;
+            Vector3 pos = transform.position + Vector3.up * debugHaloHeight;
+            Gizmos.DrawSphere(pos, debugHaloSize);
+        }
+    }
 }

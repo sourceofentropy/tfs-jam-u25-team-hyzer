@@ -321,10 +321,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4539d75974b6754a9cf781b1344cc70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 8865355478758606971}
-  spriteRenderer: {fileID: 0}
   currentState: 0
   disguiseMode: 0
+  rb: {fileID: 8865355478758606971}
+  spriteRenderer: {fileID: 0}
   baseMoveSpeed: 8
   currentMoveSpeed: 8
   disguiseSpeed: 2.5
@@ -344,6 +344,12 @@ MonoBehaviour:
     m_Bits: 576
   enemyCheckRadius: 1.5
   enemyTag: Enemy
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  attackTrigger: {fileID: 0}
+  attackSensorSize: {x: 5, y: 1}
+  attackDamage: 1
   anim: {fileID: 8865355478867766944}
   shotToFire: {fileID: 6357596350758748864, guid: 3a21a0f55a45d134b84810e8fbfa9595, type: 3}
   shotOrigin: {fileID: 8865355477602621422}
@@ -363,6 +369,7 @@ MonoBehaviour:
   bombPoint: {fileID: 8865355478500502708}
   bomb: {fileID: 608134037809762253, guid: ee1719f7e9e58e84eb03193c03b1e5aa, type: 3}
   canMove: 0
+  nextRoomDoorID: 0
 --- !u!114 &8865355478758606969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,6 +417,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f58a3255e382e409b2cc5bbfc91088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sensorSize: {x: 1, y: 1}
+  sensorOffset: {x: 0, y: 0}
+  interactableMask:
+    serializedVersion: 2
+    m_Bits: 0
+  showDebugLogs: 1
 --- !u!114 &3392905057962992984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +436,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiddenLayerName: HiddenPlayer
+  playerSpriteTransform: {fileID: 0}
+  playerSpriteRenderer: {fileID: 0}
 --- !u!1 &8865355478867766948
 GameObject:
   m_ObjectHideFlags: 0

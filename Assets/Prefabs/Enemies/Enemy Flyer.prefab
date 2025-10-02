@@ -223,10 +223,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 1
+  attackCooldown: 2
   playerTag: Player
   destroyOnDamage: 1
   destroyEffect: {fileID: 7131656113084224962, guid: c8bcb09ba0037514194e1319c800c6eb, type: 3}
   FS: {fileID: 0}
+  rangeCol: {fileID: 0}
+  DamageCol: {fileID: 0}
+  cbac: {fileID: 0}
 --- !u!114 &4263325300743889220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +245,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 3
   deathEffect: {fileID: 7149099460889983392, guid: 0aa8250a3b9c18c4c9865fe92dc55359, type: 3}
+  audioSource: {fileID: 0}
+  deathSound: {fileID: 0}
+  executeSound: {fileID: 0}
 --- !u!114 &4263325300743889224
 MonoBehaviour:
   m_ObjectHideFlags: 0

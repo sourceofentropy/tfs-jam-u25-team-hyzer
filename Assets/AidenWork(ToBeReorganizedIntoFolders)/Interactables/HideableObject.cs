@@ -51,8 +51,7 @@ public class HideableObject : MonoBehaviour, IInteractable
 
             Debug.Log($"[HideableObject] Player entered. PlayerHider found: {currentPlayer != null}");
 
-            // Refresh the prompt when player enters
-            RefreshInteractionPrompt();
+            // Don't manually refresh prompt - let PlayerInteractionController handle it
         }
     }
 
@@ -100,7 +99,7 @@ public class HideableObject : MonoBehaviour, IInteractable
         else
             Hide();
 
-        // Refresh the prompt after interaction
+        // Force prompt update after state change
         RefreshInteractionPrompt();
     }
 

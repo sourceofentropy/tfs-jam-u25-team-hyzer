@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1410576206020581553}
   - component: {fileID: 351914413803833988}
   - component: {fileID: 8320573644769083243}
-  m_Layer: 6
+  m_Layer: 16
   m_Name: Jack-O'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,6 +137,7 @@ MonoBehaviour:
   dialogues:
   - {fileID: 11400000, guid: 03637f1da49ce0348b13b699a7aec838, type: 2}
   - {fileID: 11400000, guid: b3a2d8aec770b234493c9b9e618cf737, type: 2}
+  npcID: NPC_01
 --- !u!114 &8320573644769083243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7810541514759204768}
   - component: {fileID: 5599924649849023831}
-  m_Layer: 6
+  m_Layer: 16
   m_Name: ScareCrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

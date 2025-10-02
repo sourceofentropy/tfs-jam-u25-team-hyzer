@@ -32,6 +32,15 @@ public class BossHealthController : MonoBehaviour
         {
             currentHealth = 0;
 
+            //replace with enum ref
+            if (gameObject.GetComponentInParent<BossBattle1>().isBoss1)
+            {
+                GameManager.Instance.isBoss1Dead = true;
+            }
+            if (gameObject.GetComponentInParent<BossBattle1>().isBoss2)
+            {
+                GameManager.Instance.isBoss2Dead = true;
+            }
             boss.EndBattle();
         }
 

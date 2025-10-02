@@ -1,32 +1,87 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DamagePlayer : MonoBehaviour
 {
-    
+    [Header("Damage Settings")]
     public int damageAmount = 1;
+    public float attackCooldown = 2f;
+    private bool isAttacking = false;
+    private float lastAttackTime;
     public string playerTag = "Player";
 
+    [Header("Effects")]
     public bool destroyOnDamage;
     public GameObject destroyEffect;
     public FearedState FS;
+    
+    [Header("Colliders")]
+    public Collider2D rangeCol;
+    public Collider2D DamageCol;
 
-    private void OnCollisionEnter2D(Collision2D other)
+    [Header("Animation")]
+    public CultBoiAnimsController cbac;
+
+    void Start()
     {
-        if (other.gameObject.tag == playerTag)
-        {
-            DealDamage();
-        }
+        //cbac = GetComponent<CultBoiAnimsController>();
+        //FS = GetComponent<FearedState>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == playerTag)
+        // Check if it's the player
+        if (other.CompareTag(playerTag))
         {
-            DealDamage();
+            // If the collider that triggered is the range collider
+            if (other == rangeCol && !isAttacking)
+            {
+                Debug.Log("Player in range");
+                if (Time.time >= lastAttackTime + attackCooldown)
+                {
+                    StartCoroutine(Attack());
+                }
+            }
+
+            // If the collider that triggered is the damage collider
+            if (other == DamageCol && isAttacking)
+            {
+                Debug.Log("Dealing damage to player");
+                DealDamage();
+            }
         }
     }
+
+
+    private System.Collections.IEnumerator Attack()
+    {
+        isAttacking = true;
+        Debug.Log("Enemy Attacking");
+        lastAttackTime = Time.time;
+        if (cbac != null)
+        {
+            cbac.PlayAttack();
+        }
+        
+        yield return new WaitForSeconds(attackCooldown);
+        
+        isAttacking = false;
+    }
+
+    //private void OnCollisionEnter2D(Collision2D other)
+    //{
+    //    if (other.gameObject.tag == playerTag)
+    //    {
+    //        DealDamage();
+    //    }
+    //}
+
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if(other.tag == playerTag)
+    //    {
+    //        DealDamage();
+    //    }
+    //}
 
     public void TakeDamage(int amount)
     {
