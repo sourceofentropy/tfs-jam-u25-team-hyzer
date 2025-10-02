@@ -1896,6 +1896,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuMusic
       objectReference: {fileID: 0}
+    - target: {fileID: 6836871491830581109, guid: b3edd8397331b7545a7e03afecb67854, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948760090936242731, guid: b3edd8397331b7545a7e03afecb67854, type: 3}
+      propertyPath: m_Volume
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948760090936242731, guid: b3edd8397331b7545a7e03afecb67854, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2423,7 +2435,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1368579837
 AudioSource:
   m_ObjectHideFlags: 0
