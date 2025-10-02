@@ -344,6 +344,12 @@ MonoBehaviour:
     m_Bits: 576
   enemyCheckRadius: 1.5
   enemyTag: Enemy
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  attackTrigger: {fileID: 0}
+  attackSensorSize: {x: 5, y: 1}
+  attackDamage: 1
   anim: {fileID: 8865355478867766944}
   shotToFire: {fileID: 6357596350758748864, guid: 3a21a0f55a45d134b84810e8fbfa9595, type: 3}
   shotOrigin: {fileID: 8865355477602621422}
