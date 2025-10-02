@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class ConeDetection : MonoBehaviour
@@ -7,7 +8,6 @@ public class ConeDetection : MonoBehaviour
     /// </summary>
     [Header("References")]
     public Transform player;
-    public Transform[] patrolPoints;
     public Transform rightPatrolBarrier;
     public Transform leftPatrolBarrier;
     public Rigidbody2D rb; // enemy rigidbody
@@ -37,7 +37,7 @@ public class ConeDetection : MonoBehaviour
             lastFacingDir = Mathf.Sign(rb.linearVelocity.x);
             forward = new Vector2(lastFacingDir, 0f);
         }
-        else if (usePlayerForward || patrolPoints.Length == 0)
+        else if (usePlayerForward)
             forward = toPlayer;
         else
             forward = new Vector2(lastFacingDir, 0f);

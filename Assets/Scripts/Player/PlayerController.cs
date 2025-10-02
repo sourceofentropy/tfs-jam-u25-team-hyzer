@@ -2,15 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerHider))]
+[RequireComponent(typeof(PlayerAbilityTracker))] 
 public class PlayerController : MonoBehaviour
 {
+    public enum PlayerState { Regular, Disguise, Rage }
+    public enum DisguiseMode { Normal, Ultra }
+
+
+    [Header("State")]
+    public PlayerState currentState = PlayerState.Regular;
+    public DisguiseMode disguiseMode = DisguiseMode.Normal;
+    private PlayerHider hider;
+
     [Header("References")]
     public Rigidbody2D rb;
     public SpriteRenderer spriteRenderer;
-
-    [Header("Debug")]
-    public PlayerState currentState = PlayerState.Regular;
-    public DisguiseMode disguiseMode = DisguiseMode.Normal;
 
     [Header("Movement Settings")]
     public float baseMoveSpeed = 8;
@@ -80,14 +87,14 @@ public class PlayerController : MonoBehaviour
 
     public bool canMove;
 
-    public enum PlayerState { Regular, Disguise, Rage }
-    public enum DisguiseMode { Normal, Ultra }    
 
     // Start is called before the first frame update
     void Start()
     {
         abilities = GetComponent<PlayerAbilityTracker>();
+        hider = GetComponent<PlayerHider>();
         canMove = true;
+
     }
 
     // Update is called once per frame
@@ -127,6 +134,16 @@ public class PlayerController : MonoBehaviour
             {
 
                 xInput = Input.GetAxisRaw("Horizontal");
+
+                switch (currentState)
+                {
+                    case PlayerState.Regular: currentMoveSpeed = baseMoveSpeed; break;
+                    case PlayerState.Disguise:
+                        currentMoveSpeed = (disguiseMode == DisguiseMode.Ultra) ? 0f : disguiseSpeed;
+                        break;
+                    case PlayerState.Rage: currentMoveSpeed = rageSpeed; break;
+                }
+
                 rb.linearVelocity = new Vector2(xInput * currentMoveSpeed, rb.linearVelocity.y);
 
                 //handle direction change
@@ -174,37 +191,32 @@ public class PlayerController : MonoBehaviour
             //}
 
             // Toggle disguise with Q
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Q) && !hider.IsHidden && currentState != PlayerState.Rage)
             {
                 if (currentState == PlayerState.Regular) EnterDisguise();
                 else if (currentState == PlayerState.Disguise) ExitDisguise();
             }
 
             // Rage fill in Regular mode by pressing E near enemy
-            if (currentState == PlayerState.Regular && Input.GetKeyDown(KeyCode.E))
+            if (currentState == PlayerState.Regular && Input.GetKeyDown(KeyCode.R) && !hider.IsHidden)
             {
+                Debug.Log("player: try to build rage");
                 if (IsNearEnemy())
                 {
                     rageBar = Mathf.Min(rageBar + 1, maxRage);
                     Debug.Log("Rage Bar: " + rageBar + "/" + maxRage);
                 }
             }
-
+            /*
             // Toggle Ultra Disguise inside disguise
             if (currentState == PlayerState.Disguise && Input.GetKeyDown(KeyCode.E))
             {
-                if (disguiseMode == DisguiseMode.Normal)
-                {
-                    EnterUltraDisguise();
-                }
-                else if (disguiseMode == DisguiseMode.Ultra)
-                {
-                    ExitUltraDisguise(); // manual exit
-                }
+                if (disguiseMode == DisguiseMode.Normal) EnterUltraDisguise();
+                else if (disguiseMode == DisguiseMode.Ultra) ExitUltraDisguise();
             }
-
+            */
             // Activate rage when bar is full
-            if (currentState == PlayerState.Regular && Input.GetKeyDown(KeyCode.T))
+            if (currentState == PlayerState.Regular && Input.GetKeyDown(KeyCode.T) && !hider.IsHidden)
             {
                 if (rageBar >= maxRage) EnterRage();
             }
@@ -295,10 +307,13 @@ public class PlayerController : MonoBehaviour
 
     bool IsNearEnemy()
     {
+        Debug.Log("player: check is near enemy");
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, enemyCheckRadius);
         foreach (Collider2D hit in hits)
         {
+            
             if (hit.CompareTag(enemyTag)) return true;
+            Debug.Log("player: is near enemy");
         }
         return false;
     }
@@ -309,7 +324,6 @@ public class PlayerController : MonoBehaviour
         currentState = PlayerState.Disguise;
         disguiseMode = DisguiseMode.Normal;
         disguiseTimer = disguiseDuration;
-        //spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
         normalCharacter.SetActive(false);
         disguisedCharacter.SetActive(true);
         GameObject smoke = Instantiate(smokeBomb, transform.position, Quaternion.identity);
@@ -368,5 +382,20 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, enemyCheckRadius);
+    }
+
+    public bool IsMovingLeft()
+    {
+        return rb.linearVelocity.x < -0.1f;
+    }
+
+    public bool IsMovingRight()
+    {
+        return rb.linearVelocity.x > 0.1f;
+    }
+
+    public bool IsHidden()
+    {
+        return hider.IsHidden;
     }
 }

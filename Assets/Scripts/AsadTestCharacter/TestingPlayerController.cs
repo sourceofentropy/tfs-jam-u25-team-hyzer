@@ -201,4 +201,23 @@ public class TestingPlayerController : MonoBehaviour
     {
         return rb.linearVelocity.x > 0.1f;
     }
+
+    // -------------------
+    // ACCESS HELPERS FOR OTHER SCRIPTS
+    // -------------------
+    public int GetRageBar()
+    {
+        return rageBar;
+    }
+
+    public int GetMaxRage()
+    {
+        return maxRage;
+    }
+
+    public bool IsHidden()
+    {
+        return currentState == PlayerState.Disguise;
+    }
+
 }
