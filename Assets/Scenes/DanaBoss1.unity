@@ -38823,63 +38823,6 @@ MonoBehaviour:
   currentHealth: 30
   maxHealth: 30
   boss: {fileID: 1183671580}
---- !u!1001 &1231750952
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6123044171609061157, guid: 6fe69923b34535f4c84deacadd5e42ab, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 227.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 6123044171609061157, guid: 6fe69923b34535f4c84deacadd5e42ab, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 6123044171609061157, guid: 6fe69923b34535f4c84deacadd5e42ab, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6123044171609061157, guid: 6fe69923b34535f4c84deacadd5e42ab, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6123044171609061157, guid: 6fe69923b34535f4c84deacadd5e42ab, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6123044171609061157, guid: 6fe69923b34535f4c84deacadd5e42ab, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6123044171609061157, guid: 6fe69923b34535f4c84deacadd5e42ab, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6123044171609061157, guid: 6fe69923b34535f4c84deacadd5e42ab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6123044171609061157, guid: 6fe69923b34535f4c84deacadd5e42ab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6123044171609061157, guid: 6fe69923b34535f4c84deacadd5e42ab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8393038685916140858, guid: 6fe69923b34535f4c84deacadd5e42ab, type: 3}
-      propertyPath: m_Name
-      value: HayPile
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6fe69923b34535f4c84deacadd5e42ab, type: 3}
 --- !u!1001 &1258007098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62461,7 +62404,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 275d5eae809114b4c8d7df18ccd99e56, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -64494,7 +64437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 160162125, guid: e6bf85d961d723e46ab6afeec4a80cf2, type: 3}
       propertyPath: destinationLevel
-      value: AidenTestScene2 (USED TO TEST UI PERSISTENCE)
+      value: DanaForestCastle
       objectReference: {fileID: 0}
     - target: {fileID: 2075710851, guid: e6bf85d961d723e46ab6afeec4a80cf2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -64850,4 +64793,3 @@ SceneRoots:
   - {fileID: 125935198}
   - {fileID: 1345810523}
   - {fileID: 2049038471}
-  - {fileID: 1231750952}
