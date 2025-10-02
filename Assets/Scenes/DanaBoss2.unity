@@ -39114,6 +39114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossToActivate: {fileID: 1183671578}
   playerTag: Player
+  harvestedSoulsRequired: 0
+  bossBattle: 1
 --- !u!1 &731634605
 GameObject:
   m_ObjectHideFlags: 0
@@ -42561,6 +42563,63 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &1170209301
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6196893160485536481, guid: 3b6cc53e538a3a54992e4c117b3cbc4a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 610.47455
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196893160485536481, guid: 3b6cc53e538a3a54992e4c117b3cbc4a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 766.37885
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196893160485536481, guid: 3b6cc53e538a3a54992e4c117b3cbc4a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.5197763
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196893160485536481, guid: 3b6cc53e538a3a54992e4c117b3cbc4a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196893160485536481, guid: 3b6cc53e538a3a54992e4c117b3cbc4a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196893160485536481, guid: 3b6cc53e538a3a54992e4c117b3cbc4a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196893160485536481, guid: 3b6cc53e538a3a54992e4c117b3cbc4a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196893160485536481, guid: 3b6cc53e538a3a54992e4c117b3cbc4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196893160485536481, guid: 3b6cc53e538a3a54992e4c117b3cbc4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196893160485536481, guid: 3b6cc53e538a3a54992e4c117b3cbc4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6836871491830581109, guid: 3b6cc53e538a3a54992e4c117b3cbc4a, type: 3}
+      propertyPath: m_Name
+      value: AudioMusic
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3b6cc53e538a3a54992e4c117b3cbc4a, type: 3}
 --- !u!1 &1183671578
 GameObject:
   m_ObjectHideFlags: 0
@@ -42632,6 +42691,9 @@ MonoBehaviour:
   bullet: {fileID: 3969116425245696366, guid: 6060213a63c185c41be56f01bb8b2ec4, type: 3}
   shotPoint: {fileID: 988729639}
   winObjects: {fileID: 1265655791}
+  isFinalBoss: 0
+  isBoss1: 1
+  isBoss2: 0
 --- !u!114 &1183671581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75882,3 +75944,4 @@ SceneRoots:
   - {fileID: 796464220}
   - {fileID: 885543764}
   - {fileID: 1209941982}
+  - {fileID: 1170209301}
