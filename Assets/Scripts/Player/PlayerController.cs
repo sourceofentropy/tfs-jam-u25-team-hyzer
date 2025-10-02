@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public PlayerState currentState = PlayerState.Regular;
     public DisguiseMode disguiseMode = DisguiseMode.Normal;
     private PlayerHider hider;
+    private bool isFacingLeft;
 
     [Header("References")]
     public Rigidbody2D rb;
@@ -57,10 +58,19 @@ public class PlayerController : MonoBehaviour
     public string enemyTag = "Enemy";
 
     [Header("Execution Sensor")]
-    private Vector2 sensorPos;
+    private Vector2 sensorPos; //TODO: rename me to executionSensorPos to reduce confusion with newly added attackSensorPos
     Vector2 sensorSize = new Vector2(1f, 1f); // width/height of sensor area    
     private HashSet<EnemyPatroller> executableEnemiesInRange = new HashSet<EnemyPatroller>();
     public LayerMask enemyLayer;
+
+    [Header("Attack Settings")]
+    public Collider2D attackTrigger; //assigned in inspector, should be stored in prefab
+    private Vector2 attackSensorPos;
+    private Vector2 attackSensorOffset;
+    public Vector2 attackSensorSize = new Vector2(5f, 1f);
+    [Tooltip("1-1 ratio of damage that will be inflected upon enenmy health controller")]
+    public int attackDamage = 1; 
+
 
     public Animator anim;
 
@@ -102,6 +112,9 @@ public class PlayerController : MonoBehaviour
         hider = GetComponent<PlayerHider>();
         canMove = true;
         sensorPos = (Vector2)transform.position;
+        //attackSensorPos = (Vector2)transform.position + attackSensorOffset + Vector2.right;
+        //attackSensorPos = (Vector2)transform.position + (isFacingLeft ? Vector2.left : Vector2.right) * attackSensorOffset.x;
+        attackSensorPos = (Vector2)transform.position + Vector2.right * Mathf.Sign(transform.localScale.x);
 
     }
 
@@ -219,11 +232,14 @@ public class PlayerController : MonoBehaviour
                 //handle direction change
                 if (rb.linearVelocity.x < 0)
                 {
+
                     transform.localScale = new Vector3(-1f, 1f, 1f);
+                    isFacingLeft = true;
                 }
                 else if (rb.linearVelocity.x > 0)
                 {
                     transform.localScale = Vector3.one;
+                    isFacingLeft = false;
                 }
             }
 
@@ -259,6 +275,26 @@ public class PlayerController : MonoBehaviour
             //        Instantiate(bomb, bombPoint.position, bombPoint.rotation);
             //    }
             //}
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+                
+                //add attack damage delay so we can't just spam attack
+                if (standing.activeSelf)
+                {
+                    Debug.Log("Player attacks");
+                    Vector2 direction = Vector2.right * Mathf.Sign(transform.localScale.x);
+                    attackSensorPos = (Vector2)transform.position + direction + new Vector2(0, attackSensorOffset.y);
+                    //Instantiate(shotToFire, shotOrigin.position, shotOrigin.rotation).moveDir = new Vector2(transform.localScale.x, 0);
+                    Collider2D hit = Physics2D.OverlapBox(attackSensorPos, attackSensorSize, 0f, LayerMask.GetMask("Enemy"));
+                    if (hit != null)
+                    {
+                        Debug.Log("Player attacks an enemy");
+                        EnemyPatroller enemy = hit.GetComponent<EnemyPatroller>();
+                        enemy.GetComponent<EnemyHealthController>().DamageEnemy(attackDamage);
+                    }
+                }
+            }
 
             // Toggle disguise with Q
             if (Input.GetKeyDown(KeyCode.Q) && !hider.IsHidden && currentState != PlayerState.Rage)
@@ -330,8 +366,8 @@ public class PlayerController : MonoBehaviour
 
         if (standing.activeSelf)
         {
-            anim.SetBool("isGrounded", isGrounded);
-            anim.SetFloat("speed", Mathf.Abs(rb.linearVelocity.x));
+            //anim.SetBool("isGrounded", isGrounded);
+            //anim.SetFloat("speed", Mathf.Abs(rb.linearVelocity.x));
         }
 
         if(ball.activeSelf)
@@ -517,6 +553,21 @@ public class PlayerController : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(sensorPos, sensorSize);
+
+
+    }
+
+    private void OnDrawGizmos()
+    {
+        //if (!Application.isPlaying) return;
+        float direction = Mathf.Sign(transform.localScale.x);        
+        Vector2 center2D = (Vector2)transform.position + new Vector2(attackSensorOffset.x * direction, attackSensorOffset.y);
+        Vector3 center = new Vector3(center2D.x, center2D.y, 0f);
+        Vector3 size = new Vector3(attackSensorSize.x, attackSensorSize.y, 0.1f);
+
+        // Convert size to Vector3, give Z a small value
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(attackSensorPos, attackSensorSize);
     }
 
 }
