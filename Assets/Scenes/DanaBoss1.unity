@@ -931,6 +931,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LanternLight
       objectReference: {fileID: 0}
+    - target: {fileID: 4657473469177466925, guid: 7559bea53e3fde8409d9725c4f493d6c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5265286120791568255, guid: 7559bea53e3fde8409d9725c4f493d6c, type: 3}
       propertyPath: radiusBase
       value: 8
@@ -953,7 +957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9076074977377338796, guid: 7559bea53e3fde8409d9725c4f493d6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 51.33899
+      value: 49.36
       objectReference: {fileID: 0}
     - target: {fileID: 9076074977377338796, guid: 7559bea53e3fde8409d9725c4f493d6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -61912,7 +61916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9076074977377338796, guid: 7559bea53e3fde8409d9725c4f493d6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 61.34
+      value: 58.36
       objectReference: {fileID: 0}
     - target: {fileID: 9076074977377338796, guid: 7559bea53e3fde8409d9725c4f493d6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -62521,7 +62525,7 @@ Transform:
   m_GameObject: {fileID: 1663476953}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.004, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62891,7 +62895,7 @@ Transform:
   m_GameObject: {fileID: 1829560442}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
