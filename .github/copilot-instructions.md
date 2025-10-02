@@ -2,7 +2,7 @@
 - Project name: tfs-jam-u25-team-hyzer
 - Unity version: Unity 6000.0.32f1
 - Active game object:
-  - Name: BombOrigin
+  - Name: HarvestAura
   - Tag: Untagged
-  - Layer: Player
+  - Layer: Enemy
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
