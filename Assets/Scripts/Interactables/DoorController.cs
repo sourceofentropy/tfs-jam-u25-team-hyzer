@@ -31,6 +31,8 @@ public class DoorController : MonoBehaviour
     }
     public DoorType doorType = DoorType.Horizontal;
 
+    public bool activated = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,24 +46,21 @@ public class DoorController : MonoBehaviour
         RespawnController.instance.SetSpawn(playerSpawnPoint.position);
         player.transform.position = playerSpawnPoint.position;
 
+        if (player.nextRoomDoorID == doorID)
+        {
+            activated = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (doorType == DoorType.Horizontal)
-        {
-            HandleHorizontalDoor();
-        }
-        else if (doorType == DoorType.Vertical)
-        {
-            HandleVerticalDoor();
-        }
     }
 
     public void HandleHorizontalDoor()
     {
-        if (!playerEntering)
+        
+        if (!playerEntering && player.nextRoomDoorID == doorID && activated)
         {
             //this tutorial wants to call this on every frame? let's come back to this later and add an additional trigger for the door sensor
             if (Vector3.Distance(transform.position, player.transform.position) < distanceToOpen)
@@ -74,7 +73,7 @@ public class DoorController : MonoBehaviour
             }
         }
 
-        if (playerEntering && player.nextRoomDoorID == doorID)
+        if (playerEntering && player.nextRoomDoorID == doorID && activated)
         {
             player.transform.position = Vector3.MoveTowards(player.transform.position, playerStartPoint.position, movePlayerSpeed * Time.deltaTime);
             if (Vector2.Distance(player.transform.position, playerStartPoint.position) < 0.1)
@@ -89,6 +88,7 @@ public class DoorController : MonoBehaviour
         if (playerExiting)
         {
             player.nextRoomDoorID = nextRoomDoorID;
+            activated = false;
             player.transform.position = Vector3.MoveTowards(player.transform.position, exitPoint.position, movePlayerSpeed * Time.deltaTime);
 
         }
