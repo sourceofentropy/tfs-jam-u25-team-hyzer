@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Boss
+  - UI Canvas
   layers:
   - Default
   - TransparentFX
