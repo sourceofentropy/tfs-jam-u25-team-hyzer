@@ -1658,10 +1658,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 837042326185508396, guid: 25a140b14834e0c4b90c7027473b3377, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -964824239653993824, guid: 764102ebb9f3c8644a126abdf5d9b1f8, type: 3}
     - target: {fileID: 837042326185508397, guid: 25a140b14834e0c4b90c7027473b3377, type: 3}
       propertyPath: m_Name
       value: HealthPickup
@@ -8573,6 +8569,8 @@ MonoBehaviour:
   invincibilityDuration: 0
   flashDuration: 0
   playerSprites: []
+  audioSource: {fileID: 0}
+  hitSound: {fileID: 0}
 --- !u!114 &1020489200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8614,6 +8612,8 @@ MonoBehaviour:
   attackTrigger: {fileID: 0}
   attackSensorSize: {x: 1, y: 1}
   attackDamage: 1
+  audioSource: {fileID: 0}
+  fire1Sound: {fileID: 0}
   anim: {fileID: 0}
   shotToFire: {fileID: 0}
   shotOrigin: {fileID: 0}
@@ -8749,6 +8749,8 @@ MonoBehaviour:
   invincibilityDuration: 0
   flashDuration: 0
   playerSprites: []
+  audioSource: {fileID: 0}
+  hitSound: {fileID: 0}
 --- !u!114 &1078336983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8790,6 +8792,8 @@ MonoBehaviour:
   attackTrigger: {fileID: 0}
   attackSensorSize: {x: 1, y: 1}
   attackDamage: 1
+  audioSource: {fileID: 0}
+  fire1Sound: {fileID: 0}
   anim: {fileID: 0}
   shotToFire: {fileID: 0}
   shotOrigin: {fileID: 0}
@@ -11764,33 +11768,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8256917665528159925, guid: 11420c91fe26050498921015117572d4, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8256917665528159925, guid: 11420c91fe26050498921015117572d4, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 34d44c71c195c6143b5caf42517af7ec, type: 2}
-    - target: {fileID: 8256917665528159926, guid: 11420c91fe26050498921015117572d4, type: 3}
-      propertyPath: unlockMessage
-      value: Double Jump Unlocked
-      objectReference: {fileID: 0}
-    - target: {fileID: 8256917665528159926, guid: 11420c91fe26050498921015117572d4, type: 3}
-      propertyPath: unlockDoubleJump
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8256917665528159929, guid: 11420c91fe26050498921015117572d4, type: 3}
       propertyPath: m_Name
       value: Ability Pickup
-      objectReference: {fileID: 0}
-    - target: {fileID: 8256917665528159930, guid: 11420c91fe26050498921015117572d4, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 3991142820630177451, guid: c79c5a3d62885b749b9d879941fb9a05, type: 3}
-    - target: {fileID: 8256917665528159931, guid: 11420c91fe26050498921015117572d4, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8256917665528159931, guid: 11420c91fe26050498921015117572d4, type: 3}
       propertyPath: m_LocalPosition.x
